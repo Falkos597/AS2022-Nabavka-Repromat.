@@ -1,0 +1,14 @@
+object frmStartView: TfrmStartView
+  Left = 474
+  Top = 78
+  Caption = 'Form1'
+  ClientHeight = 609
+  ClientWidth = 642
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 474
+  Top = 78
+  DesignerMasterStyle = 0
+end

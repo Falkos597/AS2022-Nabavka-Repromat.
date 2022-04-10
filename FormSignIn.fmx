@@ -1,0 +1,81 @@
+object frmSignUp: TfrmSignUp
+  Left = 570
+  Top = 120
+  Caption = 'Form1'
+  ClientHeight = 454
+  ClientWidth = 385
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 570
+  Top = 120
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    Position.X = 29.000000000000000000
+    Position.Y = 105.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Username'
+    TabOrder = 4
+  end
+  object Label2: TLabel
+    Position.X = 29.000000000000000000
+    Position.Y = 161.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Password'
+    TabOrder = 2
+  end
+  object signInBtn: TButton
+    Position.X = 160.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Sign In'
+    OnClick = signInBtnClick
+  end
+  object usernameEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 8
+    Position.X = 120.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 233.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Username'
+  end
+  object passwordEdit: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 7
+    Position.X = 120.000000000000000000
+    Position.Y = 160.000000000000000000
+    Size.Width = 233.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Password'
+  end
+  object Label3: TLabel
+    Position.X = 85.000000000000000000
+    Position.Y = 297.000000000000000000
+    Size.Width = 124.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Dont have an account?'
+    TabOrder = 0
+  end
+  object signUpBtn: TButton
+    Position.X = 232.000000000000000000
+    Position.Y = 296.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Sign Up'
+    OnClick = signUpBtnClick
+  end
+end

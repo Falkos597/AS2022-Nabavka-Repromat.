@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022-04-10 16:42:17.000.372,=C:\Users\Milan\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022-04-10 16:49:28.000.988,C:\Users\Milan\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\AS2022_Nabavka_Repromaterijala\AS2022_Nabavka_Repromaterijala.fmx</Transaction>
+    <Transaction>2022-04-10 16:49:28.000.988,C:\Users\Milan\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\AS2022_Nabavka_Repromaterijala.pas</Transaction>
+    <Transaction>2022-04-10 18:42:48.000.762,C:\Users\Milan\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\AS2022_Nabavka_Repromaterijala\Project1.dproj</Transaction>
+    <Transaction>2022-04-10 19:15:08.019,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-04-10 19:15:25.908,D:\AS2022_Nabavka_Repromaterijala\FormSignIn.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
+    <Transaction>2022-04-10 19:15:25.908,D:\AS2022_Nabavka_Repromaterijala\FormSignIn.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-04-10 19:34:49.446,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-04-10 19:35:05.071,D:\AS2022_Nabavka_Repromaterijala\MainAppForm.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
+    <Transaction>2022-04-10 19:35:05.071,D:\AS2022_Nabavka_Repromaterijala\MainAppForm.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-04-10 19:37:59.804,D:\AS2022_Nabavka_Repromaterijala\FormSignUp.pas=D:\AS2022_Nabavka_Repromaterijala\FormSignIn.pas</Transaction>
+    <Transaction>2022-04-10 19:37:59.804,D:\AS2022_Nabavka_Repromaterijala\FormSignUp.fmx=D:\AS2022_Nabavka_Repromaterijala\FormSignIn.fmx</Transaction>
+    <Transaction>2022-04-10 19:38:47.054,D:\AS2022_Nabavka_Repromaterijala\FormSignIn.pas=D:\AS2022_Nabavka_Repromaterijala\AS2022_Nabavka_Repromaterijala.pas</Transaction>
+    <Transaction>2022-04-10 19:38:47.054,D:\AS2022_Nabavka_Repromaterijala\FormSignIn.fmx=D:\AS2022_Nabavka_Repromaterijala\AS2022_Nabavka_Repromaterijala.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
