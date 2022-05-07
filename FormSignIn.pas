@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Edit,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Objects, FMX.Ani, FormSignUp, MainAppForm;
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Objects, FMX.Ani, FormSignUp, MainAppForm,
+  FMX.Layouts, FMX.ExtCtrls;
 
 type
   TfrmSignUp = class(TForm)
@@ -16,6 +17,7 @@ type
     passwordEdit: TEdit;
     Label3: TLabel;
     signUpBtn: TButton;
+    ImageViewer1: TImageViewer;
     procedure signUpBtnClick(Sender: TObject);
     procedure signInBtnClick(Sender: TObject);
   private
@@ -31,24 +33,13 @@ implementation
 
 {$R *.fmx}
 
-procedure TfrmSignUp.signInBtnClick(Sender: TObject);
-begin
-  frmSignUp.Hide;
-  frmStartView.Show;
-end;
-
 procedure TfrmSignUp.signUpBtnClick(Sender: TObject);
 begin
   frmSignUp.Hide;
   frmSignIn.Show;
 end;
 
-end.
 
-procedure TfrmSignUp.Image1Click(Sender: TObject);
-begin
-
-end;
 
 procedure TfrmSignUp.signInBtnClick(Sender: TObject);
 begin
@@ -59,6 +50,12 @@ begin
 
   if usernameEdit.Text = s then
     if passwordEdit.Text = s then
+    begin
+      frmStartView.Show;
+      frmSignUp.Close;
+    end;
 
 end;
+
+end.
 

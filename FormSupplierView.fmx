@@ -1,0 +1,82 @@
+object frmSupplierView: TfrmSupplierView
+  Left = 450
+  Top = 84
+  Caption = 'Form1'
+  ClientHeight = 574
+  ClientWidth = 716
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  Left = 450
+  Top = 84
+  DesignerMasterStyle = 0
+  object backBtn: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 571.000000000000000000
+    Position.Y = 509.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '<- Nazad'
+    TextSettings.Font.Size = 14.000000000000000000
+    OnClick = backBtnClick
+  end
+  object Button1: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 536.000000000000000000
+    Position.Y = 125.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Pretrazi dobavlja'#269'a'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button2: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 536.000000000000000000
+    Position.Y = 197.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Dodaj dobavlja'#269'a'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button3: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 536.000000000000000000
+    Position.Y = 269.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Izbri'#353'i dobavlja'#269'a'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button4: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 536.000000000000000000
+    Position.Y = 341.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Izmeni dobavlja'#269'a'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Grid1: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 513.000000000000000000
+    Size.Height = 561.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Viewport.Width = 509.000000000000000000
+    Viewport.Height = 536.000000000000000000
+  end
+end

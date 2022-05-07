@@ -1,0 +1,79 @@
+object frmViewProducts: TfrmViewProducts
+  Left = 522
+  Top = 108
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 541
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  Left = 522
+  Top = 108
+  DesignerMasterStyle = 0
+  object Grid1: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 465.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    RowCount = 0
+    Viewport.Width = 285.000000000000000000
+    Viewport.Height = 440.000000000000000000
+  end
+  object Button1: TButton
+    Position.X = 336.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = '<- Nazad'
+    OnClick = Button1Click
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 456
+    Top = 88
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      
+        'select porudzbenica.idtabele as Indeks'#160'Por, proizvod.ImeProizvod' +
+        'a, listaproizvoda.kolicina '
+      'from ListaProizvoda '
+      'inner join Proizvod'
+      'on ListaProizvoda.IDProizvoda = Proizvod.IDTabele'
+      'inner join porudzbenica'
+      'on ListaProizvoda.IDPorudzbenice = Porudzbenica.IDTabele')
+    Left = 368
+    Top = 88
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = FDQuery1
+    ScopeMappings = <>
+    Left = 440
+    Top = 40
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 356
+    Top = 37
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = Grid1
+      Columns = <>
+    end
+  end
+end

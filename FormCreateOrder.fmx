@@ -1,0 +1,161 @@
+object frmCreateOrder: TfrmCreateOrder
+  Left = 486
+  Top = 72
+  Caption = 'Form1'
+  ClientHeight = 500
+  ClientWidth = 646
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  Left = 486
+  Top = 72
+  DesignerMasterStyle = 0
+  object Label4: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 109.000000000000000000
+    Position.Y = 33.000000000000000000
+    Size.Width = 188.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Po'#353'iljalac'
+    TabOrder = 0
+  end
+  object primalacLabel: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 109.000000000000000000
+    Position.Y = 89.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Dobavlja'#269
+    TabOrder = 5
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    Position.X = 304.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label3: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 109.000000000000000000
+    Position.Y = 145.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Status'
+    TabOrder = 4
+  end
+  object Label5: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 245.000000000000000000
+    Position.Y = 193.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Proizvodi za nabavku'
+    TabOrder = 3
+  end
+  object Grid1: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 625.000000000000000000
+    Size.Height = 193.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Viewport.Width = 625.000000000000000000
+    Viewport.Height = 193.000000000000000000
+    object StringColumn1: TStringColumn
+      Header = 'Ime proizvoda'
+      ReadOnly = True
+      Size.Width = 129.000000000000000000
+    end
+    object IntegerColumn1: TIntegerColumn
+      Header = 'Koli'#269'ina u mag.'
+      ReadOnly = True
+    end
+    object CheckColumn1: TCheckColumn
+      Header = 'Poru'#269'i'
+      Size.Width = 42.000000000000000000
+    end
+    object IntegerColumn2: TIntegerColumn
+      Header = 'Koli'#269'ina'
+    end
+    object StringColumn3: TStringColumn
+      Header = 'Dodatne informacije'
+      Size.Width = 226.000000000000000000
+    end
+  end
+  object Button1: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 440.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    Text = '<- Nazad'
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Position.X = 512.000000000000000000
+    Position.Y = 440.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'Napravi'
+    OnClick = Button2Click
+  end
+  object ComboBox1: TComboBox
+    Position.X = 304.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    OnChange = ComboBox1Change
+  end
+  object ComboBox2: TComboBox
+    Position.X = 304.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 12
+  end
+  object queryStatusPunjenje: TFDQuery
+    Connection = FDConnection
+    Left = 544
+    Top = 64
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 544
+    Top = 16
+  end
+  object queryDobavljacPunjenje: TFDQuery
+    Connection = FDConnection
+    Left = 544
+    Top = 120
+  end
+  object queryPopunjavanjeTabele: TFDQuery
+    Connection = FDConnection
+    Left = 544
+    Top = 168
+  end
+end
