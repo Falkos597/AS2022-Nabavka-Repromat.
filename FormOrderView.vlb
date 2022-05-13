@@ -1,11 +1,8 @@
 ﻿[FDConnection]
-Coordinates=272,78,97,36
+Coordinates=272,78,84,33
 
 [Button2]
-Coordinates=245,10,59,58
-
-[backBtn]
-Coordinates=135,78,61,58
+Coordinates=245,10,53,51
 
 []
 Coordinates=10,10,59,58
@@ -13,35 +10,37 @@ Visible=True
 ExplicitSubNodes=Layout.Text
 
 [queryPregled]
-Coordinates=792,30,91,36
+Coordinates=792,30,80,33
 Visible=False
 
 [Grid1]
-Coordinates=650,30,46,58
+Coordinates=650,30,41,51
 Visible=True
 
 [BindSourceDB1]
-Coordinates=792,30,108,168
+Coordinates=792,30,92,141
 
 [BindingsList1]
-Coordinates=82,1,91,36
+Coordinates=82,1,82,33
 
 [Label1]
-Coordinates=63,56,53,58
+Coordinates=63,56,46,51
 
 [Edit1]
-Coordinates=0,0,44,58
-
-[frmViewProducts.FDQuery1]
-Visible=False
-Coordinates=407,1,174,36
-
-[frmViewProducts.BindSourceDB1]
-Coordinates=215,133,207,146
+Coordinates=0,0,40,51
 
 [Button4]
-Coordinates=77,152,59,58
+Coordinates=77,152,53,51
 
 [Button5]
-Coordinates=146,152,59,58
+Coordinates=146,152,53,51
+
+[buttonNazad]
+Coordinates=135,78,54,51
+
+[frmViewProducts.queryZahtevi]
+Visible=False
+
+[frmViewProducts.queryPorudzbenice]
+Visible=False
 

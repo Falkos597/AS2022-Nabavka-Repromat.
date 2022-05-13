@@ -1,0 +1,144 @@
+object frmPurchaseOrderView: TfrmPurchaseOrderView
+  Left = 450
+  Top = 72
+  Caption = 'Form1'
+  ClientHeight = 573
+  ClientWidth = 742
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  Left = 450
+  Top = 72
+  DesignerMasterStyle = 0
+  object Grid1: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 457.000000000000000000
+    Size.Height = 489.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    RowCount = 0
+    Viewport.Width = 453.000000000000000000
+    Viewport.Height = 464.000000000000000000
+  end
+  object buttonNazad: TButton
+    Position.X = 536.000000000000000000
+    Position.Y = 480.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = '<- Nazad'
+    OnClick = buttonNazadClick
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 10
+    Position.X = 552.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label1: TLabel
+    Position.X = 544.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Odaberi indeks'
+    TabOrder = 11
+  end
+  object Button1: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    Text = 'Stavke porud'#382'benice'
+    TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 264.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    Text = 'Button1'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button3: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 12
+    Text = 'Button1'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Label2: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 272.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 16.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Porud'#382'benice'
+    TabOrder = 15
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'DriverID=sQLite'
+      'OpenMode=ReadOnly'
+      'LockingMode=Normal')
+    LoginPrompt = False
+    Left = 120
+    Top = 16
+  end
+  object queryPregled: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      
+        'SELECT Porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.Im' +
+        'eStatusa as Status, DatumPodnosenja'
+      'FROM Porudzbenica'
+      'INNER JOIN Status'
+      'ON Porudzbenica.IDStatus = Status.IDTabele'
+      'ORDER BY DatumPodnosenja DESC')
+    Left = 24
+    Top = 16
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = queryPregled
+    ScopeMappings = <>
+    Left = 584
+    Top = 24
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 660
+    Top = 29
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = Grid1
+      Columns = <>
+    end
+  end
+end

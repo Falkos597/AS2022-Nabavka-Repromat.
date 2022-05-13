@@ -74,8 +74,8 @@ object frmCreateOrder: TfrmCreateOrder
     Size.Height = 193.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 7
-    Viewport.Width = 625.000000000000000000
-    Viewport.Height = 193.000000000000000000
+    Viewport.Width = 605.000000000000000000
+    Viewport.Height = 168.000000000000000000
     object StringColumn1: TStringColumn
       Header = 'Ime proizvoda'
       ReadOnly = True
@@ -124,7 +124,6 @@ object frmCreateOrder: TfrmCreateOrder
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 13
-    OnChange = ComboBox1Change
   end
   object ComboBox2: TComboBox
     Position.X = 304.000000000000000000
@@ -134,6 +133,16 @@ object frmCreateOrder: TfrmCreateOrder
     Size.PlatformDefault = False
     TabOrder = 12
   end
+  object Button3: TButton
+    Position.X = 256.000000000000000000
+    Position.Y = 448.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 17
+    Text = 'Dodaj proizvode'
+    OnClick = Button3Click
+  end
   object queryStatusPunjenje: TFDQuery
     Connection = FDConnection
     Left = 544
@@ -141,9 +150,9 @@ object frmCreateOrder: TfrmCreateOrder
   end
   object FDConnection: TFDConnection
     Params.Strings = (
-      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'Database=D:\AS2022_Nabavka(Pristiglo od tima)\Nabavka.db'
+      'LockingMode=Normal'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 544
     Top = 16
@@ -152,10 +161,5 @@ object frmCreateOrder: TfrmCreateOrder
     Connection = FDConnection
     Left = 544
     Top = 120
-  end
-  object queryPopunjavanjeTabele: TFDQuery
-    Connection = FDConnection
-    Left = 544
-    Top = 168
   end
 end

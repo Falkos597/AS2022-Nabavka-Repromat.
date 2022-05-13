@@ -49,7 +49,7 @@ end;
 procedure TfrmSignIn.signUpBtnClick(Sender: TObject);
 begin
   frmSignUp.Show;
-  frmSignIn.Close;
+  Self.Hide;
 end;
 
 end.

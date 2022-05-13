@@ -17,15 +17,20 @@ uses
 
 type
   TfrmViewProducts = class(TForm)
-    Grid1: TGrid;
-    FDConnection1: TFDConnection;
-    FDQuery1: TFDQuery;
+    gridPorudzbenica: TGrid;
+    FDConnection: TFDConnection;
+    queryZahtevi: TFDQuery;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
-    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     Button1: TButton;
+    queryPorudzbenice: TFDQuery;
+    gridZahteva: TGrid;
+    BindSourceDB2: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB12: TLinkGridToDataSource;
+    LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,27 +51,60 @@ procedure TfrmViewProducts.Button1Click(Sender: TObject);
 begin
 
   frmViewProducts.Close;
-  frmOrderView.Show;
+  gridPorudzbenica.Visible := false;
+  gridZahteva.Visible := false;
+  frmRequestOrderView.Show;
 
+end;
+
+procedure TfrmViewProducts.FormCreate(Sender: TObject);
+begin
+var path := Application.GetNamePath + 'Nabavka.db';
+
+//    with FDConnection do
+//      begin
+//      close;
+//        with Params do
+//        begin
+//          Clear;
+//          Add('DriverID=SQLite');
+//          Add('Database=' + path);
+//        end;
+//        Open;
+//    end;
 end;
 
 procedure TfrmViewProducts.FormShow(Sender: TObject);
 begin
 
-  idStr := IntToStr(frmOrderView.id);
-  with FDQuery1 do
+  //Query za pregled proizvoda na zahtevu za nabavku
+  with queryZahtevi do
   begin
-   close;
+   Close;
    SQL.Clear;
-   SQL.Text :=  'select porudzbenica.idtabele as Indeks Por, proizvod.ImeProizvoda, listaproizvoda.kolicina ' +
-                'from ListaProizvoda ' +
-                'inner join Proizvod ' +
-                'on ListaProizvoda.IDProizvoda = Proizvod.IDTabele ' +
-                'inner join porudzbenica ' +
-                'on ListaProizvoda.IDPorudzbenice = Porudzbenica.IDTabele ' +
-                'where porudzbenica.idtabele = ' + idStr;
-   Open;
+   SQL.Text :=  'SELECT Proizvod.ImeProizvoda, ListaProizvodaZahtev.Kolicina, Proizvod.CenaKupovine ' +
+                'FROM ListaProizvodaZahtev ' +
+                'INNER JOIN Proizvod ' +
+                'ON ListaProizvodaZahtev.IDProizvoda = Proizvod.IDTabele ' +
+                'INNER JOIN ZahtevZaNabavku ' +
+                'ON ListaProizvodaZahtev.IDZahteva = ZahtevZaNabavku.IDTabele ' +
+                'WHERE ZahtevZaNabavku.IDTabele =  '+ idStr;
   end;
+
+  //Query za pregled proizvoda na porudzbenici
+  with queryPorudzbenice do
+  begin
+   Close;
+   SQL.Clear;
+   SQL.Text :=  'SELECT Porudzbenica.IDTabele as Indeks Por, Proizvod.ImeProizvoda, ListaProizvoda.Kolicina, Proizvod.CenaKupovine  ' +
+                'FROM ListaProizvoda ' +
+                'INNER JOIN Proizvod ' +
+                'ON ListaProizvoda.IDProizvoda = Proizvod.IDTabele ' +
+                'INNER JOIN Porudzbenica ' +
+                'ON ListaProizvoda.IDPorudzbenice = Porudzbenica.IDTabele ' +
+                'WHERE Porudzbenica.IDTabele = ' + idStr;
+  end;
+
 end;
 
 end.

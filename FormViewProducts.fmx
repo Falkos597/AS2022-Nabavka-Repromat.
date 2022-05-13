@@ -1,33 +1,36 @@
 object frmViewProducts: TfrmViewProducts
-  Left = 522
-  Top = 108
+  Left = 612
+  Top = 78
+  ActiveControl = Button1
   Caption = 'Form1'
-  ClientHeight = 480
-  ClientWidth = 541
+  ClientHeight = 577
+  ClientWidth = 406
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   OnShow = FormShow
-  Left = 522
-  Top = 108
+  Left = 612
+  Top = 78
   DesignerMasterStyle = 0
-  object Grid1: TGrid
+  object gridPorudzbenica: TGrid
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 289.000000000000000000
+    Size.Width = 389.000000000000000000
     Size.Height = 465.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
+    Visible = False
     RowCount = 0
-    Viewport.Width = 285.000000000000000000
+    Viewport.Width = 385.000000000000000000
     Viewport.Height = 440.000000000000000000
   end
   object Button1: TButton
-    Position.X = 336.000000000000000000
-    Position.Y = 176.000000000000000000
+    Position.X = 112.000000000000000000
+    Position.Y = 496.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 57.000000000000000000
     Size.PlatformDefault = False
@@ -35,45 +38,92 @@ object frmViewProducts: TfrmViewProducts
     Text = '<- Nazad'
     OnClick = Button1Click
   end
-  object FDConnection1: TFDConnection
+  object gridZahteva: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 394.000000000000000000
+    Size.Height = 465.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    Visible = False
+    RowCount = 0
+    Viewport.Width = 390.000000000000000000
+    Viewport.Height = 440.000000000000000000
+  end
+  object FDConnection: TFDConnection
     Params.Strings = (
       'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'OpenMode=ReadOnly'
+      'LockingMode=Normal'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
-    Left = 456
-    Top = 88
+    Left = 336
+    Top = 480
   end
-  object FDQuery1: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      
-        'select porudzbenica.idtabele as Indeks'#160'Por, proizvod.ImeProizvod' +
-        'a, listaproizvoda.kolicina '
-      'from ListaProizvoda '
-      'inner join Proizvod'
-      'on ListaProizvoda.IDProizvoda = Proizvod.IDTabele'
-      'inner join porudzbenica'
-      'on ListaProizvoda.IDPorudzbenice = Porudzbenica.IDTabele')
-    Left = 368
-    Top = 88
+  object queryZahtevi: TFDQuery
+    Connection = FDConnection
+    Left = 40
+    Top = 456
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = FDQuery1
+    DataSet = queryZahtevi
     ScopeMappings = <>
-    Left = 440
-    Top = 40
+    Left = 312
+    Top = 504
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 356
-    Top = 37
-    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+    Left = 308
+    Top = 509
+    object LinkGridToDataSourceBindSourceDB12: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
-      GridControl = Grid1
-      Columns = <>
+      GridControl = gridZahteva
+      Columns = <
+        item
+          MemberName = 'ImeProizvoda'
+          TextWidth = 30
+        end
+        item
+          MemberName = 'Kolicina'
+          TextWidth = 15
+        end
+        item
+          MemberName = 'CenaKupovine'
+        end>
     end
+    object LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      GridControl = gridPorudzbenica
+      Columns = <
+        item
+          MemberName = 'Indeks'#160'Zah'
+        end
+        item
+          MemberName = 'ImeProizvoda'
+        end
+        item
+          MemberName = 'Kolicina'
+        end
+        item
+          MemberName = 'CenaKupovine'
+          TextWidth = 15
+        end>
+    end
+  end
+  object queryPorudzbenice: TFDQuery
+    Connection = FDConnection
+    Left = 40
+    Top = 512
+  end
+  object BindSourceDB2: TBindSourceDB
+    DataSet = queryPorudzbenice
+    ScopeMappings = <>
+    Left = 312
+    Top = 504
   end
 end

@@ -534,8 +534,8 @@ object frmStartView: TfrmStartView
       8BB99C2E03927797192E415C74299C0421528299CE3420BB65DA650BB9D021B2
       DDC6B6BE56A1C025880B175950AA9ED3858B1C00FC3F61E02A93EE50470A0000
       000049454E44AE426082}
-    Viewport.Width = 216.000000000000000000
-    Viewport.Height = 214.000000000000000000
+    Viewport.Width = 220.000000000000000000
+    Viewport.Height = 218.000000000000000000
   end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
@@ -545,7 +545,8 @@ object frmStartView: TfrmStartView
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
-    Text = 'Pregled narud'#382'benica'
+    Text = 'Pregled porud'#382'benica'
     TextSettings.Font.Size = 16.000000000000000000
+    OnClick = Button2Click
   end
 end

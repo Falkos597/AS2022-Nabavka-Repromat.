@@ -1,0 +1,224 @@
+object frmAddProduct: TfrmAddProduct
+  Left = 360
+  Top = 96
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 776
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  Left = 360
+  Top = 96
+  DesignerMasterStyle = 0
+  object Grid1: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 344.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 425.000000000000000000
+    Size.Height = 465.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    RowCount = 2
+    Viewport.Width = 421.000000000000000000
+    Viewport.Height = 440.000000000000000000
+  end
+  object ComboBox1: TComboBox
+    Position.X = 64.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'ComboBox1Style1'
+    TabOrder = 1
+    OnChange = ComboBox1Change
+  end
+  object Label1: TLabel
+    Position.X = 64.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Proizvodjaci'
+    ParentShowHint = False
+    ShowHint = False
+    TabOrder = 2
+  end
+  object ComboBox2: TComboBox
+    Position.X = 64.000000000000000000
+    Position.Y = 112.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Position.X = 64.000000000000000000
+    Position.Y = 184.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label2: TLabel
+    Position.X = 64.000000000000000000
+    Position.Y = 160.000000000000000000
+    Text = 'Kolicina'
+    TabOrder = 5
+  end
+  object Label3: TLabel
+    Position.X = 64.000000000000000000
+    Position.Y = 88.000000000000000000
+    Text = 'Proizvodi'
+    TabOrder = 6
+  end
+  object Label4: TLabel
+    Position.X = 40.000000000000000000
+    Position.Y = 296.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Index'
+    TabOrder = 7
+  end
+  object Button1: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 120.000000000000000000
+    Position.Y = 400.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = '< Nazad'
+    TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 208.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    Text = 'Izbaci'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button3: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 120.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    Text = 'Ubaci'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Edit3: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 18
+    Position.X = 32.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Button4: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 400.000000000000000000
+    Size.Width = 49.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 27
+    Text = 'Button4'
+  end
+  object queryDobavljacPunjenje: TFDQuery
+    Connection = FDConnection
+    Left = 424
+    Top = 368
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=D:\AS2022_Nabavka(Pristiglo od tima)\Nabavka.db'
+      'OpenMode=ReadWrite'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 424
+    Top = 424
+  end
+  object queryProizvodiPunjenje: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT  Proizvod.ImeProizvoda, Dobavljac.ImeDobavljaca'
+      ''
+      'FROM Proizvod'
+      ''
+      'INNER JOIN Dobavljac '
+      'ON Proizvod.IDTabele = Dobavljac.IDTabele;')
+    Left = 424
+    Top = 312
+  end
+  object queryPregledListe: TFDQuery
+    Active = True
+    Connection = FDConnection
+    SQL.Strings = (
+      
+        'SELECT ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Ko' +
+        'licina as Kolicina, Proizvod.CenaKupovine as Cena '
+      'from ListaProizvodaZahtevaTemp '
+      'INNER JOIN Proizvod '
+      'ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '
+      'INNER JOIN Dobavljac '
+      'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele')
+    Left = 544
+    Top = 312
+  end
+  object queryUnosUTabelu: TFDQuery
+    Connection = FDConnection
+    Left = 544
+    Top = 368
+  end
+  object tablePregledListe: TFDTable
+    Active = True
+    Connection = FDConnection
+    TableName = 'ListaProizvodaZahtevaTemp'
+    Left = 424
+    Top = 256
+    object tablePregledListeIDZahteva: TIntegerField
+      FieldName = 'IDZahteva'
+      Origin = 'IDZahteva'
+    end
+    object tablePregledListeIDProizvoda: TIntegerField
+      FieldName = 'IDProizvoda'
+      Origin = 'IDProizvoda'
+    end
+    object tablePregledListeKolicina: TIntegerField
+      FieldName = 'Kolicina'
+      Origin = 'Kolicina'
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = queryPregledListe
+    ScopeMappings = <>
+    Left = 392
+    Top = 128
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 388
+    Top = 77
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = Grid1
+      Columns = <>
+    end
+  end
+end

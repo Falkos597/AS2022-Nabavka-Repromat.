@@ -9,6 +9,8 @@ object frmSignUp: TfrmSignUp
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnHide = FormHide
   Left = 594
   Top = 132
   DesignerMasterStyle = 0
@@ -581,7 +583,25 @@ object frmSignUp: TfrmSignUp
       8BB99C2E03927797192E415C74299C0421528299CE3420BB65DA650BB9D021B2
       DDC6B6BE56A1C025880B175950AA9ED3858B1C00FC3F61E02A93EE50470A0000
       000049454E44AE426082}
-    Viewport.Width = 210.000000000000000000
-    Viewport.Height = 218.000000000000000000
+    Viewport.Width = 206.000000000000000000
+    Viewport.Height = 214.000000000000000000
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'OpenMode=ReadOnly'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    LoginPrompt = False
+    Left = 328
+    Top = 384
+  end
+  object queryKlijenti: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT Username, Password'
+      'FROM Korisnici')
+    Left = 264
+    Top = 376
   end
 end

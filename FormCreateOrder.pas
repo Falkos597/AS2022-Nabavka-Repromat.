@@ -14,7 +14,7 @@ uses
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.Components, Data.Bind.DBScope, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, FMX.ListBox, Datasnap.Provider;
+  FireDAC.Comp.Client, FMX.ListBox, Datasnap.Provider,FormAddProduct;
 
 type
   TfrmCreateOrder = class(TForm)
@@ -36,11 +36,12 @@ type
     queryStatusPunjenje: TFDQuery;
     FDConnection: TFDConnection;
     queryDobavljacPunjenje: TFDQuery;
-    queryPopunjavanjeTabele: TFDQuery;
+    Button3: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ComboBox1Change(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -58,8 +59,10 @@ uses MainAppForm;
 
 procedure TfrmCreateOrder.Button1Click(Sender: TObject);
 begin
-  self.Close;
+  self.Hide;
   frmStartView.Show;
+  frmAddProduct.queryUnosUTabelu.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp');
+  frmAddProduct.tablePregledListe.ApplyUpdates(0);
 end;
 
 procedure TfrmCreateOrder.Button2Click(Sender: TObject);
@@ -67,13 +70,15 @@ begin
     //Kod za eksportovanje u fajl
 end;
 
-procedure TfrmCreateOrder.ComboBox1Change(Sender: TObject);
+procedure TfrmCreateOrder.Button3Click(Sender: TObject);
 begin
-  ComboBox1.ItemIndex
+ frmAddProduct.Show;
+ self.hide;
 end;
 
 procedure TfrmCreateOrder.FormCreate(Sender: TObject);
 begin
+FDConnection.Connected := True;
   ComboBox2.Items.Clear;
     with queryStatusPunjenje do
     begin
@@ -111,6 +116,9 @@ begin
 
     end;
 
+    FDConnection.Connected := False;
+
 end;
+
 
 end.

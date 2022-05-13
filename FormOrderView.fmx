@@ -1,20 +1,20 @@
-object frmOrderView: TfrmOrderView
-  Left = 426
-  Top = 60
+object frmRequestOrderView: TfrmRequestOrderView
+  Left = 384
+  Top = 48
   Caption = 'Form1'
   ClientHeight = 595
-  ClientWidth = 742
+  ClientWidth = 840
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  Left = 426
-  Top = 60
+  Left = 384
+  Top = 48
   DesignerMasterStyle = 0
-  object backBtn: TButton
+  object buttonNazad: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 544.000000000000000000
+    Position.X = 656.000000000000000000
     Position.Y = 504.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
@@ -26,8 +26,8 @@ object frmOrderView: TfrmOrderView
   end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 528.000000000000000000
-    Position.Y = 352.000000000000000000
+    Position.X = 640.000000000000000000
+    Position.Y = 344.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
@@ -40,28 +40,28 @@ object frmOrderView: TfrmOrderView
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
-    Position.Y = 8.000000000000000000
-    Size.Width = 457.000000000000000000
-    Size.Height = 577.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 559.000000000000000000
+    Size.Height = 521.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 7
-    RowCount = 4
+    RowCount = 0
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 453.000000000000000000
-    Viewport.Height = 552.000000000000000000
+    Viewport.Width = 555.000000000000000000
+    Viewport.Height = 496.000000000000000000
   end
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 12
-    Position.X = 568.000000000000000000
-    Position.Y = 104.000000000000000000
+    Position.X = 680.000000000000000000
+    Position.Y = 136.000000000000000000
     Size.Width = 81.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
   end
   object Label1: TLabel
-    Position.X = 544.000000000000000000
-    Position.Y = 72.000000000000000000
+    Position.X = 656.000000000000000000
+    Position.Y = 104.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -71,8 +71,8 @@ object frmOrderView: TfrmOrderView
   end
   object Button4: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 528.000000000000000000
-    Position.Y = 272.000000000000000000
+    Position.X = 640.000000000000000000
+    Position.Y = 264.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
@@ -84,8 +84,8 @@ object frmOrderView: TfrmOrderView
   end
   object Button5: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 528.000000000000000000
-    Position.Y = 192.000000000000000000
+    Position.X = 640.000000000000000000
+    Position.Y = 184.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
@@ -95,43 +95,77 @@ object frmOrderView: TfrmOrderView
     TextSettings.WordWrap = True
     OnClick = Button1Click
   end
+  object Label2: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 336.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 16.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Zahtevi za nabavku'
+    TabOrder = 15
+  end
   object FDConnection: TFDConnection
     Params.Strings = (
       'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
+      'OpenMode=ReadOnly'
+      'LockingMode=Normal'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
-    Left = 640
+    Left = 704
     Top = 8
   end
   object queryPregled: TFDQuery
-    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
-        'select porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.Im' +
-        'eStatusa as Status, DatumPodnosenja from porudzbenica inner join' +
-        ' status on porudzbenica.IDStatus = status.IDTabele order by Datu' +
-        'mPodnosenja asc')
-    Left = 688
-    Top = 16
+        'SELECT ZahtevZaNabavku.IDTabele as Indeks, ImePodnosioca, Stanje' +
+        '.ImeStanja as Stanje, Hitnost.ImeHitnosti, DatumPodnosenja '
+      'FROM ZahtevZaNabavku '
+      'INNER JOIN Stanje '
+      'ON ZahtevZaNabavku.IDStanja = Stanje.IDTabele '
+      'INNER JOIN Hitnost '
+      'ON ZahtevZaNabavku.IDHitnosti = Hitnost.IDTabele '
+      'ORDER BY DatumPodnosenja DESC')
+    Left = 768
+    Top = 24
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = queryPregled
     ScopeMappings = <>
-    Left = 600
-    Top = 8
+    Left = 632
+    Top = 56
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 564
+    Left = 628
     Top = 5
     object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
       GridControl = Grid1
-      Columns = <>
+      Columns = <
+        item
+          MemberName = 'Indeks'
+        end
+        item
+          MemberName = 'ImePodnosioca'
+        end
+        item
+          MemberName = 'Stanje'
+          TextWidth = 15
+        end
+        item
+          MemberName = 'ImeHitnosti'
+          TextWidth = 15
+        end
+        item
+          MemberName = 'DatumPodnosenja'
+          TextWidth = 20
+        end>
     end
   end
 end

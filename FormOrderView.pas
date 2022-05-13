@@ -14,11 +14,11 @@ uses
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
-  Data.Bind.DBScope, Fmx.Bind.Grid, Data.Bind.Grid, FMX.Edit, FormViewProducts;
+  Data.Bind.DBScope, Fmx.Bind.Grid, Data.Bind.Grid, FMX.Edit, FormViewProducts,FormCreateOrder;
 
 type
-  TfrmOrderView = class(TForm)
-    backBtn: TButton;
+  TfrmRequestOrderView = class(TForm)
+    buttonNazad: TButton;
     Button2: TButton;
     FDConnection: TFDConnection;
     queryPregled: TFDQuery;
@@ -30,10 +30,12 @@ type
     Label1: TLabel;
     Button4: TButton;
     Button5: TButton;
+    Label2: TLabel;
     procedure backBtnClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -42,26 +44,27 @@ type
   end;
 
 var
-  frmOrderView: TfrmOrderView;
+  frmRequestOrderView: TfrmRequestOrderView;
 
 implementation
 
-uses MainAppForm,FormCreateOrder;
+uses MainAppForm;
 
 {$R *.fmx}
 
-procedure TfrmOrderView.backBtnClick(Sender: TObject);
+procedure TfrmRequestOrderView.backBtnClick(Sender: TObject);
 begin
-  frmOrderView.Close;
+  frmRequestOrderView.Close;
   frmStartView.Show;
 end;
 
-procedure TfrmOrderView.Button1Click(Sender: TObject);
+procedure TfrmRequestOrderView.Button1Click(Sender: TObject);
 begin
 
    queryPregled.First;
    var ind :Integer;
-   TryStrToInt(Edit1.Text, ind) ;
+   TryStrToInt(Edit1.Text, ind);
+   var prov :Boolean := True;
 
    while NOT queryPregled.Eof do
    begin
@@ -70,36 +73,62 @@ begin
     begin
 
       id := queryPregled['Indeks'];
+      frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
-      frmOrderView.hide;
+      frmViewProducts.gridZahteva.Visible := true;
+      frmViewProducts.queryZahtevi.Open;
+      frmRequestOrderView.hide;
+      prov :=False;
+      break;
 
     end;
 
     queryPregled.Next;
 
    end;
+  if prov then
+  ShowMessage('Uneli ste nepostoje?i indeks!');
 
 end;
 
-procedure TfrmOrderView.Button4Click(Sender: TObject);
+procedure TfrmRequestOrderView.Button4Click(Sender: TObject);
 begin
   self.Hide;
   frmCreateOrder.Show;
 end;
 
-procedure TfrmOrderView.FormCreate(Sender: TObject);
+procedure TfrmRequestOrderView.FormCreate(Sender: TObject);
 begin
-
+//  var path := Application.GetNamePath + 'Nabavka.db';
+//
+//    with FDConnection do
+//      begin
+//      close;
+//        with Params do
+//        begin
+//          Clear;
+//          Add('DriverID=SQLite');
+//          Add('Database=' + path);
+//        end;
+//        Open;
+//    end;
   with queryPregled do
   begin
-
     Close;
     SQL.Clear;
-    SQL.Text := 'select porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.ImeStatusa as Status, DatumPodnosenja from porudzbenica inner join status on porudzbenica.IDStatus = status.IDTabele order by DatumPodnosenja desc' ;
+    SQL.Text := 'SELECT ZahtevZaNabavku.IDTabele as Indeks, ImePodnosioca, Stanje.ImeStanja as Stanje, Hitnost.ImeHitnosti, DatumPodnosenja ' +
+                'FROM ZahtevZaNabavku ' +
+                'INNER JOIN Stanje ' +
+                'ON ZahtevZaNabavku.IDStanja = Stanje.IDTabele ' +
+                'INNER JOIN Hitnost ' +
+                'ON ZahtevZaNabavku.IDHitnosti = Hitnost.IDTabele ' +
+                'ORDER BY DatumPodnosenja DESC';
     Open;
-
   end;
 
+
+
 end;
+
 
 end.

@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ExtCtrls,
-  FormOrderView, FormCreateOrder, FormSupplierView;
+  FormOrderView, FormCreateOrder, FormSupplierView, FormPurchaseOrderView;
 
 type
   TfrmStartView = class(TForm)
@@ -18,6 +18,7 @@ type
     procedure orderViewBtnClick(Sender: TObject);
     procedure createOrderBtnClick(Sender: TObject);
     procedure supplierViewBtnClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,19 +34,25 @@ implementation
 
 procedure TfrmStartView.orderViewBtnClick(Sender: TObject);
 begin
-  frmStartView.Close;
-  frmOrderView.Show;
+  self.Hide;
+  frmRequestOrderView.Show;
+end;
+
+procedure TfrmStartView.Button2Click(Sender: TObject);
+begin
+  self.Hide;
+  frmPurchaseOrderView.Show;
 end;
 
 procedure TfrmStartView.createOrderBtnClick(Sender: TObject);
 begin
-  frmStartView.Close;
+  self.Hide;
   frmCreateOrder.Show;
 end;
 
 procedure TfrmStartView.supplierViewBtnClick(Sender: TObject);
 begin
-  frmStartView.Close;
+  self.Hide;
   frmSupplierView.Show;
 end;
 
