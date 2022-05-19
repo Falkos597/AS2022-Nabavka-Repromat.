@@ -32,3 +32,6 @@ Visible=False
 [FDConnection]
 Coordinates=208,155,97,36
 
+[frmRequestOrderView.queryPregled]
+Visible=False
+

@@ -54,19 +54,10 @@ end;
 
 procedure TfrmSignUp.FormCreate(Sender: TObject);
 begin
+  FDConnection.Connected := False;
+  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
+  FDConnection.Params.Values['Database'] := path;
   FDConnection.Connected := True;
-//  var path := (Application.GetNamePath + '\Nabavka.db');
-//  ShowMessage(path);
-//  with FDConnection do
-//  begin
-//    close;
-//      with Params do
-//      begin
-//        Clear;
-//        Add('DriverID=SQLite');
-//        Add('Database=' + path);
-//      end;
-//  end;
 
   with queryKlijenti do
   begin
@@ -110,6 +101,7 @@ begin
          frmStartView.Show;
          frmSignUp.Hide;
          check := True;
+         Break
        end;
      end;
 

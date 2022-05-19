@@ -16,35 +16,35 @@ object frmSignUp: TfrmSignUp
   DesignerMasterStyle = 0
   object Label1: TLabel
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 29.000000000000000000
+    Position.X = 13.000000000000000000
     Position.Y = 257.000000000000000000
     Size.Width = 145.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'Username'
+    Text = 'Korisni'#269'ko ime'
     TabOrder = 4
   end
   object Label2: TLabel
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 29.000000000000000000
+    Position.X = 13.000000000000000000
     Position.Y = 313.000000000000000000
     Size.Width = 145.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'Password'
+    Text = #352'ifra'
     TabOrder = 2
   end
   object signInBtn: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 160.000000000000000000
+    Position.X = 152.000000000000000000
     Position.Y = 376.000000000000000000
-    Size.Width = 73.000000000000000000
+    Size.Width = 89.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 5
-    Text = 'Sign In'
+    Text = 'Prijavite se'
     TextSettings.Font.Size = 14.000000000000000000
     OnClick = signInBtnClick
   end
@@ -57,7 +57,7 @@ object frmSignUp: TfrmSignUp
     Size.Width = 233.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
-    TextPrompt = 'Username'
+    TextPrompt = 'Korisni'#269'ko ime'
     StyledSettings = [Family, Style, FontColor]
   end
   object passwordEdit: TEdit
@@ -70,29 +70,29 @@ object frmSignUp: TfrmSignUp
     Size.Width = 233.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
-    TextPrompt = 'Password'
+    TextPrompt = #352'ifra'
     StyledSettings = [Family, Style, FontColor]
   end
   object Label3: TLabel
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 64.000000000000000000
+    Position.X = 88.000000000000000000
     Position.Y = 449.000000000000000000
-    Size.Width = 145.000000000000000000
+    Size.Width = 105.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'Dont have an account?'
+    Text = 'Nemate nakog?'
     TabOrder = 0
   end
   object signUpBtn: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 232.000000000000000000
+    Position.X = 216.000000000000000000
     Position.Y = 448.000000000000000000
-    Size.Width = 73.000000000000000000
+    Size.Width = 97.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-    Text = 'Sign Up'
+    Text = 'Registrijte se'
     TextSettings.Font.Size = 14.000000000000000000
     OnClick = signUpBtnClick
   end
@@ -594,7 +594,7 @@ object frmSignUp: TfrmSignUp
       'DriverID=SQLite')
     LoginPrompt = False
     Left = 328
-    Top = 384
+    Top = 392
   end
   object queryKlijenti: TFDQuery
     Connection = FDConnection

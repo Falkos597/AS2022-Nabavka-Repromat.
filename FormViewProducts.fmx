@@ -25,8 +25,8 @@ object frmViewProducts: TfrmViewProducts
     TabOrder = 0
     Visible = False
     RowCount = 0
-    Viewport.Width = 385.000000000000000000
-    Viewport.Height = 440.000000000000000000
+    Viewport.Width = 389.000000000000000000
+    Viewport.Height = 465.000000000000000000
   end
   object Button1: TButton
     Position.X = 112.000000000000000000
@@ -49,8 +49,8 @@ object frmViewProducts: TfrmViewProducts
     TabOrder = 11
     Visible = False
     RowCount = 0
-    Viewport.Width = 390.000000000000000000
-    Viewport.Height = 440.000000000000000000
+    Viewport.Width = 394.000000000000000000
+    Viewport.Height = 465.000000000000000000
   end
   object FDConnection: TFDConnection
     Params.Strings = (

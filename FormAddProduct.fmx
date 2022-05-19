@@ -21,9 +21,9 @@ object frmAddProduct: TfrmAddProduct
     Size.Height = 465.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    RowCount = 2
-    Viewport.Width = 421.000000000000000000
-    Viewport.Height = 440.000000000000000000
+    RowCount = 0
+    Viewport.Width = 425.000000000000000000
+    Viewport.Height = 465.000000000000000000
   end
   object ComboBox1: TComboBox
     Position.X = 64.000000000000000000
@@ -146,8 +146,8 @@ object frmAddProduct: TfrmAddProduct
     Params.Strings = (
       'Database=D:\AS2022_Nabavka(Pristiglo od tima)\Nabavka.db'
       'OpenMode=ReadWrite'
+      'LockingMode=Normal'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 424
     Top = 424
@@ -165,7 +165,6 @@ object frmAddProduct: TfrmAddProduct
     Top = 312
   end
   object queryPregledListe: TFDQuery
-    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
@@ -185,7 +184,6 @@ object frmAddProduct: TfrmAddProduct
     Top = 368
   end
   object tablePregledListe: TFDTable
-    Active = True
     Connection = FDConnection
     TableName = 'ListaProizvodaZahtevaTemp'
     Left = 424

@@ -74,8 +74,8 @@ object frmCreateOrder: TfrmCreateOrder
     Size.Height = 193.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 7
-    Viewport.Width = 605.000000000000000000
-    Viewport.Height = 168.000000000000000000
+    Viewport.Width = 625.000000000000000000
+    Viewport.Height = 193.000000000000000000
     object StringColumn1: TStringColumn
       Header = 'Ime proizvoda'
       ReadOnly = True

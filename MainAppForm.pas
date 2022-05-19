@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ExtCtrls,
-  FormOrderView, FormCreateOrder, FormSupplierView, FormPurchaseOrderView;
+  FormOrderView, FormCreateOrder, FormSupplierView, FormPurchaseOrderView, FormProductView;
 
 type
   TfrmStartView = class(TForm)
@@ -47,7 +47,7 @@ end;
 procedure TfrmStartView.createOrderBtnClick(Sender: TObject);
 begin
   self.Hide;
-  frmCreateOrder.Show;
+  frmProductView.Show;
 end;
 
 procedure TfrmStartView.supplierViewBtnClick(Sender: TObject);

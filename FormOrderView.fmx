@@ -47,8 +47,8 @@ object frmRequestOrderView: TfrmRequestOrderView
     TabOrder = 7
     RowCount = 0
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 555.000000000000000000
-    Viewport.Height = 496.000000000000000000
+    Viewport.Width = 559.000000000000000000
+    Viewport.Height = 521.000000000000000000
   end
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]

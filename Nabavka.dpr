@@ -11,7 +11,8 @@ uses
   FormCreateOrder in 'FormCreateOrder.pas' {frmCreateOrder},
   FormViewProducts in 'FormViewProducts.pas' {frmViewProducts},
   FormPurchaseOrderView in 'FormPurchaseOrderView.pas' {frmPurchaseOrderView},
-  FormAddProduct in 'FormAddProduct.pas' {frmAddProduct};
+  FormAddProduct in 'FormAddProduct.pas' {frmAddProduct},
+  FormProductView in 'FormProductView.pas' {frmProductView};
 
 {$R *.res}
 
@@ -26,5 +27,6 @@ begin
   Application.CreateForm(TfrmViewProducts, frmViewProducts);
   Application.CreateForm(TfrmPurchaseOrderView, frmPurchaseOrderView);
   Application.CreateForm(TfrmAddProduct, frmAddProduct);
+  Application.CreateForm(TfrmProductView, frmProductView);
   Application.Run;
 end.

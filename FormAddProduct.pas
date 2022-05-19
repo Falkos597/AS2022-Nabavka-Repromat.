@@ -97,9 +97,7 @@ begin
     begin
       ProizvodID := queryProizvodiPunjenje['IDProizvoda'];
 
-      tablePregledListe.Append;
-      tablePregledListeIDProizvoda.AsInteger :=  ProizvodID;
-      tablePregledListeKolicina.AsInteger :=  KolicinaProizvoda;
+      queryUnosUTabelu.ExecSQL('INERT INTO ListaProizvodaZahtevaTemp (IDProizvoda, Kolicina) VALUES (' + IntToStr(ProizvodID) + ', ' + IntToStr(KolicinaProizvoda) + ')');
     end;
     queryProizvodiPunjenje.Next;
   end;
@@ -153,6 +151,12 @@ end;
 
 procedure TfrmAddProduct.FormCreate(Sender: TObject);
 begin
+
+  FDConnection.Connected := False;
+  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
+  FDConnection.Params.Values['Database'] := path;
+  FDConnection.Connected := True;
+
 ComboBox2.Enabled:=false;
 ComboBox1.Items.Clear;
     with queryDobavljacPunjenje do

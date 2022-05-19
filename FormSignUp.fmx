@@ -9,6 +9,7 @@ object frmSignIn: TfrmSignIn
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   Left = 540
   Top = 60
   DesignerMasterStyle = 0
@@ -20,7 +21,7 @@ object frmSignIn: TfrmSignIn
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'First name'
+    Text = 'Ime i Prezime'
     TabOrder = 12
   end
   object firstNameEdit: TEdit
@@ -31,7 +32,7 @@ object frmSignIn: TfrmSignIn
     Size.Width = 241.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    TextPrompt = 'First name'
+    TextPrompt = 'Ime i prezime'
   end
   object Label2: TLabel
     StyledSettings = [Family, Style, FontColor]
@@ -41,7 +42,7 @@ object frmSignIn: TfrmSignIn
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'Second name'
+    Text = 'Korsni'#269'ko ime'
     TabOrder = 4
   end
   object secondNameEdit: TEdit
@@ -52,7 +53,7 @@ object frmSignIn: TfrmSignIn
     Size.Width = 241.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    TextPrompt = 'Second name'
+    TextPrompt = 'Korisni'#269'ko ime'
   end
   object Label3: TLabel
     StyledSettings = [Family, Style, FontColor]
@@ -83,7 +84,7 @@ object frmSignIn: TfrmSignIn
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'Password'
+    Text = #352'ifra'
     TabOrder = 7
   end
   object passwordEdit: TEdit
@@ -94,7 +95,7 @@ object frmSignIn: TfrmSignIn
     Size.Width = 241.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    TextPrompt = 'Password'
+    TextPrompt = #352'ifra'
   end
   object Label5: TLabel
     StyledSettings = [Family, Style, FontColor]
@@ -104,7 +105,7 @@ object frmSignIn: TfrmSignIn
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
-    Text = 'Confirm Password'
+    Text = 'Ponovite '#353'ifru'
     TabOrder = 5
   end
   object confirmPaswordEdit: TEdit
@@ -115,7 +116,7 @@ object frmSignIn: TfrmSignIn
     Size.Width = 241.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    TextPrompt = 'Confirm Password'
+    TextPrompt = 'Ponovite '#353'ifru'
   end
   object signInBtn: TButton
     Position.X = 144.000000000000000000
@@ -124,26 +125,26 @@ object frmSignIn: TfrmSignIn
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 14
-    Text = 'Sign In'
+    Text = 'Registrujte se'
     OnClick = signInBtnClick
   end
   object Label6: TLabel
-    Position.X = 133.000000000000000000
+    Position.X = 173.000000000000000000
     Position.Y = 553.000000000000000000
-    Size.Width = 148.000000000000000000
+    Size.Width = 92.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Already have an account?'
+    Text = 'Ve'#263' imate nalog?'
     TabOrder = 0
   end
   object signUpBtn: TButton
-    Position.X = 280.000000000000000000
+    Position.X = 272.000000000000000000
     Position.Y = 552.000000000000000000
     Size.Width = 73.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-    Text = 'Sign Up'
+    Text = 'Prijavite se'
     OnClick = signUpBtnClick
   end
   object ImageViewer1: TImageViewer
@@ -634,7 +635,24 @@ object frmSignIn: TfrmSignIn
       8BB99C2E03927797192E415C74299C0421528299CE3420BB65DA650BB9D021B2
       DDC6B6BE56A1C025880B175950AA9ED3858B1C00FC3F61E02A93EE50470A0000
       000049454E44AE426082}
-    Viewport.Width = 216.000000000000000000
-    Viewport.Height = 214.000000000000000000
+    Viewport.Width = 220.000000000000000000
+    Viewport.Height = 218.000000000000000000
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Left = 56
+    Top = 16
+  end
+  object queryProvera: TFDQuery
+    Connection = FDConnection
+    Left = 56
+    Top = 64
+  end
+  object queryUpisKorisnika: TFDQuery
+    Connection = FDConnection
+    Left = 56
+    Top = 112
   end
 end

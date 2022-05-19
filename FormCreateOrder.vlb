@@ -32,6 +32,3 @@ Coordinates=10,10,84,141
 ExplicitSubNodes=Items.Text
 Visible=True
 
-[frmAddProduct.queryPregledListe]
-Visible=False
-

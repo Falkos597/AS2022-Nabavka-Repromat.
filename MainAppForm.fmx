@@ -34,6 +34,7 @@ object frmStartView: TfrmStartView
     TabOrder = 1
     Text = 'Pregled proizvoda'
     TextSettings.Font.Size = 16.000000000000000000
+    OnClick = createOrderBtnClick
   end
   object supplierViewBtn: TButton
     StyledSettings = [Family, Style, FontColor]

@@ -99,19 +99,11 @@ end;
 
 procedure TfrmRequestOrderView.FormCreate(Sender: TObject);
 begin
-//  var path := Application.GetNamePath + 'Nabavka.db';
-//
-//    with FDConnection do
-//      begin
-//      close;
-//        with Params do
-//        begin
-//          Clear;
-//          Add('DriverID=SQLite');
-//          Add('Database=' + path);
-//        end;
-//        Open;
-//    end;
+  FDConnection.Connected := False;
+  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
+  FDConnection.Params.Values['Database'] := path;
+  FDConnection.Connected := True;
+
   with queryPregled do
   begin
     Close;

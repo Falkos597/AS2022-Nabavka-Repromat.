@@ -78,7 +78,12 @@ end;
 
 procedure TfrmCreateOrder.FormCreate(Sender: TObject);
 begin
-FDConnection.Connected := True;
+
+  FDConnection.Connected := False;
+  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
+  FDConnection.Params.Values['Database'] := path;
+  FDConnection.Connected := True;
+
   ComboBox2.Items.Clear;
     with queryStatusPunjenje do
     begin

@@ -22,8 +22,8 @@ object frmPurchaseOrderView: TfrmPurchaseOrderView
     Size.PlatformDefault = False
     TabOrder = 0
     RowCount = 0
-    Viewport.Width = 453.000000000000000000
-    Viewport.Height = 464.000000000000000000
+    Viewport.Width = 457.000000000000000000
+    Viewport.Height = 489.000000000000000000
   end
   object buttonNazad: TButton
     Position.X = 536.000000000000000000

@@ -1,0 +1,79 @@
+object frmProductView: TfrmProductView
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 504
+  ClientWidth = 701
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Grid1: TGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 489.000000000000000000
+    Size.Height = 497.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 485.000000000000000000
+    Viewport.Height = 472.000000000000000000
+  end
+  object Button1: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 77.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Pretrazi proizvode'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button2: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 157.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Dodaj proizvod'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button3: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 237.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Izbri'#353'i proizvod'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object Button4: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 520.000000000000000000
+    Position.Y = 317.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Izmeni proizvod'
+    TextSettings.Font.Size = 14.000000000000000000
+  end
+  object backBtn: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 547.000000000000000000
+    Position.Y = 431.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '<- Nazad'
+    TextSettings.Font.Size = 14.000000000000000000
+    OnClick = backBtnClick
+  end
+end
