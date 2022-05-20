@@ -1,34 +1,94 @@
 ﻿[Button1]
-Coordinates=516,204,53,51
+Coordinates=327,344,53,51
 
 [Edit1]
-Coordinates=446,204,40,51
+Coordinates=73,283,40,51
 
 [Label3]
-Coordinates=262,288,46,51
+Coordinates=510,10,46,51
 
 [Label5]
-Coordinates=282,204,46,51
+Coordinates=454,10,46,51
 
 [Label4]
-Coordinates=203,204,46,51
+Coordinates=271,344,46,51
 
 [primalacLabel]
-Coordinates=10,204,83,51
+Coordinates=10,222,83,51
 
 [Button2]
-Coordinates=361,204,53,51
+Coordinates=566,10,53,51
 
 []
-Coordinates=131,204,41,51
+Coordinates=301,80,82,33
 Visible=False
 ExplicitSubNodes=Items;Items.Text;Text
 
 [ComboBox1]
-Coordinates=323,10,84,123
+Coordinates=104,10,84,123
 
 [ComboBox2]
 Coordinates=10,10,84,141
 ExplicitSubNodes=Items.Text
 Visible=True
+
+[mainDataModul.queryPrikazProizvodaNovePorudzbenice]
+Coordinates=530,320,294,33
+Visible=False
+
+[mainDataModul.queryDobavljaciPorudzbenicePunjenje]
+Coordinates=503,161,283,51
+
+[mainDataModul.tableListaProizvodaZahtev]
+Coordinates=629,10,224,51
+
+[mainDataModul.queryStatusPorudzbeniePunjenje]
+Coordinates=123,283,258,51
+
+[mainDataModul.queryProizvodiNaPorudzbenici]
+Coordinates=198,10,246,51
+
+[mainDataModul.queryPregledZahtevaZaNabavku]
+Coordinates=10,161,253,51
+
+[Button3]
+Coordinates=10,283,53,51
+
+[mainDataModul.queryDobavljaciPorudzbenicaPunjenje]
+Coordinates=103,222,283,51
+
+[mainDataModul.queryProizvodiPorudzbenicePunjenje]
+Coordinates=390,344,278,51
+
+[mainDataModul.queryInsert]
+Coordinates=396,222,149,51
+
+[mainDataModul.queryProizvodiNaZahtevu]
+Coordinates=273,161,220,51
+
+[mainDataModul.FDQuery5]
+Coordinates=703,10,143,51
+
+[mainDataModul.querySviKlijenti]
+Coordinates=90,344,171,51
+
+[mainDataModul.queryPregledPorudzbenica]
+Coordinates=634,283,227,51
+
+[StringGrid1]
+Coordinates=10,344,70,51
+Visible=True
+
+[mainDataModul.queryDelete]
+Coordinates=555,222,152,51
+
+[mainDataModul.queryPrikazProizvodaNoveP]
+Coordinates=391,283,233,33
+Visible=False
+
+[BindSourceDB1]
+Coordinates=391,283,212,69
+
+[BindingsList1]
+Coordinates=301,80,82,33
 

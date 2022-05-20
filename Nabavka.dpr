@@ -12,7 +12,8 @@ uses
   FormViewProducts in 'FormViewProducts.pas' {frmViewProducts},
   FormPurchaseOrderView in 'FormPurchaseOrderView.pas' {frmPurchaseOrderView},
   FormAddProduct in 'FormAddProduct.pas' {frmAddProduct},
-  FormProductView in 'FormProductView.pas' {frmProductView};
+  FormProductView in 'FormProductView.pas' {frmProductView},
+  DataModul in 'DataModul.pas' {mainDataModul: TDataModule};
 
 {$R *.res}
 
@@ -28,5 +29,6 @@ begin
   Application.CreateForm(TfrmPurchaseOrderView, frmPurchaseOrderView);
   Application.CreateForm(TfrmAddProduct, frmAddProduct);
   Application.CreateForm(TfrmProductView, frmProductView);
+  Application.CreateForm(TmainDataModul, mainDataModul);
   Application.Run;
 end.

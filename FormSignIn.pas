@@ -12,7 +12,7 @@ uses
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.FMXUI.Wait, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet;
+  FireDAC.DApt, FireDAC.Comp.DataSet, DataModul;
 
 type
   TfrmSignUp = class(TForm)
@@ -24,12 +24,8 @@ type
     Label3: TLabel;
     signUpBtn: TButton;
     ImageViewer1: TImageViewer;
-    FDConnection: TFDConnection;
-    queryKlijenti: TFDQuery;
     procedure signUpBtnClick(Sender: TObject);
     procedure signInBtnClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure FormHide(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,31 +48,6 @@ end;
 
 
 
-procedure TfrmSignUp.FormCreate(Sender: TObject);
-begin
-  FDConnection.Connected := False;
-  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
-  FDConnection.Params.Values['Database'] := path;
-  FDConnection.Connected := True;
-
-  with queryKlijenti do
-  begin
-   Close;
-   SQL.Clear;
-   SQL.Text :=  'SELECT  KorisnickoIme, Sifra ' +
-                'FROM Korisnici';
-   Open;
-  end;
-
-
-end;
-
-
-procedure TfrmSignUp.FormHide(Sender: TObject);
-begin
-FDConnection.Connected := False;
-end;
-
 procedure TfrmSignUp.signInBtnClick(Sender: TObject);
 begin
   if usernameEdit.Text.IsEmpty and  passwordEdit.Text.IsEmpty then
@@ -88,11 +59,11 @@ begin
     var Password :string;
     var check := False;
 
-  queryKlijenti.First;
-  while not queryKlijenti.Eof do
+  mainDataModul.querySviKlijenti.First;
+  while not mainDataModul.querySviKlijenti.Eof do
    begin
-     Username := queryKlijenti['KorisnickoIme'];
-     Password := queryKlijenti['Sifra'];
+     Username := mainDataModul.querySviKlijenti['KorisnickoIme'];
+     Password := mainDataModul.querySviKlijenti['Sifra'];
 
      if usernameEdit.Text = Username then
      begin
@@ -105,7 +76,7 @@ begin
        end;
      end;
 
-       queryKlijenti.Next;
+       mainDataModul.querySviKlijenti.Next;
    end;
 
   if not Check then

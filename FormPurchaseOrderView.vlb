@@ -2,19 +2,7 @@
 Coordinates=111,10,46,58
 Visible=True
 
-[FDConnection]
-Coordinates=175,1,97,36
-
-[queryPregled]
-Coordinates=240,10,91,36
-Visible=False
-
 []
-Coordinates=175,56,91,36
-
-[BindSourceDB1]
-Coordinates=240,10,106,80
-
-[BindingsList1]
 Coordinates=0,0,91,36
+Visible=False
 

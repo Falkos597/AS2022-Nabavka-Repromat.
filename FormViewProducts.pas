@@ -13,24 +13,20 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FMX.Controls.Presentation,
   FMX.ScrollBox, FMX.Grid, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, FMX.StdCtrls, Data.Bind.Components,
-  Data.Bind.Grid, Data.Bind.DBScope;
+  Data.Bind.Grid, Data.Bind.DBScope, DataModul;
 
 type
   TfrmViewProducts = class(TForm)
+    Button1: TButton;
     gridPorudzbenica: TGrid;
-    FDConnection: TFDConnection;
-    queryZahtevi: TFDQuery;
+    gridZahteva: TGrid;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
-    Button1: TButton;
-    queryPorudzbenice: TFDQuery;
-    gridZahteva: TGrid;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     BindSourceDB2: TBindSourceDB;
-    LinkGridToDataSourceBindSourceDB12: TLinkGridToDataSource;
     LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,45 +53,19 @@ begin
 
 end;
 
-procedure TfrmViewProducts.FormCreate(Sender: TObject);
-begin
-
-  FDConnection.Connected := False;
-  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
-  FDConnection.Params.Values['Database'] := path;
-  FDConnection.Connected := True;
-
-end;
-
 procedure TfrmViewProducts.FormShow(Sender: TObject);
 begin
 
-  //Query za pregled proizvoda na zahtevu za nabavku
-  with queryZahtevi do
+  with mainDataModul.queryProizvodiNaZahtevu do
   begin
-   Close;
-   SQL.Clear;
-   SQL.Text :=  'SELECT Proizvod.ImeProizvoda, ListaProizvodaZahtev.Kolicina, Proizvod.CenaKupovine ' +
-                'FROM ListaProizvodaZahtev ' +
-                'INNER JOIN Proizvod ' +
-                'ON ListaProizvodaZahtev.IDProizvoda = Proizvod.IDTabele ' +
-                'INNER JOIN ZahtevZaNabavku ' +
-                'ON ListaProizvodaZahtev.IDZahteva = ZahtevZaNabavku.IDTabele ' +
-                'WHERE ZahtevZaNabavku.IDTabele =  '+ idStr;
+    SQL.Text := SQL.Text + idStr;
+    Open;
   end;
 
-  //Query za pregled proizvoda na porudzbenici
-  with queryPorudzbenice do
+  with mainDataModul.queryProizvodiNaPorudzbenici do
   begin
-   Close;
-   SQL.Clear;
-   SQL.Text :=  'SELECT Porudzbenica.IDTabele as Indeks Por, Proizvod.ImeProizvoda, ListaProizvoda.Kolicina, Proizvod.CenaKupovine  ' +
-                'FROM ListaProizvoda ' +
-                'INNER JOIN Proizvod ' +
-                'ON ListaProizvoda.IDProizvoda = Proizvod.IDTabele ' +
-                'INNER JOIN Porudzbenica ' +
-                'ON ListaProizvoda.IDPorudzbenice = Porudzbenica.IDTabele ' +
-                'WHERE Porudzbenica.IDTabele = ' + idStr;
+    SQL.Text := SQL.Text + idStr;
+    Open;
   end;
 
 end;

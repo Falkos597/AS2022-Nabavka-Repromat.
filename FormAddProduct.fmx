@@ -1,28 +1,28 @@
 object frmAddProduct: TfrmAddProduct
-  Left = 360
-  Top = 96
+  Left = 348
+  Top = 108
   Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 776
+  ClientWidth = 850
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
-  Left = 360
-  Top = 96
+  OnShow = FormShow
+  Left = 348
+  Top = 108
   DesignerMasterStyle = 0
   object Grid1: TGrid
     CanFocus = True
     ClipChildren = True
     Position.X = 344.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 425.000000000000000000
+    Size.Width = 497.000000000000000000
     Size.Height = 465.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    RowCount = 0
-    Viewport.Width = 425.000000000000000000
+    RowCount = 1
+    Viewport.Width = 497.000000000000000000
     Viewport.Height = 465.000000000000000000
   end
   object ComboBox1: TComboBox
@@ -41,7 +41,7 @@ object frmAddProduct: TfrmAddProduct
     Size.Width = 120.000000000000000000
     Size.Height = 20.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Proizvodjaci'
+    Text = 'Dobavlja'#269'i'
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
@@ -107,6 +107,7 @@ object frmAddProduct: TfrmAddProduct
     TabOrder = 9
     Text = 'Izbaci'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button2Click
   end
   object Button3: TButton
     StyledSettings = [Family, Style, FontColor]
@@ -118,6 +119,7 @@ object frmAddProduct: TfrmAddProduct
     TabOrder = 14
     Text = 'Ubaci'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button3Click
   end
   object Edit3: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -128,90 +130,17 @@ object frmAddProduct: TfrmAddProduct
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
   end
-  object Button4: TButton
-    Position.X = 16.000000000000000000
-    Position.Y = 400.000000000000000000
-    Size.Width = 49.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 27
-    Text = 'Button4'
-  end
-  object queryDobavljacPunjenje: TFDQuery
-    Connection = FDConnection
-    Left = 424
-    Top = 368
-  end
-  object FDConnection: TFDConnection
-    Params.Strings = (
-      'Database=D:\AS2022_Nabavka(Pristiglo od tima)\Nabavka.db'
-      'OpenMode=ReadWrite'
-      'LockingMode=Normal'
-      'DriverID=SQLite')
-    LoginPrompt = False
-    Left = 424
-    Top = 424
-  end
-  object queryProizvodiPunjenje: TFDQuery
-    Connection = FDConnection
-    SQL.Strings = (
-      'SELECT  Proizvod.ImeProizvoda, Dobavljac.ImeDobavljaca'
-      ''
-      'FROM Proizvod'
-      ''
-      'INNER JOIN Dobavljac '
-      'ON Proizvod.IDTabele = Dobavljac.IDTabele;')
-    Left = 424
-    Top = 312
-  end
-  object queryPregledListe: TFDQuery
-    Connection = FDConnection
-    SQL.Strings = (
-      
-        'SELECT ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Ko' +
-        'licina as Kolicina, Proizvod.CenaKupovine as Cena '
-      'from ListaProizvodaZahtevaTemp '
-      'INNER JOIN Proizvod '
-      'ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '
-      'INNER JOIN Dobavljac '
-      'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele')
-    Left = 544
-    Top = 312
-  end
-  object queryUnosUTabelu: TFDQuery
-    Connection = FDConnection
-    Left = 544
-    Top = 368
-  end
-  object tablePregledListe: TFDTable
-    Connection = FDConnection
-    TableName = 'ListaProizvodaZahtevaTemp'
-    Left = 424
-    Top = 256
-    object tablePregledListeIDZahteva: TIntegerField
-      FieldName = 'IDZahteva'
-      Origin = 'IDZahteva'
-    end
-    object tablePregledListeIDProizvoda: TIntegerField
-      FieldName = 'IDProizvoda'
-      Origin = 'IDProizvoda'
-    end
-    object tablePregledListeKolicina: TIntegerField
-      FieldName = 'Kolicina'
-      Origin = 'Kolicina'
-    end
-  end
   object BindSourceDB1: TBindSourceDB
-    DataSet = queryPregledListe
+    DataSet = mainDataModul.queryPrikazProizvodaNovePorudzbenice
     ScopeMappings = <>
-    Left = 392
-    Top = 128
+    Left = 312
+    Top = 208
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 388
-    Top = 77
+    Left = 20
+    Top = 5
     object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1

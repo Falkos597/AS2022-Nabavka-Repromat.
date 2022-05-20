@@ -14,26 +14,24 @@ uses
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
-  Data.Bind.DBScope, Fmx.Bind.Grid, Data.Bind.Grid, FMX.Edit, FormViewProducts,FormCreateOrder;
+  Data.Bind.DBScope, Fmx.Bind.Grid, Data.Bind.Grid, FMX.Edit, FormViewProducts,
+  FormCreateOrder, DataModul;
 
 type
   TfrmRequestOrderView = class(TForm)
     buttonNazad: TButton;
     Button2: TButton;
-    FDConnection: TFDConnection;
-    queryPregled: TFDQuery;
     Grid1: TGrid;
-    BindSourceDB1: TBindSourceDB;
-    BindingsList1: TBindingsList;
-    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     Edit1: TEdit;
     Label1: TLabel;
     Button4: TButton;
     Button5: TButton;
     Label2: TLabel;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     procedure backBtnClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure Button4Click(Sender: TObject);
 
   private
@@ -61,29 +59,28 @@ end;
 procedure TfrmRequestOrderView.Button1Click(Sender: TObject);
 begin
 
-   queryPregled.First;
+   mainDataModul.queryPregledZahtevaZaNabavku.First;
    var ind :Integer;
    TryStrToInt(Edit1.Text, ind);
    var prov :Boolean := True;
 
-   while NOT queryPregled.Eof do
+   while NOT mainDataModul.queryPregledZahtevaZaNabavku.Eof do
    begin
 
-    if queryPregled['Indeks'] = ind then
+    if mainDataModul.queryPregledZahtevaZaNabavku['Indeks'] = ind then
     begin
 
-      id := queryPregled['Indeks'];
+      id := mainDataModul.queryPregledZahtevaZaNabavku['Indeks'];
       frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
       frmViewProducts.gridZahteva.Visible := true;
-      frmViewProducts.queryZahtevi.Open;
       frmRequestOrderView.hide;
       prov :=False;
       break;
 
     end;
 
-    queryPregled.Next;
+    mainDataModul.queryPregledZahtevaZaNabavku.Next;
 
    end;
   if prov then
@@ -96,31 +93,5 @@ begin
   self.Hide;
   frmCreateOrder.Show;
 end;
-
-procedure TfrmRequestOrderView.FormCreate(Sender: TObject);
-begin
-  FDConnection.Connected := False;
-  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
-  FDConnection.Params.Values['Database'] := path;
-  FDConnection.Connected := True;
-
-  with queryPregled do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Text := 'SELECT ZahtevZaNabavku.IDTabele as Indeks, ImePodnosioca, Stanje.ImeStanja as Stanje, Hitnost.ImeHitnosti, DatumPodnosenja ' +
-                'FROM ZahtevZaNabavku ' +
-                'INNER JOIN Stanje ' +
-                'ON ZahtevZaNabavku.IDStanja = Stanje.IDTabele ' +
-                'INNER JOIN Hitnost ' +
-                'ON ZahtevZaNabavku.IDHitnosti = Hitnost.IDTabele ' +
-                'ORDER BY DatumPodnosenja DESC';
-    Open;
-  end;
-
-
-
-end;
-
 
 end.

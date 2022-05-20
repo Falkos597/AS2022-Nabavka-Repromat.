@@ -8,7 +8,6 @@ object frmPurchaseOrderView: TfrmPurchaseOrderView
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   Left = 450
   Top = 72
   DesignerMasterStyle = 0
@@ -99,46 +98,5 @@ object frmPurchaseOrderView: TfrmPurchaseOrderView
     TextSettings.HorzAlign = Center
     Text = 'Porud'#382'benice'
     TabOrder = 15
-  end
-  object FDConnection: TFDConnection
-    Params.Strings = (
-      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
-      'DriverID=sQLite'
-      'OpenMode=ReadOnly'
-      'LockingMode=Normal')
-    LoginPrompt = False
-    Left = 120
-    Top = 16
-  end
-  object queryPregled: TFDQuery
-    Connection = FDConnection
-    SQL.Strings = (
-      
-        'SELECT Porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.Im' +
-        'eStatusa as Status, DatumPodnosenja'
-      'FROM Porudzbenica'
-      'INNER JOIN Status'
-      'ON Porudzbenica.IDStatus = Status.IDTabele'
-      'ORDER BY DatumPodnosenja DESC')
-    Left = 24
-    Top = 16
-  end
-  object BindSourceDB1: TBindSourceDB
-    DataSet = queryPregled
-    ScopeMappings = <>
-    Left = 584
-    Top = 24
-  end
-  object BindingsList1: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 660
-    Top = 29
-    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB1
-      GridControl = Grid1
-      Columns = <>
-    end
   end
 end

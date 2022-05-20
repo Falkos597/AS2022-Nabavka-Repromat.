@@ -14,7 +14,7 @@ uses
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Comp.DataSet, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope,
-  Datasnap.Provider, Datasnap.DBClient, Fmx.Bind.Grid, Data.Bind.Grid;
+  Datasnap.Provider, Datasnap.DBClient, Fmx.Bind.Grid, Data.Bind.Grid, DataModul;
 
 type
   TfrmAddProduct = class(TForm)
@@ -28,30 +28,23 @@ type
     Label4: TLabel;
     Button1: TButton;
     Button2: TButton;
-    queryDobavljacPunjenje: TFDQuery;
-    FDConnection: TFDConnection;
-    queryProizvodiPunjenje: TFDQuery;
     Button3: TButton;
     Edit3: TEdit;
-    queryPregledListe: TFDQuery;
-    queryUnosUTabelu: TFDQuery;
-    tablePregledListe: TFDTable;
     BindSourceDB1: TBindSourceDB;
-    BindingsList1: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
-    tablePregledListeIDZahteva: TIntegerField;
-    tablePregledListeIDProizvoda: TIntegerField;
-    tablePregledListeKolicina: TIntegerField;
-    Button4: TButton;
-    procedure FormCreate(Sender: TObject);
+    BindingsList1: TBindingsList;
     procedure ComboBox1Change(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
 
 
 private
     { Private declarations }
   public
+  var ProizvodjacTemp :String;
+  var ProizvodTemp :String;
     { Public declarations }
   end;
 
@@ -68,14 +61,43 @@ procedure TfrmAddProduct.Button1Click(Sender: TObject);
 begin
     Self.hide;
     frmCreateOrder.Show;
+    mainDataModul.queryPrikazProizvodaNoveP.Refresh;
 end;
 
-  var ProizvodjacTemp :String;
-  var ProizvodTemp :String;
+
+procedure TfrmAddProduct.Button2Click(Sender: TObject);
+begin
+  var indeks := Edit3.Text.ToInteger;
+  var check := True;
+
+  if edit3.Text.IsEmpty then
+  begin
+    ShowMessage('Unesite Indeks koji želite da izbrišete.');
+    exit
+  end;
+
+  mainDataModul.queryPrikazProizvodaNovePorudzbenice.First;
+  while not mainDataModul.queryPrikazProizvodaNovePorudzbenice.Eof do
+  begin
+    if mainDataModul.queryPrikazProizvodaNovePorudzbenice['Indeks'] = indeks then
+    begin
+      mainDataModul.queryInsert.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE IDUnosa = ' + IntToStr(indeks));
+      check := False;
+    end;
+
+    mainDataModul.queryPrikazProizvodaNovePorudzbenice.Next;
+  end;
+
+  mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
+
+  if check then
+  ShowMessage('Uneli ste nepostojeci indeks;');
+end;
+
 procedure TfrmAddProduct.Button3Click(Sender: TObject);
 begin
 
-  if (ComboBox1.Selected.IsSelected) and (ComboBox2.Selected.IsSelected) then
+  if not ((ComboBox1.Selected.IsSelected) and (ComboBox2.Selected.IsSelected)) then
   begin
     ShowMessage('Loš unos!!!');
     exit
@@ -89,34 +111,21 @@ begin
   var ProizvodIme := ComboBox2.Selected.Text;
   var KolicinaProizvoda := StrToInt(Edit1.Text);
 
-  queryProizvodiPunjenje.First;
+  mainDataModul.queryProizvodiPorudzbenicePunjenje.First;
 
-  while not queryProizvodiPunjenje.Eof do
+  while not mainDataModul.queryProizvodiPorudzbenicePunjenje.Eof do
   begin
-    if queryProizvodiPunjenje['ImeProizvoda'] = ProizvodIme then
+    if mainDataModul.queryProizvodiPorudzbenicePunjenje['ImeProizvoda'] = ProizvodIme then
     begin
-      ProizvodID := queryProizvodiPunjenje['IDProizvoda'];
+      ProizvodID := mainDataModul.queryProizvodiPorudzbenicePunjenje['IDProizvoda'];
 
-      queryUnosUTabelu.ExecSQL('INERT INTO ListaProizvodaZahtevaTemp (IDProizvoda, Kolicina) VALUES (' + IntToStr(ProizvodID) + ', ' + IntToStr(KolicinaProizvoda) + ')');
+      mainDataModul.queryInsert.ExecSQL('INSERT INTO ListaProizvodaZahtevaTemp (IDUnosa, IDProizvoda, Kolicina) VALUES (' + IntToStr(frmCreateOrder.indeksBrojac) + ', ' + IntToStr(ProizvodID) + ', ' + IntToStr(KolicinaProizvoda) + ')');
+      frmCreateOrder.indeksBrojac := frmCreateOrder.indeksBrojac + 1;
     end;
-    queryProizvodiPunjenje.Next;
+    mainDataModul.queryProizvodiPorudzbenicePunjenje.Next;
   end;
 
-
-  with queryPregledListe do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := ' SELECT ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Kolicina as Kolicina, Proizvod.CenaKupovine as Cena ' +
-                  ' from ListaProizvodaZahtevaTemp ' +
-                  ' INNER JOIN Proizvod '+
-                  ' ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '+
-                  ' INNER JOIN Dobavljac ' +
-                  ' ON Proizvod.IDDobavljaca = Dobavljac.IDTabele';
-      open;
-    end;
-
-
+  mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
 
 end;
 
@@ -124,58 +133,34 @@ procedure TfrmAddProduct.ComboBox1Change(Sender: TObject);
 begin
   ComboBox2.Enabled:=true;
   ComboBox2.Items.Clear;
-    with queryProizvodiPunjenje do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'SELECT  Proizvod.IDTabele as IDProizvoda, Proizvod.ImeProizvoda, Dobavljac.IDTabele as IDDobavljaca, Dobavljac.ImeDobavljaca FROM Proizvod INNER JOIN Dobavljac ON Proizvod.IDTabele = Dobavljac.IDTabele;' ;
-      open;
 
-      queryProizvodiPunjenje.First;
+      mainDataModul.queryProizvodiPorudzbenicePunjenje.First;
 
-      while not queryProizvodiPunjenje.Eof do
+      while not mainDataModul.queryProizvodiPorudzbenicePunjenje.Eof do
       begin
-      if queryProizvodiPunjenje['ImeDobavljaca']=ComboBox1.Selected.Text then
+      if mainDataModul.queryProizvodiPorudzbenicePunjenje['ImeDobavljaca']=ComboBox1.Selected.Text then
         begin
-          ComboBox2.items.Add(queryProizvodiPunjenje['ImeProizvoda']);
+          ComboBox2.items.Add(mainDataModul.queryProizvodiPorudzbenicePunjenje['ImeProizvoda']);
         end;
-        queryProizvodiPunjenje.Next;
+        mainDataModul.queryProizvodiPorudzbenicePunjenje.Next;
       end;
-
-    end;
-
 
 end;
 
 
 
-procedure TfrmAddProduct.FormCreate(Sender: TObject);
+procedure TfrmAddProduct.FormShow(Sender: TObject);
 begin
+  ComboBox2.Enabled:=False;
+  ComboBox1.Items.Clear;
 
-  FDConnection.Connected := False;
-  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
-  FDConnection.Params.Values['Database'] := path;
-  FDConnection.Connected := True;
+  mainDataModul.queryDobavljaciPorudzbenicePunjenje.First;
 
-ComboBox2.Enabled:=false;
-ComboBox1.Items.Clear;
-    with queryDobavljacPunjenje do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'select ImeDobavljaca from Dobavljac' ;
-      open;
-
-      queryDobavljacPunjenje.First;
-
-      while not queryDobavljacPunjenje.Eof do
-      begin
-        ComboBox1.items.Add(queryDobavljacPunjenje['ImeDobavljaca']);
-
-        queryDobavljacPunjenje.Next;
-          end;
-
-    end;
+  while not mainDataModul.queryDobavljaciPorudzbenicePunjenje.Eof do
+  begin
+    ComboBox1.items.Add(mainDataModul.queryDobavljaciPorudzbenicePunjenje['ImeDobavljaca']);
+    mainDataModul.queryDobavljaciPorudzbenicePunjenje.Next;
+  end;
 
 end;
 

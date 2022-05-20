@@ -1,46 +1,82 @@
-﻿[FDConnection]
-Coordinates=272,78,84,33
-
-[Button2]
-Coordinates=245,10,53,51
+﻿[Button2]
+Coordinates=10,222,53,51
 
 []
-Coordinates=10,10,59,58
-Visible=True
+Coordinates=135,1,91,36
+Visible=False
 ExplicitSubNodes=Layout.Text
 
-[queryPregled]
-Coordinates=792,30,80,33
-Visible=False
-
 [Grid1]
-Coordinates=650,30,41,51
+Coordinates=10,10,41,51
 Visible=True
 
-[BindSourceDB1]
-Coordinates=792,30,92,141
-
-[BindingsList1]
-Coordinates=82,1,82,33
-
 [Label1]
-Coordinates=63,56,46,51
+Coordinates=514,10,46,51
 
 [Edit1]
-Coordinates=0,0,40,51
+Coordinates=73,222,40,51
 
 [Button4]
-Coordinates=77,152,53,51
+Coordinates=314,344,53,51
 
 [Button5]
-Coordinates=146,152,53,51
+Coordinates=436,283,53,51
 
 [buttonNazad]
-Coordinates=135,78,54,51
+Coordinates=435,222,76,51
 
-[frmViewProducts.queryZahtevi]
+[Label2]
+Coordinates=499,283,46,51
+
+[DataModule1.queryPregledZahtevaZaNabavku]
+Coordinates=407,1,171,58
+
+[mainDataModul.FDQuery11]
+Coordinates=521,222,148,51
+
+[mainDataModul.FDQuery7]
+Coordinates=361,10,143,51
+
+[mainDataModul.queryDobavljaciPorudzbenicePunjenje]
+Coordinates=454,161,283,51
+
+[mainDataModul.queryInsert]
+Coordinates=276,222,149,51
+
+[mainDataModul.queryPregledZahtevaZaNabavku]
+Coordinates=191,161,253,33
 Visible=False
 
-[frmViewProducts.queryPorudzbenice]
-Visible=False
+[mainDataModul.queryPrikazProizvodaNovePorudzbenice]
+Coordinates=10,344,294,51
+
+[mainDataModul.FDQuery5]
+Coordinates=123,222,143,51
+
+[mainDataModul.FDQuery10]
+Coordinates=278,283,148,51
+
+[mainDataModul.tableListaProizvodaZahtev]
+Coordinates=555,283,224,51
+
+[mainDataModul.queryStatusPorudzbeniePunjenje]
+Coordinates=10,283,258,51
+
+[mainDataModul.queryDobavljaciPorudzbenicaPunjenje]
+Coordinates=377,344,283,51
+
+[mainDataModul.queryProizvodiPorudzbenicePunjenje]
+Coordinates=73,10,278,51
+
+[mainDataModul.querySviKlijenti]
+Coordinates=10,161,171,51
+
+[BindSourceDB1]
+Coordinates=180,80,232,69
+
+[BindingsList1]
+Coordinates=370,80,82,33
+
+[mainDataModul.queryPregledPorudzbenica]
+Coordinates=570,10,231,51
 

@@ -14,16 +14,11 @@ uses
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
-  FMX.StdCtrls, FMX.Edit, FormViewProducts;
+  FMX.StdCtrls, FMX.Edit, FormViewProducts, DataModul;
 
 type
   TfrmPurchaseOrderView = class(TForm)
     Grid1: TGrid;
-    FDConnection: TFDConnection;
-    queryPregled: TFDQuery;
-    BindSourceDB1: TBindSourceDB;
-    BindingsList1: TBindingsList;
-    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     buttonNazad: TButton;
     Edit1: TEdit;
     Label1: TLabel;
@@ -31,7 +26,6 @@ type
     Button2: TButton;
     Button3: TButton;
     Label2: TLabel;
-    procedure FormCreate(Sender: TObject);
     procedure buttonNazadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
 
@@ -53,33 +47,34 @@ uses MainAppForm;
 
 procedure TfrmPurchaseOrderView.Button1Click(Sender: TObject);
 begin
-  queryPregled.First;
+   mainDataModul.queryPregledPorudzbenica.First;
    var ind :Integer;
    TryStrToInt(Edit1.Text, ind);
    var prov :Boolean := True;
 
-   while NOT queryPregled.Eof do
+   while NOT mainDataModul.queryPregledPorudzbenica.Eof do
    begin
 
-    if queryPregled['Indeks'] = ind then
+    if mainDataModul.queryPregledPorudzbenica['Indeks'] = ind then
     begin
 
-      id := queryPregled['Indeks'];
+      id := mainDataModul.queryPregledPorudzbenica['Indeks'];
       frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
       frmViewProducts.gridPorudzbenica.Visible := true;
-      frmViewProducts.queryPorudzbenice.Open;
       Self.hide;
       prov :=False;
       break;
 
     end;
 
-    queryPregled.Next;
+    mainDataModul.queryPregledPorudzbenica.Next;
 
    end;
+
   if prov then
   ShowMessage('Uneli ste nepostojeći indeks!');
+
 end;
 
 procedure TfrmPurchaseOrderView.buttonNazadClick(Sender: TObject);
@@ -87,31 +82,5 @@ begin
   Self.Hide;
   frmStartView.Show;
 end;
-
-procedure TfrmPurchaseOrderView.FormCreate(Sender: TObject);
-begin
-
-  FDConnection.Connected := False;
-  var path := ExtractFilePath(ParamStr(0)) + '\Nabavka.db';
-  FDConnection.Params.Values['Database'] := path;
-  FDConnection.Connected := True;
-
-  with queryPregled do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'SELECT Porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.ImeStatusa as Status, DatumPodnosenja ' +
-                  'FROM Porudzbenica ' +
-                  'INNER JOIN Status ' +
-                  'ON Porudzbenica.IDStatus = Status.IDTabele ' +
-                  'ORDER BY DatumPodnosenja DESC';
-
-      Open;
-    end;
-
-
-end;
-
-
 
 end.

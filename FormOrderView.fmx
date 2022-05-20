@@ -8,7 +8,6 @@ object frmRequestOrderView: TfrmRequestOrderView
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   Left = 384
   Top = 48
   DesignerMasterStyle = 0
@@ -107,65 +106,22 @@ object frmRequestOrderView: TfrmRequestOrderView
     Text = 'Zahtevi za nabavku'
     TabOrder = 15
   end
-  object FDConnection: TFDConnection
-    Params.Strings = (
-      'Database=D:\AS2022_Nabavka_Repromaterijala\Nabavka.db'
-      'OpenMode=ReadOnly'
-      'LockingMode=Normal'
-      'DriverID=SQLite')
-    LoginPrompt = False
-    Left = 704
-    Top = 8
-  end
-  object queryPregled: TFDQuery
-    Connection = FDConnection
-    SQL.Strings = (
-      
-        'SELECT ZahtevZaNabavku.IDTabele as Indeks, ImePodnosioca, Stanje' +
-        '.ImeStanja as Stanje, Hitnost.ImeHitnosti, DatumPodnosenja '
-      'FROM ZahtevZaNabavku '
-      'INNER JOIN Stanje '
-      'ON ZahtevZaNabavku.IDStanja = Stanje.IDTabele '
-      'INNER JOIN Hitnost '
-      'ON ZahtevZaNabavku.IDHitnosti = Hitnost.IDTabele '
-      'ORDER BY DatumPodnosenja DESC')
-    Left = 768
-    Top = 24
-  end
   object BindSourceDB1: TBindSourceDB
-    DataSet = queryPregled
+    DataSet = mainDataModul.queryPregledZahtevaZaNabavku
     ScopeMappings = <>
-    Left = 632
-    Top = 56
+    Left = 608
+    Top = 72
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 628
-    Top = 5
+    Left = 612
+    Top = 21
     object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
       GridControl = Grid1
-      Columns = <
-        item
-          MemberName = 'Indeks'
-        end
-        item
-          MemberName = 'ImePodnosioca'
-        end
-        item
-          MemberName = 'Stanje'
-          TextWidth = 15
-        end
-        item
-          MemberName = 'ImeHitnosti'
-          TextWidth = 15
-        end
-        item
-          MemberName = 'DatumPodnosenja'
-          TextWidth = 20
-        end>
+      Columns = <>
     end
   end
 end

@@ -9,7 +9,6 @@ object frmSignIn: TfrmSignIn
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   Left = 540
   Top = 60
   DesignerMasterStyle = 0
@@ -635,24 +634,7 @@ object frmSignIn: TfrmSignIn
       8BB99C2E03927797192E415C74299C0421528299CE3420BB65DA650BB9D021B2
       DDC6B6BE56A1C025880B175950AA9ED3858B1C00FC3F61E02A93EE50470A0000
       000049454E44AE426082}
-    Viewport.Width = 220.000000000000000000
-    Viewport.Height = 218.000000000000000000
-  end
-  object FDConnection: TFDConnection
-    Params.Strings = (
-      'LockingMode=Normal'
-      'DriverID=SQLite')
-    Left = 56
-    Top = 16
-  end
-  object queryProvera: TFDQuery
-    Connection = FDConnection
-    Left = 56
-    Top = 64
-  end
-  object queryUpisKorisnika: TFDQuery
-    Connection = FDConnection
-    Left = 56
-    Top = 112
+    Viewport.Width = 216.000000000000000000
+    Viewport.Height = 214.000000000000000000
   end
 end
