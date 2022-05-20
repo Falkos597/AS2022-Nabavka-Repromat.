@@ -9,7 +9,6 @@ object mainDataModul: TmainDataModul
         'Database=D:\AS2022_Nabavka_Repromaterijala\Win32\Debug\Nabavka.d' +
         'b'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 680
     Top = 416
@@ -35,7 +34,6 @@ object mainDataModul: TmainDataModul
     Top = 528
   end
   object queryPrikazProizvodaNovePorudzbenice: TFDQuery
-    Active = True
     Connection = FDConnection
     SQL.Strings = (
       

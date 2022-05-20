@@ -119,14 +119,14 @@ object frmCreateOrder: TfrmCreateOrder
     Size.Height = 201.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 17
-    Viewport.Width = 629.000000000000000000
-    Viewport.Height = 176.000000000000000000
+    Viewport.Width = 633.000000000000000000
+    Viewport.Height = 201.000000000000000000
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = mainDataModul.queryPrikazProizvodaNoveP
     ScopeMappings = <>
-    Left = 312
-    Top = 240
+    Left = 24
+    Top = 64
   end
   object BindingsList1: TBindingsList
     Methods = <>
