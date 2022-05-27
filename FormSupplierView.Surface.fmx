@@ -1,5 +1,0 @@
-inherited frmSupplierView_Surface: TfrmSupplierView_Surface
-  ClientHeight = 1920
-  ClientWidth = 1080
-  DesignerMasterStyle = 0
-end
