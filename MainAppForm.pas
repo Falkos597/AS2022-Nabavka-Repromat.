@@ -15,6 +15,7 @@ type
     supplierViewBtn: TButton;
     ImageViewer1: TImageViewer;
     Button2: TButton;
+    Label7: TLabel;
     procedure orderViewBtnClick(Sender: TObject);
     procedure createOrderBtnClick(Sender: TObject);
     procedure supplierViewBtnClick(Sender: TObject);

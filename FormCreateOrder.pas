@@ -30,12 +30,14 @@ type
     ComboBox2: TComboBox;
     Button3: TButton;
     StringGrid1: TStringGrid;
+    Label7: TLabel;
     BindSourceDB1: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     BindingsList1: TBindingsList;
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -59,6 +61,78 @@ begin
   frmStartView.Show;
 end;
 
+procedure TfrmCreateOrder.Button2Click(Sender: TObject);
+begin
+  var idStanja : String;
+  var idHitnosti : String;
+
+  if Edit1.Text.IsEmpty or (not ComboBox1.Selected.IsSelected) or (not ComboBox2.Selected.IsSelected) then
+  begin
+    ShowMessage('Los unos!');
+    exit
+  end;
+
+  mainDataModul.queryStanjeZahtevPunjenje.First;
+  while not mainDataModul.queryStanjeZahtevPunjenje.Eof do
+  begin
+
+    if mainDataModul.queryStanjeZahtevPunjenje['ImeStanja'] = ComboBox2.Selected.Text then
+    begin
+      idStanja :=mainDataModul.queryStanjeZahtevPunjenje['IDTabele'];
+    end;
+
+    mainDataModul.queryStanjeZahtevPunjenje.Next;
+  end;
+
+  mainDataModul.queryHitnostZahtevPunjenje.First;
+  while not mainDataModul.queryHitnostZahtevPunjenje.Eof do
+  begin
+
+   if mainDataModul.queryHitnostZahtevPunjenje['ImeHitnosti'] = ComboBox1.Selected.Text then
+    begin
+      idHitnosti :=mainDataModul.queryHitnostZahtevPunjenje['IDTabele'];
+
+    end;
+
+    mainDataModul.queryHitnostZahtevPunjenje.Next;
+  end;
+
+  var dateAndTime := TimeToStr(Now)+ ' ' + DateToStr(Now);
+
+  mainDataModul.queryInsert.ExecSQL('INSERT INTO ZahtevZaNabavku (IDStanja, IDHitnosti, ImePodnosioca, DatumPodnosenja) VALUES ("' + idStanja + '", "'+ idHitnosti + '", "' + Edit1.Text + '", "' + dateAndTime + '")');
+  mainDataModul.queryLastIndex.Refresh;
+  var indeksZah := mainDataModul.queryLastIndex['last_insert_rowid()'];
+
+
+
+  mainDataModul.queryPrikazProizvodaNoveP.First;
+  while not mainDataModul.queryPrikazProizvodaNoveP.Eof do
+  begin
+    mainDataModul.queryProizvodiZahtevPunjenje.First;
+    while not mainDataModul.queryProizvodiZahtevPunjenje.Eof do
+    begin
+
+    if mainDataModul.queryProizvodiZahtevPunjenje['ImeProizvoda'] = mainDataModul.queryPrikazProizvodaNoveP['ImeProizvoda'] then
+      begin
+
+      var idProizvoda := mainDataModul.queryProizvodiZahtevPunjenje['IDProizvoda'];
+      var kolicina := mainDataModul.queryPrikazProizvodaNoveP['Kolicina'];
+      mainDataModul.queryInsert.ExecSQL('INSERT INTO ListaProizvodaZahtev (IDZahteva, IDProizvoda, Kolicina) VALUES(' + IntToStr(indeksZah).Trim + ', ' + IntToStr(idProizvoda).Trim + ', ' + IntToStr(kolicina).Trim + ')');
+
+      end;
+
+    mainDataModul.queryProizvodiZahtevPunjenje.Next;
+    end;
+
+    mainDataModul.queryPrikazProizvodaNoveP.Next;
+  end;
+
+//  mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
+  mainDataModul.queryPrikazProizvodaNoveP.Refresh;
+
+  ShowMessage('Uspesno kreiranje porudzbenice!');
+end;
+
 procedure TfrmCreateOrder.Button3Click(Sender: TObject);
 begin
  frmAddProduct.Show;
@@ -71,26 +145,26 @@ indeksBrojac := 0;
 
 ComboBox2.Items.Clear;
 
-  mainDataModul.queryStatusPorudzbeniePunjenje.First;
-  while not mainDataModul.queryStatusPorudzbeniePunjenje.Eof do
+  mainDataModul.queryStanjeZahtevPunjenje.First;
+  while not mainDataModul.queryStanjeZahtevPunjenje.Eof do
   begin
-    ComboBox2.items.Add(mainDataModul.queryStatusPorudzbeniePunjenje['ImeStatusa']);
+    ComboBox2.items.Add(mainDataModul.queryStanjeZahtevPunjenje['ImeStanja']);
 
-    mainDataModul.queryStatusPorudzbeniePunjenje.Next;
+    mainDataModul.queryStanjeZahtevPunjenje.Next;
   end;
 
 ComboBox1.Items.Clear;
 
-      mainDataModul.queryDobavljaciPorudzbenicaPunjenje.First;
-      while not mainDataModul.queryDobavljaciPorudzbenicaPunjenje.Eof do
-      begin
-        ComboBox1.items.Add(mainDataModul.queryDobavljaciPorudzbenicaPunjenje['ImeDobavljaca']);
+  mainDataModul.queryHitnostZahtevPunjenje.First;
+  while not mainDataModul.queryHitnostZahtevPunjenje.Eof do
+  begin
+    ComboBox1.items.Add(mainDataModul.queryHitnostZahtevPunjenje['ImeHitnosti']);
 
-        mainDataModul.queryDobavljaciPorudzbenicaPunjenje.Next;
-      end;
+    mainDataModul.queryHitnostZahtevPunjenje.Next;
+  end;
 
-      mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
-      mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
+  //mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
+  mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
 end;
 
 end.

@@ -2,7 +2,7 @@ object frmProductView: TfrmProductView
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 504
+  ClientHeight = 573
   ClientWidth = 701
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -12,7 +12,7 @@ object frmProductView: TfrmProductView
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
-    Position.Y = 8.000000000000000000
+    Position.Y = 56.000000000000000000
     Size.Width = 489.000000000000000000
     Size.Height = 497.000000000000000000
     Size.PlatformDefault = False
@@ -20,21 +20,10 @@ object frmProductView: TfrmProductView
     Viewport.Width = 485.000000000000000000
     Viewport.Height = 472.000000000000000000
   end
-  object Button1: TButton
-    StyledSettings = [Family, Style, FontColor]
-    Position.X = 520.000000000000000000
-    Position.Y = 77.000000000000000000
-    Size.Width = 161.000000000000000000
-    Size.Height = 49.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 5
-    Text = 'Pretrazi proizvode'
-    TextSettings.Font.Size = 14.000000000000000000
-  end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 520.000000000000000000
-    Position.Y = 157.000000000000000000
+    Position.Y = 205.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -45,7 +34,7 @@ object frmProductView: TfrmProductView
   object Button3: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 520.000000000000000000
-    Position.Y = 237.000000000000000000
+    Position.Y = 285.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -56,7 +45,7 @@ object frmProductView: TfrmProductView
   object Button4: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 520.000000000000000000
-    Position.Y = 317.000000000000000000
+    Position.Y = 365.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -67,7 +56,7 @@ object frmProductView: TfrmProductView
   object backBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 547.000000000000000000
-    Position.Y = 431.000000000000000000
+    Position.Y = 479.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -75,5 +64,16 @@ object frmProductView: TfrmProductView
     Text = '<- Nazad'
     TextSettings.Font.Size = 14.000000000000000000
     OnClick = backBtnClick
+  end
+  object Label7: TLabel
+    Align = Top
+    StyledSettings = [Family, Style, FontColor]
+    Size.Width = 701.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Proizvodi'
+    TabOrder = 19
   end
 end

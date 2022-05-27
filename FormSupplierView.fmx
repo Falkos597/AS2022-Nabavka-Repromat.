@@ -1,20 +1,34 @@
 object frmSupplierView: TfrmSupplierView
-  Left = 450
-  Top = 84
+  Left = 342
+  Top = 174
   Caption = 'Form1'
-  ClientHeight = 574
-  ClientWidth = 716
+  ClientHeight = 579
+  ClientWidth = 913
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  Left = 450
-  Top = 84
+  Left = 342
+  Top = 174
   DesignerMasterStyle = 0
+  object StringGrid1: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 674.000000000000000000
+    Size.Height = 513.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    RowCount = 3
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    Viewport.Width = 670.000000000000000000
+    Viewport.Height = 488.000000000000000000
+  end
   object backBtn: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 571.000000000000000000
-    Position.Y = 509.000000000000000000
+    Position.X = 779.000000000000000000
+    Position.Y = 517.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -23,60 +37,120 @@ object frmSupplierView: TfrmSupplierView
     TextSettings.Font.Size = 14.000000000000000000
     OnClick = backBtnClick
   end
-  object Button1: TButton
+  object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 536.000000000000000000
-    Position.Y = 125.000000000000000000
+    Position.X = 728.000000000000000000
+    Position.Y = 229.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    Text = 'Pretrazi dobavlja'#269'a'
-    TextSettings.Font.Size = 14.000000000000000000
-  end
-  object Button2: TButton
-    StyledSettings = [Family, Style, FontColor]
-    Position.X = 536.000000000000000000
-    Position.Y = 197.000000000000000000
-    Size.Width = 161.000000000000000000
-    Size.Height = 49.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 2
     Text = 'Dodaj dobavlja'#269'a'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button2Click
   end
   object Button3: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 536.000000000000000000
-    Position.Y = 269.000000000000000000
+    Position.X = 728.000000000000000000
+    Position.Y = 293.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     Text = 'Izbri'#353'i dobavlja'#269'a'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button3Click
   end
   object Button4: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 536.000000000000000000
-    Position.Y = 341.000000000000000000
+    Position.X = 728.000000000000000000
+    Position.Y = 357.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     Text = 'Izmeni dobavlja'#269'a'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button4Click
   end
-  object Grid1: TGrid
-    CanFocus = True
-    ClipChildren = True
-    Position.X = 8.000000000000000000
-    Position.Y = 8.000000000000000000
-    Size.Width = 513.000000000000000000
-    Size.Height = 561.000000000000000000
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 10
+    Position.X = 763.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 5
-    Viewport.Width = 509.000000000000000000
-    Viewport.Height = 536.000000000000000000
+  end
+  object Label1: TLabel
+    Position.X = 760.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Odaberi Index'
+    TabOrder = 11
+  end
+  object Button1: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 728.000000000000000000
+    Position.Y = 165.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Pregled proizvoda dobavljaca'
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.WordWrap = True
+  end
+  object Label7: TLabel
+    Align = Top
+    StyledSettings = [Family, Style, FontColor]
+    Size.Width = 913.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Dobavljaci'
+    TabOrder = 20
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = mainDataModul.queryPrikazDobavljaca
+    ScopeMappings = <>
+    Left = 744
+    Top = 48
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 740
+    Top = 29
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = StringGrid1
+      Columns = <
+        item
+          MemberName = 'IDTabele'
+          Header = 'Indeks'
+          Width = 50
+        end
+        item
+          MemberName = 'ImeDobavljaca'
+        end
+        item
+          MemberName = 'Zemlja'
+        end
+        item
+          MemberName = 'Grad'
+        end
+        item
+          MemberName = 'Ulica'
+        end
+        item
+          MemberName = 'Email'
+        end>
+    end
   end
 end

@@ -13,7 +13,9 @@ uses
   FormPurchaseOrderView in 'FormPurchaseOrderView.pas' {frmPurchaseOrderView},
   FormAddProduct in 'FormAddProduct.pas' {frmAddProduct},
   FormProductView in 'FormProductView.pas' {frmProductView},
-  DataModul in 'DataModul.pas' {mainDataModul: TDataModule};
+  DataModul in 'DataModul.pas' {mainDataModul: TDataModule},
+  FormAddSupplier in 'FormAddSupplier.pas' {frmAddSupplier},
+  FormUpdateSupplier in 'FormUpdateSupplier.pas' {frmUpdateSupplier};
 
 {$R *.res}
 
@@ -30,5 +32,7 @@ begin
   Application.CreateForm(TfrmAddProduct, frmAddProduct);
   Application.CreateForm(TfrmProductView, frmProductView);
   Application.CreateForm(TmainDataModul, mainDataModul);
+  Application.CreateForm(TfrmAddSupplier, frmAddSupplier);
+  Application.CreateForm(TfrmUpdateSupplier, frmUpdateSupplier);
   Application.Run;
 end.

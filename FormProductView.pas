@@ -11,11 +11,11 @@ uses
 type
   TfrmProductView = class(TForm)
     Grid1: TGrid;
-    Button1: TButton;
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
     backBtn: TButton;
+    Label7: TLabel;
     procedure backBtnClick(Sender: TObject);
   private
     { Private declarations }

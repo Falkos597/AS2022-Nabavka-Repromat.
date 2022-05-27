@@ -25,7 +25,10 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
-    Label2: TLabel;
+    Label7: TLabel;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     procedure buttonNazadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
 
@@ -47,18 +50,18 @@ uses MainAppForm;
 
 procedure TfrmPurchaseOrderView.Button1Click(Sender: TObject);
 begin
-   mainDataModul.queryPregledPorudzbenica.First;
+   mainDataModul.queryPrikazPorudzbenica.First;
    var ind :Integer;
    TryStrToInt(Edit1.Text, ind);
    var prov :Boolean := True;
 
-   while NOT mainDataModul.queryPregledPorudzbenica.Eof do
+   while NOT mainDataModul.queryPrikazPorudzbenica.Eof do
    begin
 
-    if mainDataModul.queryPregledPorudzbenica['Indeks'] = ind then
+    if mainDataModul.queryPrikazPorudzbenica['Indeks'] = ind then
     begin
 
-      id := mainDataModul.queryPregledPorudzbenica['Indeks'];
+      id := mainDataModul.queryPrikazPorudzbenica['Indeks'];
       frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
       frmViewProducts.gridPorudzbenica.Visible := true;
@@ -68,7 +71,7 @@ begin
 
     end;
 
-    mainDataModul.queryPregledPorudzbenica.Next;
+    mainDataModul.queryPrikazPorudzbenica.Next;
 
    end;
 

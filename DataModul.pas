@@ -15,13 +15,13 @@ uses
 type
   TmainDataModul = class(TDataModule)
     FDConnection: TFDConnection;
-    queryPregledZahtevaZaNabavku: TFDQuery;
+    queryPrikazZahtevaZaNabavku: TFDQuery;
     querySviKlijenti: TFDQuery;
     queryPrikazProizvodaNovePorudzbenice: TFDQuery;
-    queryDobavljaciPorudzbenicePunjenje: TFDQuery;
-    queryProizvodiPorudzbenicePunjenje: TFDQuery;
+    queryDobavljaciZahtevPunjenje: TFDQuery;
+    queryProizvodiZahtevPunjenje: TFDQuery;
     queryPrikazProizvodaNoveP: TFDQuery;
-    queryPregledPorudzbenica: TFDQuery;
+    queryPrikazPorudzbenica: TFDQuery;
     queryProizvodiNaZahtevu: TFDQuery;
     queryDobavljaciPorudzbenicaPunjenje: TFDQuery;
     queryStatusPorudzbeniePunjenje: TFDQuery;
@@ -29,6 +29,11 @@ type
     queryProizvodiNaPorudzbenici: TFDQuery;
     queryInsert: TFDQuery;
     tableListaProizvodaZahtev: TFDTable;
+    queryPrikazDobavljaca: TFDQuery;
+    queryUpdate: TFDQuery;
+    queryLastIndex: TFDQuery;
+    queryHitnostZahtevPunjenje: TFDQuery;
+    queryStanjeZahtevPunjenje: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -54,7 +59,7 @@ begin
   FDConnection.Params.Values['Database'] := path;
   FDConnection.Connected := True;
 
-  with queryPregledZahtevaZaNabavku do
+  with queryPrikazZahtevaZaNabavku do
   begin
     Close;
     SQL.Clear;
@@ -77,63 +82,66 @@ begin
    Open;
   end;
 
-  with queryDobavljaciPorudzbenicePunjenje do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'select ImeDobavljaca from Dobavljac' ;
-      open;
-    end;
+  with queryDobavljaciZahtevPunjenje do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT ImeDobavljaca FROM Dobavljac' ;
+    open;
+  end;
 
   with queryPrikazProizvodaNovePorudzbenice do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := ' SELECT IDUnosa as Indeks, ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Kolicina as Kolicina, Proizvod.CenaKupovine as Cena ' +
-                  ' from ListaProizvodaZahtevaTemp ' +
-                  ' INNER JOIN Proizvod '+
-                  ' ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '+
-                  ' INNER JOIN Dobavljac ' +
-                  ' ON Proizvod.IDDobavljaca = Dobavljac.IDTabele';
-      open;
-    end;
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := ' SELECT IDUnosa as Indeks, ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Kolicina as Kolicina, Proizvod.CenaKupovine as Cena ' +
+                ' from ListaProizvodaZahtevaTemp ' +
+                ' INNER JOIN Proizvod '+
+                ' ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '+
+                ' INNER JOIN Dobavljac ' +
+                ' ON Proizvod.IDDobavljaca = Dobavljac.IDTabele';
+    open;
+  end;
 
-    with queryStatusPorudzbeniePunjenje do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'select ImeStatusa from Status' ;
-      open;
-    end;
+  with queryStatusPorudzbeniePunjenje do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'select * from Status' ;
+    open;
+  end;
 
-    with queryDobavljaciPorudzbenicaPunjenje do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'select ImeDobavljaca from Dobavljac' ;
-      open;
-    end;
+  with queryDobavljaciPorudzbenicaPunjenje do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT ImeDobavljaca FROM Dobavljac' ;
+    open;
+  end;
 
-    with queryProizvodiPorudzbenicePunjenje do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'SELECT  Proizvod.IDTabele as IDProizvoda, Proizvod.ImeProizvoda, Dobavljac.IDTabele as IDDobavljaca, Dobavljac.ImeDobavljaca FROM Proizvod INNER JOIN Dobavljac ON Proizvod.IDDobavljaca = Dobavljac.IDTabele' ;
-      open;
-    end;
+  with queryProizvodiZahtevPunjenje do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT  Proizvod.IDTabele as IDProizvoda, Proizvod.ImeProizvoda, Dobavljac.IDTabele as IDDobavljaca, Dobavljac.ImeDobavljaca ' +
+                'FROM Proizvod ' +
+                'INNER JOIN Dobavljac '+
+                'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele' ;
+    open;
+  end;
 
-    with queryPregledPorudzbenica do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := 'SELECT Porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.ImeStatusa as Status, DatumPodnosenja ' +
-                  'FROM Porudzbenica ' +
-                  'INNER JOIN Status ' +
-                  'ON Porudzbenica.IDStatus = Status.IDTabele ' +
-                  'ORDER BY DatumPodnosenja DESC';
+  with queryPrikazPorudzbenica do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT Porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.ImeStatusa as Status, DatumPodnosenja ' +
+                'FROM Porudzbenica ' +
+                'INNER JOIN Status ' +
+                'ON Porudzbenica.IDStatus = Status.IDTabele ' +
+                'ORDER BY DatumPodnosenja DESC';
 
-      Open;
-    end;
+    Open;
+  end;
 
     with queryProizvodiNaZahtevu do
   begin
@@ -162,19 +170,49 @@ begin
   end;
 
   with queryPrikazProizvodaNoveP do
-    begin
-      Close;
-      SQL.Clear;
-      SQL.Text := ' SELECT ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Kolicina as Kolicina, Proizvod.CenaKupovine as Cena ' +
-                  ' from ListaProizvodaZahtevaTemp ' +
-                  ' INNER JOIN Proizvod '+
-                  ' ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '+
-                  ' INNER JOIN Dobavljac ' +
-                  ' ON Proizvod.IDDobavljaca = Dobavljac.IDTabele';
-      open;
-    end;
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := ' SELECT ImeDobavljaca, ImeProizvoda, ListaProizvodaZahtevaTemp.Kolicina as Kolicina, Proizvod.CenaKupovine as Cena ' +
+                ' from ListaProizvodaZahtevaTemp ' +
+                ' INNER JOIN Proizvod '+
+                ' ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '+
+                ' INNER JOIN Dobavljac ' +
+                ' ON Proizvod.IDDobavljaca = Dobavljac.IDTabele';
+    open;
+  end;
 
+  with queryPrikazDobavljaca do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT * FROM Dobavljac' ;
+    open;
+  end;
 
+  with queryLastIndex do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT last_insert_rowid()' ;
+    open;
+  end;
+
+  with queryHitnostZahtevPunjenje do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT * FROM Hitnost' ;
+    open;
+  end;
+
+  with queryStanjeZahtevPunjenje do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT * FROM Stanje' ;
+    open;
+  end;
 
 end;
 

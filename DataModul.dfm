@@ -9,11 +9,13 @@ object mainDataModul: TmainDataModul
         'Database=D:\AS2022_Nabavka_Repromaterijala\Win32\Debug\Nabavka.d' +
         'b'
       'DriverID=SQLite')
+    Connected = True
     LoginPrompt = False
     Left = 680
-    Top = 416
+    Top = 352
   end
-  object queryPregledZahtevaZaNabavku: TFDQuery
+  object queryPrikazZahtevaZaNabavku: TFDQuery
+    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
@@ -45,15 +47,15 @@ object mainDataModul: TmainDataModul
       'ON ListaProizvodaZahtevaTemp.IDProizvoda = Proizvod.IDTabele '
       'INNER JOIN Dobavljac'
       'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele')
-    Left = 120
+    Left = 200
     Top = 16
   end
-  object queryDobavljaciPorudzbenicePunjenje: TFDQuery
+  object queryDobavljaciZahtevPunjenje: TFDQuery
     Connection = FDConnection
-    Left = 40
+    Left = 80
     Top = 16
   end
-  object queryProizvodiPorudzbenicePunjenje: TFDQuery
+  object queryProizvodiZahtevPunjenje: TFDQuery
     Connection = FDConnection
     SQL.Strings = (
       
@@ -61,7 +63,7 @@ object mainDataModul: TmainDataModul
         ' Dobavljac.IDTabele as IDDobavljaca, Dobavljac.ImeDobavljaca FRO' +
         'M Proizvod INNER JOIN Dobavljac ON Proizvod.IDDobavljaca = Dobav' +
         'ljac.IDTabele')
-    Left = 80
+    Left = 120
     Top = 16
   end
   object queryPrikazProizvodaNoveP: TFDQuery
@@ -69,7 +71,7 @@ object mainDataModul: TmainDataModul
     Left = 120
     Top = 72
   end
-  object queryPregledPorudzbenica: TFDQuery
+  object queryPrikazPorudzbenica: TFDQuery
     Connection = FDConnection
     Left = 136
     Top = 528
@@ -77,7 +79,7 @@ object mainDataModul: TmainDataModul
   object queryProizvodiNaZahtevu: TFDQuery
     Connection = FDConnection
     Left = 40
-    Top = 128
+    Top = 184
   end
   object queryDobavljaciPorudzbenicaPunjenje: TFDQuery
     Connection = FDConnection
@@ -97,17 +99,44 @@ object mainDataModul: TmainDataModul
   object queryProizvodiNaPorudzbenici: TFDQuery
     Connection = FDConnection
     Left = 80
-    Top = 128
+    Top = 184
   end
   object queryInsert: TFDQuery
     Connection = FDConnection
     Left = 680
-    Top = 472
+    Top = 440
   end
   object tableListaProizvodaZahtev: TFDTable
     Connection = FDConnection
     TableName = 'ListaProizvodaZahtevaTemp'
-    Left = 168
+    Left = 240
+    Top = 16
+  end
+  object queryPrikazDobavljaca: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM Dobavljac')
+    Left = 40
+    Top = 128
+  end
+  object queryUpdate: TFDQuery
+    Connection = FDConnection
+    Left = 680
+    Top = 488
+  end
+  object queryLastIndex: TFDQuery
+    Connection = FDConnection
+    Left = 680
+    Top = 400
+  end
+  object queryHitnostZahtevPunjenje: TFDQuery
+    Connection = FDConnection
+    Left = 40
+    Top = 16
+  end
+  object queryStanjeZahtevPunjenje: TFDQuery
+    Connection = FDConnection
+    Left = 160
     Top = 16
   end
 end

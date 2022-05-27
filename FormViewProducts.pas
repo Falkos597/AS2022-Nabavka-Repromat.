@@ -25,6 +25,7 @@ type
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     BindSourceDB2: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
+    Label7: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private

@@ -21,8 +21,8 @@ object frmPurchaseOrderView: TfrmPurchaseOrderView
     Size.PlatformDefault = False
     TabOrder = 0
     RowCount = 0
-    Viewport.Width = 457.000000000000000000
-    Viewport.Height = 489.000000000000000000
+    Viewport.Width = 453.000000000000000000
+    Viewport.Height = 464.000000000000000000
   end
   object buttonNazad: TButton
     Position.X = 536.000000000000000000
@@ -87,16 +87,33 @@ object frmPurchaseOrderView: TfrmPurchaseOrderView
     Text = 'Button1'
     TextSettings.Font.Size = 14.000000000000000000
   end
-  object Label2: TLabel
+  object Label7: TLabel
+    Align = Top
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 272.000000000000000000
-    Position.Y = 8.000000000000000000
-    Size.Width = 217.000000000000000000
+    Size.Width = 742.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
-    TextSettings.Font.Size = 16.000000000000000000
+    TextSettings.Font.Size = 24.000000000000000000
     TextSettings.HorzAlign = Center
-    Text = 'Porud'#382'benice'
-    TabOrder = 15
+    Text = 'Porudzbenice'
+    TabOrder = 19
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = mainDataModul.queryPrikazPorudzbenica
+    ScopeMappings = <>
+    Left = 552
+    Top = 32
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 620
+    Top = 37
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = Grid1
+      Columns = <>
+    end
   end
 end

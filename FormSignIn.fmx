@@ -2,8 +2,8 @@ object frmSignUp: TfrmSignUp
   Left = 594
   Top = 132
   Caption = 'Form1'
-  ClientHeight = 501
-  ClientWidth = 385
+  ClientHeight = 571
+  ClientWidth = 368
   Position = Designed
   SystemStatusBar.BackgroundColor = claRed
   FormFactor.Width = 320
@@ -15,7 +15,7 @@ object frmSignUp: TfrmSignUp
   object Label1: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 13.000000000000000000
-    Position.Y = 257.000000000000000000
+    Position.Y = 321.000000000000000000
     Size.Width = 145.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
@@ -26,7 +26,7 @@ object frmSignUp: TfrmSignUp
   object Label2: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 13.000000000000000000
-    Position.Y = 313.000000000000000000
+    Position.Y = 377.000000000000000000
     Size.Width = 145.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
@@ -37,7 +37,7 @@ object frmSignUp: TfrmSignUp
   object signInBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 152.000000000000000000
-    Position.Y = 376.000000000000000000
+    Position.Y = 440.000000000000000000
     Size.Width = 89.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
@@ -51,7 +51,7 @@ object frmSignUp: TfrmSignUp
     TabOrder = 8
     TextSettings.Font.Size = 14.000000000000000000
     Position.X = 120.000000000000000000
-    Position.Y = 256.000000000000000000
+    Position.Y = 320.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
@@ -64,7 +64,7 @@ object frmSignUp: TfrmSignUp
     Password = True
     TextSettings.Font.Size = 14.000000000000000000
     Position.X = 120.000000000000000000
-    Position.Y = 312.000000000000000000
+    Position.Y = 376.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
@@ -74,7 +74,7 @@ object frmSignUp: TfrmSignUp
   object Label3: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 88.000000000000000000
-    Position.Y = 449.000000000000000000
+    Position.Y = 513.000000000000000000
     Size.Width = 105.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
@@ -85,7 +85,7 @@ object frmSignUp: TfrmSignUp
   object signUpBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 216.000000000000000000
-    Position.Y = 448.000000000000000000
+    Position.Y = 512.000000000000000000
     Size.Width = 97.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
@@ -95,9 +95,9 @@ object frmSignUp: TfrmSignUp
     OnClick = signUpBtnClick
   end
   object ImageViewer1: TImageViewer
-    Position.X = 96.000000000000000000
-    Position.Y = 16.000000000000000000
-    Size.Width = 210.000000000000000000
+    Position.X = 72.000000000000000000
+    Position.Y = 57.000000000000000000
+    Size.Width = 233.000000000000000000
     Size.Height = 218.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 14
@@ -581,7 +581,18 @@ object frmSignUp: TfrmSignUp
       8BB99C2E03927797192E415C74299C0421528299CE3420BB65DA650BB9D021B2
       DDC6B6BE56A1C025880B175950AA9ED3858B1C00FC3F61E02A93EE50470A0000
       000049454E44AE426082}
-    Viewport.Width = 206.000000000000000000
+    Viewport.Width = 229.000000000000000000
     Viewport.Height = 214.000000000000000000
+  end
+  object Label6: TLabel
+    Align = Top
+    StyledSettings = [Family, Style, FontColor]
+    Size.Width = 368.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Prijava naloga'
+    TabOrder = 19
   end
 end

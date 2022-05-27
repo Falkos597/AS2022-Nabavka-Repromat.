@@ -30,9 +30,10 @@ type
     Button2: TButton;
     Button3: TButton;
     Edit3: TEdit;
+    Label7: TLabel;
+    BindingsList1: TBindingsList;
     BindSourceDB1: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
-    BindingsList1: TBindingsList;
     procedure ComboBox1Change(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -111,21 +112,21 @@ begin
   var ProizvodIme := ComboBox2.Selected.Text;
   var KolicinaProizvoda := StrToInt(Edit1.Text);
 
-  mainDataModul.queryProizvodiPorudzbenicePunjenje.First;
+  mainDataModul.queryProizvodiZahtevPunjenje.First;
 
-  while not mainDataModul.queryProizvodiPorudzbenicePunjenje.Eof do
+  while not mainDataModul.queryProizvodiZahtevPunjenje.Eof do
   begin
-    if mainDataModul.queryProizvodiPorudzbenicePunjenje['ImeProizvoda'] = ProizvodIme then
+    if mainDataModul.queryProizvodiZahtevPunjenje['ImeProizvoda'] = ProizvodIme then
     begin
-      ProizvodID := mainDataModul.queryProizvodiPorudzbenicePunjenje['IDProizvoda'];
+      ProizvodID := mainDataModul.queryProizvodiZahtevPunjenje['IDProizvoda'];
 
       mainDataModul.queryInsert.ExecSQL('INSERT INTO ListaProizvodaZahtevaTemp (IDUnosa, IDProizvoda, Kolicina) VALUES (' + IntToStr(frmCreateOrder.indeksBrojac) + ', ' + IntToStr(ProizvodID) + ', ' + IntToStr(KolicinaProizvoda) + ')');
       frmCreateOrder.indeksBrojac := frmCreateOrder.indeksBrojac + 1;
     end;
-    mainDataModul.queryProizvodiPorudzbenicePunjenje.Next;
+    mainDataModul.queryProizvodiZahtevPunjenje.Next;
   end;
 
-  mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
+  mainDataModul.queryPrikazProizvodaNoveP.Refresh;
 
 end;
 
@@ -134,15 +135,15 @@ begin
   ComboBox2.Enabled:=true;
   ComboBox2.Items.Clear;
 
-      mainDataModul.queryProizvodiPorudzbenicePunjenje.First;
+      mainDataModul.queryProizvodiZahtevPunjenje.First;
 
-      while not mainDataModul.queryProizvodiPorudzbenicePunjenje.Eof do
+      while not mainDataModul.queryProizvodiZahtevPunjenje.Eof do
       begin
-      if mainDataModul.queryProizvodiPorudzbenicePunjenje['ImeDobavljaca']=ComboBox1.Selected.Text then
+      if mainDataModul.queryProizvodiZahtevPunjenje['ImeDobavljaca']=ComboBox1.Selected.Text then
         begin
-          ComboBox2.items.Add(mainDataModul.queryProizvodiPorudzbenicePunjenje['ImeProizvoda']);
+          ComboBox2.items.Add(mainDataModul.queryProizvodiZahtevPunjenje['ImeProizvoda']);
         end;
-        mainDataModul.queryProizvodiPorudzbenicePunjenje.Next;
+        mainDataModul.queryProizvodiZahtevPunjenje.Next;
       end;
 
 end;
@@ -154,12 +155,12 @@ begin
   ComboBox2.Enabled:=False;
   ComboBox1.Items.Clear;
 
-  mainDataModul.queryDobavljaciPorudzbenicePunjenje.First;
+  mainDataModul.queryDobavljaciZahtevPunjenje.First;
 
-  while not mainDataModul.queryDobavljaciPorudzbenicePunjenje.Eof do
+  while not mainDataModul.queryDobavljaciZahtevPunjenje.Eof do
   begin
-    ComboBox1.items.Add(mainDataModul.queryDobavljaciPorudzbenicePunjenje['ImeDobavljaca']);
-    mainDataModul.queryDobavljaciPorudzbenicePunjenje.Next;
+    ComboBox1.items.Add(mainDataModul.queryDobavljaciZahtevPunjenje['ImeDobavljaca']);
+    mainDataModul.queryDobavljaciZahtevPunjenje.Next;
   end;
 
 end;

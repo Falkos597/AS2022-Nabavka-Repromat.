@@ -2,7 +2,7 @@ object frmStartView: TfrmStartView
   Left = 558
   Top = 96
   Caption = 'Form1'
-  ClientHeight = 482
+  ClientHeight = 543
   ClientWidth = 457
   Position = Designed
   SystemStatusBar.BackgroundColor = claRed
@@ -15,7 +15,7 @@ object frmStartView: TfrmStartView
   object orderViewBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 32.000000000000000000
-    Position.Y = 248.000000000000000000
+    Position.Y = 304.000000000000000000
     Size.Width = 393.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -27,7 +27,7 @@ object frmStartView: TfrmStartView
   object createOrderBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 32.000000000000000000
-    Position.Y = 360.000000000000000000
+    Position.Y = 416.000000000000000000
     Size.Width = 393.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -39,7 +39,7 @@ object frmStartView: TfrmStartView
   object supplierViewBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 32.000000000000000000
-    Position.Y = 416.000000000000000000
+    Position.Y = 472.000000000000000000
     Size.Width = 393.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -50,7 +50,7 @@ object frmStartView: TfrmStartView
   end
   object ImageViewer1: TImageViewer
     Position.X = 122.000000000000000000
-    Position.Y = 8.000000000000000000
+    Position.Y = 64.000000000000000000
     Size.Width = 220.000000000000000000
     Size.Height = 218.000000000000000000
     Size.PlatformDefault = False
@@ -535,13 +535,13 @@ object frmStartView: TfrmStartView
       8BB99C2E03927797192E415C74299C0421528299CE3420BB65DA650BB9D021B2
       DDC6B6BE56A1C025880B175950AA9ED3858B1C00FC3F61E02A93EE50470A0000
       000049454E44AE426082}
-    Viewport.Width = 220.000000000000000000
-    Viewport.Height = 218.000000000000000000
+    Viewport.Width = 216.000000000000000000
+    Viewport.Height = 214.000000000000000000
   end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 32.000000000000000000
-    Position.Y = 304.000000000000000000
+    Position.Y = 360.000000000000000000
     Size.Width = 393.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -549,5 +549,16 @@ object frmStartView: TfrmStartView
     Text = 'Pregled porud'#382'benica'
     TextSettings.Font.Size = 16.000000000000000000
     OnClick = Button2Click
+  end
+  object Label7: TLabel
+    Align = Top
+    StyledSettings = [Family, Style, FontColor]
+    Size.Width = 457.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Glavni meni'
+    TabOrder = 20
   end
 end

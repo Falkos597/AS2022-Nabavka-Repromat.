@@ -24,6 +24,7 @@ type
     Label3: TLabel;
     signUpBtn: TButton;
     ImageViewer1: TImageViewer;
+    Label6: TLabel;
     procedure signUpBtnClick(Sender: TObject);
     procedure signInBtnClick(Sender: TObject);
   private

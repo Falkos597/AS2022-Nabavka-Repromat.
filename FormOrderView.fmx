@@ -13,7 +13,7 @@ object frmRequestOrderView: TfrmRequestOrderView
   DesignerMasterStyle = 0
   object buttonNazad: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 656.000000000000000000
+    Position.X = 664.000000000000000000
     Position.Y = 504.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
@@ -25,7 +25,7 @@ object frmRequestOrderView: TfrmRequestOrderView
   end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 640.000000000000000000
+    Position.X = 648.000000000000000000
     Position.Y = 344.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
@@ -40,26 +40,26 @@ object frmRequestOrderView: TfrmRequestOrderView
     ClipChildren = True
     Position.X = 8.000000000000000000
     Position.Y = 64.000000000000000000
-    Size.Width = 559.000000000000000000
+    Size.Width = 609.000000000000000000
     Size.Height = 521.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 7
-    RowCount = 0
+    RowCount = 2
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 559.000000000000000000
-    Viewport.Height = 521.000000000000000000
+    Viewport.Width = 605.000000000000000000
+    Viewport.Height = 496.000000000000000000
   end
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 12
-    Position.X = 680.000000000000000000
+    Position.X = 688.000000000000000000
     Position.Y = 136.000000000000000000
     Size.Width = 81.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
   end
   object Label1: TLabel
-    Position.X = 656.000000000000000000
+    Position.X = 664.000000000000000000
     Position.Y = 104.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 25.000000000000000000
@@ -70,7 +70,7 @@ object frmRequestOrderView: TfrmRequestOrderView
   end
   object Button4: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 640.000000000000000000
+    Position.X = 648.000000000000000000
     Position.Y = 264.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
@@ -83,7 +83,7 @@ object frmRequestOrderView: TfrmRequestOrderView
   end
   object Button5: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 640.000000000000000000
+    Position.X = 648.000000000000000000
     Position.Y = 184.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
@@ -94,34 +94,49 @@ object frmRequestOrderView: TfrmRequestOrderView
     TextSettings.WordWrap = True
     OnClick = Button1Click
   end
-  object Label2: TLabel
+  object Label7: TLabel
+    Align = Top
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 336.000000000000000000
-    Position.Y = 8.000000000000000000
-    Size.Width = 217.000000000000000000
+    Size.Width = 840.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
-    TextSettings.Font.Size = 16.000000000000000000
+    TextSettings.Font.Size = 24.000000000000000000
     TextSettings.HorzAlign = Center
     Text = 'Zahtevi za nabavku'
-    TabOrder = 15
+    TabOrder = 19
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = mainDataModul.queryPregledZahtevaZaNabavku
+    DataSet = mainDataModul.queryPrikazZahtevaZaNabavku
     ScopeMappings = <>
-    Left = 608
-    Top = 72
+    Left = 656
+    Top = 24
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 612
-    Top = 21
+    Left = 700
+    Top = 29
     object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
       GridControl = Grid1
-      Columns = <>
+      Columns = <
+        item
+          MemberName = 'Indeks'
+        end
+        item
+          MemberName = 'ImePodnosioca'
+        end
+        item
+          MemberName = 'Stanje'
+        end
+        item
+          MemberName = 'ImeHitnosti'
+        end
+        item
+          MemberName = 'DatumPodnosenja'
+          Width = 120
+        end>
     end
   end
 end

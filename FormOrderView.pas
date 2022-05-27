@@ -26,7 +26,7 @@ type
     Label1: TLabel;
     Button4: TButton;
     Button5: TButton;
-    Label2: TLabel;
+    Label7: TLabel;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
@@ -59,18 +59,18 @@ end;
 procedure TfrmRequestOrderView.Button1Click(Sender: TObject);
 begin
 
-   mainDataModul.queryPregledZahtevaZaNabavku.First;
+   mainDataModul.queryPrikazZahtevaZaNabavku.First;
    var ind :Integer;
    TryStrToInt(Edit1.Text, ind);
    var prov :Boolean := True;
 
-   while NOT mainDataModul.queryPregledZahtevaZaNabavku.Eof do
+   while NOT mainDataModul.queryPrikazZahtevaZaNabavku.Eof do
    begin
 
-    if mainDataModul.queryPregledZahtevaZaNabavku['Indeks'] = ind then
+    if mainDataModul.queryPrikazZahtevaZaNabavku['Indeks'] = ind then
     begin
 
-      id := mainDataModul.queryPregledZahtevaZaNabavku['Indeks'];
+      id := mainDataModul.queryPrikazZahtevaZaNabavku['Indeks'];
       frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
       frmViewProducts.gridZahteva.Visible := true;
@@ -80,7 +80,7 @@ begin
 
     end;
 
-    mainDataModul.queryPregledZahtevaZaNabavku.Next;
+    mainDataModul.queryPrikazZahtevaZaNabavku.Next;
 
    end;
   if prov then

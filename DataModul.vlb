@@ -1,17 +1,8 @@
-﻿[queryPregledZahtevaZaNabavku]
-Coordinates=10,10,174,51
-
-[queryProizvodiPorudzbenicePunjenje]
-Coordinates=426,10,199,51
-
-[querySviKlijenti]
+﻿[querySviKlijenti]
 Coordinates=83,71,92,51
 
 [queryStatusPorudzbeniePunjenje]
 Coordinates=185,71,178,51
-
-[queryDobavljaciPorudzbenicePunjenje]
-Coordinates=388,132,204,51
 
 [queryInsert]
 Coordinates=273,10,70,51
@@ -28,18 +19,32 @@ Coordinates=234,132,144,51
 [queryDobavljaciPorudzbenicaPunjenje]
 Coordinates=10,193,204,51
 
-[queryPregledPorudzbenica]
-Coordinates=373,71,147,51
-
 [queryProizvodiNaZahtevu]
 Coordinates=353,10,141,51
+Visible=False
 
 [queryProizvodiNaPorudzbenici]
 Coordinates=224,193,166,51
+Visible=False
 
 [queryDelete]
 Coordinates=194,10,73,51
 
 [queryPrikazProizvodaNoveP]
 Coordinates=20,110,154,51
+
+[queryPrikazDobavljaca]
+Coordinates=243,202,127,159
+
+[queryPrikazPorudzbenica]
+Coordinates=373,71,147,51
+
+[queryPrikazZahtevaZaNabavku]
+Coordinates=10,10,174,51
+
+[queryDobavljaciZahtevPunjenje]
+Coordinates=388,132,204,51
+
+[queryProizvodiZahtevPunjenje]
+Coordinates=426,10,199,51
 
