@@ -24,6 +24,7 @@ type
     Button1: TButton;
     procedure Button1Click(Sender: TObject);
     procedure backBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -90,6 +91,11 @@ begin
   ShowMessage('Dobavljac uspesno dodat!');
   mainDataModul.queryPrikazDobavljaca.Refresh;
 
+end;
+
+procedure TfrmAddSupplier.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
 end;
 
 end.

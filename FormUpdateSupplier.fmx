@@ -8,6 +8,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   Left = 552
   Top = 240
   DesignerMasterStyle = 0
@@ -15,7 +16,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 18
     Position.X = 156.000000000000000000
-    Position.Y = 48.000000000000000000
+    Position.Y = 56.000000000000000000
     Size.Width = 173.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -23,7 +24,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
   object Label1: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 84.000000000000000000
-    Position.Y = 48.000000000000000000
+    Position.Y = 56.000000000000000000
     Size.Width = 117.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -35,7 +36,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 16
     Position.X = 156.000000000000000000
-    Position.Y = 88.000000000000000000
+    Position.Y = 96.000000000000000000
     Size.Width = 173.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -43,7 +44,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
   object Label2: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 84.000000000000000000
-    Position.Y = 88.000000000000000000
+    Position.Y = 96.000000000000000000
     Size.Width = 117.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -55,7 +56,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 14
     Position.X = 156.000000000000000000
-    Position.Y = 128.000000000000000000
+    Position.Y = 136.000000000000000000
     Size.Width = 173.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -63,7 +64,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
   object Label3: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 84.000000000000000000
-    Position.Y = 128.000000000000000000
+    Position.Y = 136.000000000000000000
     Size.Width = 117.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -75,7 +76,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 12
     Position.X = 156.000000000000000000
-    Position.Y = 168.000000000000000000
+    Position.Y = 176.000000000000000000
     Size.Width = 173.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -83,7 +84,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
   object Label4: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 84.000000000000000000
-    Position.Y = 168.000000000000000000
+    Position.Y = 176.000000000000000000
     Size.Width = 117.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -95,7 +96,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 10
     Position.X = 156.000000000000000000
-    Position.Y = 208.000000000000000000
+    Position.Y = 216.000000000000000000
     Size.Width = 173.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
@@ -103,7 +104,7 @@ object frmUpdateSupplier: TfrmUpdateSupplier
   object Label5: TLabel
     StyledSettings = [Family, Style, FontColor]
     Position.X = 84.000000000000000000
-    Position.Y = 208.000000000000000000
+    Position.Y = 216.000000000000000000
     Size.Width = 117.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False

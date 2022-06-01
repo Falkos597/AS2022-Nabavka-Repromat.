@@ -7,9 +7,6 @@ Coordinates=185,71,178,51
 [queryInsert]
 Coordinates=273,10,70,51
 
-[queryPrikazProizvodaNovePorudzbenice]
-Coordinates=10,132,214,51
-
 [FDConnection]
 Coordinates=472,249,84,33
 
@@ -20,31 +17,55 @@ Coordinates=234,132,144,51
 Coordinates=10,193,204,51
 
 [queryProizvodiNaZahtevu]
-Coordinates=353,10,141,51
+Coordinates=504,20,141,33
 Visible=False
 
 [queryProizvodiNaPorudzbenici]
-Coordinates=224,193,166,51
+Coordinates=400,203,166,33
 Visible=False
 
 [queryDelete]
 Coordinates=194,10,73,51
 
-[queryPrikazProizvodaNoveP]
-Coordinates=20,110,154,51
-
 [queryPrikazDobavljaca]
-Coordinates=243,202,127,159
+Coordinates=243,202,127,51
 
 [queryPrikazPorudzbenica]
-Coordinates=373,71,147,51
+Coordinates=373,71,140,123
 
 [queryPrikazZahtevaZaNabavku]
-Coordinates=10,10,174,51
+Coordinates=10,10,166,51
 
 [queryDobavljaciZahtevPunjenje]
-Coordinates=388,132,204,51
+Coordinates=388,132,170,51
 
 [queryProizvodiZahtevPunjenje]
-Coordinates=426,10,199,51
+Coordinates=426,10,164,51
+
+[queryPrikazProizvoda]
+Coordinates=95,180,121,141
+
+[queryHitnostZahtevPunjenje]
+Coordinates=532,80,153,51
+
+[queryUpdate]
+Coordinates=628,150,77,51
+
+[queryPunjenjeDobavljacaProizvoda]
+Coordinates=0,0,188,51
+
+[queryStanjeZahtevPunjenje]
+Coordinates=723,1,149,51
+
+[queryLastIndex]
+Coordinates=628,1,90,51
+
+[queryPrikazProizvodaNovogZ]
+Coordinates=20,110,160,51
+
+[queryPrikazProizvodaNovogZahteva]
+Coordinates=10,132,192,51
+
+[queryPrikazProizvodaNovePorudzbenice]
+Coordinates=910,1,214,141
 

@@ -17,7 +17,7 @@ uses
 
 type
   TfrmViewProducts = class(TForm)
-    Button1: TButton;
+    btnZahtev: TButton;
     gridPorudzbenica: TGrid;
     gridZahteva: TGrid;
     BindSourceDB1: TBindSourceDB;
@@ -26,8 +26,11 @@ type
     BindSourceDB2: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
     Label7: TLabel;
-    procedure Button1Click(Sender: TObject);
+    btnPorudz: TButton;
     procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnPorudzClick(Sender: TObject);
+    procedure btnZahtevClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,18 +43,33 @@ var
 
 implementation
 
-uses FormOrderView;
+uses FormOrderView, FormPurchaseOrderView;
 
 {$R *.fmx}
 
-procedure TfrmViewProducts.Button1Click(Sender: TObject);
+procedure TfrmViewProducts.btnPorudzClick(Sender: TObject);
 begin
-
-  frmViewProducts.Close;
+  frmViewProducts.hide;
   gridPorudzbenica.Visible := false;
   gridZahteva.Visible := false;
-  frmRequestOrderView.Show;
+  btnZahtev.Visible := false;
+  btnPorudz.Visible := false;
+  frmPurchaseOrderView.Show;
+end;
 
+procedure TfrmViewProducts.btnZahtevClick(Sender: TObject);
+begin
+  frmViewProducts.hide;
+  gridPorudzbenica.Visible := false;
+  gridZahteva.Visible := false;
+  btnZahtev.Visible := false;
+  btnPorudz.Visible := false;
+  frmRequestOrderView.Show;
+end;
+
+procedure TfrmViewProducts.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
 end;
 
 procedure TfrmViewProducts.FormShow(Sender: TObject);
@@ -59,13 +77,25 @@ begin
 
   with mainDataModul.queryProizvodiNaZahtevu do
   begin
-    SQL.Text := SQL.Text + idStr;
+    SQL.Text := 'SELECT Proizvod.ImeProizvoda, ListaProizvodaZahtev.Kolicina, Proizvod.CenaKupovine ' +
+                'FROM ListaProizvodaZahtev ' +
+                'INNER JOIN Proizvod ' +
+                'ON ListaProizvodaZahtev.IDProizvoda = Proizvod.IDTabele ' +
+                'INNER JOIN ZahtevZaNabavku ' +
+                'ON ListaProizvodaZahtev.IDZahteva = ZahtevZaNabavku.IDTabele ' +
+                'WHERE ZahtevZaNabavku.IDTabele =  ' + idStr;
     Open;
   end;
 
   with mainDataModul.queryProizvodiNaPorudzbenici do
   begin
-    SQL.Text := SQL.Text + idStr;
+    SQL.Text := 'SELECT Proizvod.ImeProizvoda, ListaProizvoda.Kolicina, Proizvod.CenaKupovine ' +
+                'FROM ListaProizvoda ' +
+                'INNER JOIN Proizvod ' +
+                'ON ListaProizvoda.IDProizvoda = Proizvod.IDTabele ' +
+                'INNER JOIN Porudzbenica ' +
+                'ON ListaProizvoda.IDPorudzbenice = Porudzbenica.IDTabele ' +
+                'WHERE Porudzbenica.IDTabele =  ' + idStr;
     Open;
   end;
 

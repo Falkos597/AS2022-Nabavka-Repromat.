@@ -1,62 +1,70 @@
 object frmProductView: TfrmProductView
-  Left = 0
-  Top = 0
+  Left = 420
+  Top = 90
   Caption = 'Form1'
-  ClientHeight = 573
-  ClientWidth = 701
+  ClientHeight = 569
+  ClientWidth = 721
+  Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  Left = 420
+  Top = 90
   DesignerMasterStyle = 0
   object Grid1: TGrid
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
-    Position.Y = 56.000000000000000000
-    Size.Width = 489.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 505.000000000000000000
     Size.Height = 497.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-    Viewport.Width = 485.000000000000000000
-    Viewport.Height = 472.000000000000000000
+    RowCount = 5
+    Viewport.Width = 505.000000000000000000
+    Viewport.Height = 497.000000000000000000
   end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 520.000000000000000000
-    Position.Y = 205.000000000000000000
-    Size.Width = 161.000000000000000000
+    Position.X = 544.000000000000000000
+    Position.Y = 181.000000000000000000
+    Size.Width = 145.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
     Text = 'Dodaj proizvod'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button2Click
   end
   object Button3: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 520.000000000000000000
-    Position.Y = 285.000000000000000000
-    Size.Width = 161.000000000000000000
+    Position.X = 544.000000000000000000
+    Position.Y = 253.000000000000000000
+    Size.Width = 145.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     Text = 'Izbri'#353'i proizvod'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button3Click
   end
   object Button4: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 520.000000000000000000
-    Position.Y = 365.000000000000000000
-    Size.Width = 161.000000000000000000
+    Position.X = 544.000000000000000000
+    Position.Y = 325.000000000000000000
+    Size.Width = 145.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     Text = 'Izmeni proizvod'
     TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button4Click
   end
   object backBtn: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 547.000000000000000000
-    Position.Y = 479.000000000000000000
+    Position.X = 555.000000000000000000
+    Position.Y = 487.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -65,15 +73,53 @@ object frmProductView: TfrmProductView
     TextSettings.Font.Size = 14.000000000000000000
     OnClick = backBtnClick
   end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 11
+    FilterChar = '0123456789'
+    Position.X = 575.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label1: TLabel
+    Position.X = 551.000000000000000000
+    Position.Y = 112.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Odaberi Index'
+    TabOrder = 12
+  end
   object Label7: TLabel
     Align = Top
     StyledSettings = [Family, Style, FontColor]
-    Size.Width = 701.000000000000000000
+    Size.Width = 721.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
     TextSettings.HorzAlign = Center
-    Text = 'Proizvodi'
+    Text = 'Pregled proizvoda'
     TabOrder = 19
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = mainDataModul.queryPrikazProizvoda
+    ScopeMappings = <>
+    Left = 576
+    Top = 72
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 612
+    Top = 69
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = Grid1
+      Columns = <>
+    end
   end
 end

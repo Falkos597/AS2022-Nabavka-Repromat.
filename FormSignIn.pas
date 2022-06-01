@@ -27,6 +27,7 @@ type
     Label6: TLabel;
     procedure signUpBtnClick(Sender: TObject);
     procedure signInBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -48,6 +49,11 @@ begin
 end;
 
 
+
+procedure TfrmSignUp.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
 
 procedure TfrmSignUp.signInBtnClick(Sender: TObject);
 begin

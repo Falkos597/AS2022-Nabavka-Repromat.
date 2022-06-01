@@ -1,78 +1,90 @@
 object frmViewProducts: TfrmViewProducts
   Left = 600
-  Top = 78
-  ActiveControl = Button1
+  Top = 132
   Caption = 'Form1'
-  ClientHeight = 656
-  ClientWidth = 409
+  ClientHeight = 490
+  ClientWidth = 316
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   OnShow = FormShow
   Left = 600
-  Top = 78
+  Top = 132
   DesignerMasterStyle = 0
-  object Button1: TButton
-    Position.X = 112.000000000000000000
-    Position.Y = 536.000000000000000000
-    Size.Width = 161.000000000000000000
-    Size.Height = 57.000000000000000000
+  object btnZahtev: TButton
+    Align = Scale
+    Position.Y = 435.555847167968800000
+    Size.Width = 298.000152587890600000
+    Size.Height = 54.444519042968750000
     Size.PlatformDefault = False
-    TabOrder = 4
+    TabOrder = 5
     Text = '<- Nazad'
-    OnClick = Button1Click
+    Visible = False
+    OnClick = btnZahtevClick
   end
   object gridPorudzbenica: TGrid
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
-    Position.Y = 48.000000000000000000
-    Size.Width = 393.000000000000000000
-    Size.Height = 465.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 297.000000000000000000
+    Size.Height = 353.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     Visible = False
-    RowCount = 0
-    Viewport.Width = 389.000000000000000000
-    Viewport.Height = 440.000000000000000000
+    RowCount = 3
+    Viewport.Width = 297.000000000000000000
+    Viewport.Height = 353.000000000000000000
   end
   object gridZahteva: TGrid
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
-    Position.Y = 48.000000000000000000
-    Size.Width = 394.000000000000000000
-    Size.Height = 465.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 297.000000000000000000
+    Size.Height = 353.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 10
+    TabOrder = 11
     Visible = False
     RowCount = 0
-    Viewport.Width = 390.000000000000000000
-    Viewport.Height = 440.000000000000000000
+    Viewport.Width = 297.000000000000000000
+    Viewport.Height = 353.000000000000000000
   end
   object Label7: TLabel
     Align = Top
     StyledSettings = [Family, Style, FontColor]
-    Size.Width = 409.000000000000000000
+    Size.Width = 316.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
     TextSettings.HorzAlign = Center
     Text = 'Pregled proizvoda'
-    TabOrder = 20
+    TabOrder = 21
+  end
+  object btnPorudz: TButton
+    Align = Scale
+    Position.Y = 436.000000000000000000
+    Size.Width = 298.000000000000000000
+    Size.Height = 54.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '<- Nazad'
+    Visible = False
+    OnClick = btnPorudzClick
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = mainDataModul.queryProizvodiNaPorudzbenici
     ScopeMappings = <>
-    Left = 344
-    Top = 544
+    Left = 296
+    Top = 184
   end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
-    Left = 284
-    Top = 541
+    Left = 236
+    Top = 181
     object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
@@ -89,7 +101,7 @@ object frmViewProducts: TfrmViewProducts
   object BindSourceDB2: TBindSourceDB
     DataSet = mainDataModul.queryProizvodiNaZahtevu
     ScopeMappings = <>
-    Left = 352
-    Top = 552
+    Left = 304
+    Top = 192
   end
 end

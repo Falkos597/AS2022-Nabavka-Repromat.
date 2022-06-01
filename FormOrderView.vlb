@@ -1,8 +1,5 @@
-﻿[Button2]
+﻿[]
 Coordinates=538,150,53,51
-
-[]
-Coordinates=180,80,232,69
 Visible=False
 ExplicitSubNodes=Layout.Text
 

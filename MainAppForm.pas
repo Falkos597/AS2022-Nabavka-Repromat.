@@ -20,6 +20,7 @@ type
     procedure createOrderBtnClick(Sender: TObject);
     procedure supplierViewBtnClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -49,6 +50,11 @@ procedure TfrmStartView.createOrderBtnClick(Sender: TObject);
 begin
   self.Hide;
   frmProductView.Show;
+end;
+
+procedure TfrmStartView.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ Application.Terminate;
 end;
 
 procedure TfrmStartView.supplierViewBtnClick(Sender: TObject);

@@ -1,0 +1,68 @@
+object frmSupplierProductView: TfrmSupplierProductView
+  Left = 534
+  Top = 132
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 378
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  Left = 534
+  Top = 132
+  DesignerMasterStyle = 0
+  object Label7: TLabel
+    Align = Top
+    StyledSettings = [Family, Style, FontColor]
+    Size.Width = 378.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Pregled proizvoda dobavlja'#269'a'
+    TabOrder = 18
+  end
+  object btnZahtev: TButton
+    Align = Bottom
+    Position.Y = 426.000000000000000000
+    Size.Width = 378.000000000000000000
+    Size.Height = 54.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = '<- Nazad'
+    OnClick = btnZahtevClick
+  end
+  object StringGrid1: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 361.000000000000000000
+    Size.Height = 369.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 19
+    RowCount = 2
+    Viewport.Width = 357.000000000000000000
+    Viewport.Height = 344.000000000000000000
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = mainDataModul.queryPrikazProizvodaDobavljaca
+    ScopeMappings = <>
+    Left = 200
+    Top = 224
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = StringGrid1
+      Columns = <>
+    end
+  end
+end

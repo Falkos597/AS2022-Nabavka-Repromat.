@@ -9,6 +9,7 @@ object frmSignIn: TfrmSignIn
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   Left = 540
   Top = 60
   DesignerMasterStyle = 0

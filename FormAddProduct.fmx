@@ -8,6 +8,7 @@ object frmAddProduct: TfrmAddProduct
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   OnShow = FormShow
   Left = 348
   Top = 108
@@ -23,8 +24,8 @@ object frmAddProduct: TfrmAddProduct
     TabOrder = 0
     RowCount = 1
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 493.000000000000000000
-    Viewport.Height = 440.000000000000000000
+    Viewport.Width = 497.000000000000000000
+    Viewport.Height = 465.000000000000000000
   end
   object ComboBox1: TComboBox
     Position.X = 64.000000000000000000
@@ -58,6 +59,7 @@ object frmAddProduct: TfrmAddProduct
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 4
+    FilterChar = '0123456789'
     Position.X = 64.000000000000000000
     Position.Y = 232.000000000000000000
     Size.Width = 217.000000000000000000
@@ -125,6 +127,7 @@ object frmAddProduct: TfrmAddProduct
   object Edit3: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 18
+    FilterChar = '0123456789'
     Position.X = 32.000000000000000000
     Position.Y = 376.000000000000000000
     Size.Width = 137.000000000000000000
@@ -142,6 +145,12 @@ object frmAddProduct: TfrmAddProduct
     Text = 'Dodavanje proizvoda na zahtev za nabavku'
     TabOrder = 20
   end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = mainDataModul.queryPrikazProizvodaNovogZ
+    ScopeMappings = <>
+    Left = 24
+    Top = 72
+  end
   object BindingsList1: TBindingsList
     Methods = <>
     OutputConverters = <>
@@ -153,11 +162,5 @@ object frmAddProduct: TfrmAddProduct
       GridControl = Grid1
       Columns = <>
     end
-  end
-  object BindSourceDB1: TBindSourceDB
-    DataSet = mainDataModul.queryPrikazProizvodaNoveP
-    ScopeMappings = <>
-    Left = 24
-    Top = 64
   end
 end

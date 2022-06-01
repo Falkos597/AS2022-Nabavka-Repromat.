@@ -14,11 +14,10 @@ uses
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
-  FMX.StdCtrls, FMX.Edit, FormViewProducts, DataModul;
+  FMX.StdCtrls, FMX.Edit, FormViewProducts, DataModul, FormCreatePurchaseOrder;
 
 type
   TfrmPurchaseOrderView = class(TForm)
-    Grid1: TGrid;
     buttonNazad: TButton;
     Edit1: TEdit;
     Label1: TLabel;
@@ -26,11 +25,15 @@ type
     Button2: TButton;
     Button3: TButton;
     Label7: TLabel;
+    StringGrid1: TStringGrid;
     BindSourceDB1: TBindSourceDB;
-    BindingsList1: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    BindingsList1: TBindingsList;
     procedure buttonNazadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -65,6 +68,7 @@ begin
       frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
       frmViewProducts.gridPorudzbenica.Visible := true;
+      frmViewProducts.btnPorudz.Visible := true;
       Self.hide;
       prov :=False;
       break;
@@ -80,10 +84,50 @@ begin
 
 end;
 
+procedure TfrmPurchaseOrderView.Button2Click(Sender: TObject);
+begin
+  self.Hide;
+  frmCreatePurchaseOrder.Show;
+end;
+
+procedure TfrmPurchaseOrderView.Button3Click(Sender: TObject);
+begin
+  mainDataModul.queryPrikazPorudzbenica.First;
+  var ind :Integer;
+  TryStrToInt(Edit1.Text, ind);
+
+  while not mainDataModul.queryPrikazPorudzbenica.Eof do
+  begin
+
+    if mainDataModul.queryPrikazPorudzbenica['Indeks'] = ind then
+    begin
+
+      mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvoda WHERE IDPorudzbenice = ' + IntToStr(ind));
+      mainDataModul.queryDelete.ExecSQL('DELETE FROM Porudzbenica WHERE IDTabele = ' + IntToStr(ind));
+      mainDataModul.queryPrikazPorudzbenica.Refresh;
+      ShowMessage('Uspesno izbrisana porudžbenica sa indeksom ' + IntToStr(ind));
+      Edit1.Text := '';
+      exit
+
+    end;
+
+    mainDataModul.queryPrikazPorudzbenica.Next;
+
+  end;
+
+  ShowMessage('Uneli ste nepostojeći indeks!');
+end;
+
 procedure TfrmPurchaseOrderView.buttonNazadClick(Sender: TObject);
 begin
   Self.Hide;
   frmStartView.Show;
+end;
+
+procedure TfrmPurchaseOrderView.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+Application.Terminate;
 end;
 
 end.

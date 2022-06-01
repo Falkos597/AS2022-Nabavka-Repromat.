@@ -14,7 +14,7 @@ uses
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.Components, Data.Bind.DBScope, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, FMX.ListBox, Datasnap.Provider,FormAddProduct, DataModul,
+  FireDAC.Comp.Client, FMX.ListBox, Datasnap.Provider, FormAddProduct, DataModul,
   Fmx.Bind.Grid, Data.Bind.Grid;
 
 type
@@ -38,6 +38,7 @@ type
     procedure Button3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -51,14 +52,14 @@ var
 
 implementation
 
-uses MainAppForm;
+uses FormOrderView;
 
 {$R *.fmx}
 
 procedure TfrmCreateOrder.Button1Click(Sender: TObject);
 begin
   self.Hide;
-  frmStartView.Show;
+  frmRequestOrderView.Show;
 end;
 
 procedure TfrmCreateOrder.Button2Click(Sender: TObject);
@@ -103,20 +104,18 @@ begin
   mainDataModul.queryLastIndex.Refresh;
   var indeksZah := mainDataModul.queryLastIndex['last_insert_rowid()'];
 
-
-
-  mainDataModul.queryPrikazProizvodaNoveP.First;
-  while not mainDataModul.queryPrikazProizvodaNoveP.Eof do
+  mainDataModul.queryPrikazProizvodaNovogZ.First;
+  while not mainDataModul.queryPrikazProizvodaNovogZ.Eof do
   begin
     mainDataModul.queryProizvodiZahtevPunjenje.First;
     while not mainDataModul.queryProizvodiZahtevPunjenje.Eof do
     begin
 
-    if mainDataModul.queryProizvodiZahtevPunjenje['ImeProizvoda'] = mainDataModul.queryPrikazProizvodaNoveP['ImeProizvoda'] then
+    if mainDataModul.queryProizvodiZahtevPunjenje['ImeProizvoda'] = mainDataModul.queryPrikazProizvodaNovogZ['ImeProizvoda'] then
       begin
 
       var idProizvoda := mainDataModul.queryProizvodiZahtevPunjenje['IDProizvoda'];
-      var kolicina := mainDataModul.queryPrikazProizvodaNoveP['Kolicina'];
+      var kolicina := mainDataModul.queryPrikazProizvodaNovogZ['Kolicina'];
       mainDataModul.queryInsert.ExecSQL('INSERT INTO ListaProizvodaZahtev (IDZahteva, IDProizvoda, Kolicina) VALUES(' + IntToStr(indeksZah).Trim + ', ' + IntToStr(idProizvoda).Trim + ', ' + IntToStr(kolicina).Trim + ')');
 
       end;
@@ -124,18 +123,26 @@ begin
     mainDataModul.queryProizvodiZahtevPunjenje.Next;
     end;
 
-    mainDataModul.queryPrikazProizvodaNoveP.Next;
+    mainDataModul.queryPrikazProizvodaNovogZ.Next;
   end;
 
-//  mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
-  mainDataModul.queryPrikazProizvodaNoveP.Refresh;
+  mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
+  mainDataModul.queryPrikazProizvodaNovogZ.Refresh;
+  mainDataModul.queryPrikazZahtevaZaNabavku.Refresh;
 
-  ShowMessage('Uspesno kreiranje porudzbenice!');
+  ShowMessage('Uspesno kreiranje zahteva za nabavku!');
+  self.Hide;
+  frmRequestOrderView.Show;
 end;
 
 procedure TfrmCreateOrder.Button3Click(Sender: TObject);
 begin
  frmAddProduct.Show;
+end;
+
+procedure TfrmCreateOrder.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
 end;
 
 procedure TfrmCreateOrder.FormShow(Sender: TObject);
@@ -163,8 +170,10 @@ ComboBox1.Items.Clear;
     mainDataModul.queryHitnostZahtevPunjenje.Next;
   end;
 
-  //mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
-  mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
+  mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE 1');
+  mainDataModul.queryPrikazProizvodaNovogZ.Refresh;
+  mainDataModul.queryPrikazProizvodaNovogZahteva.Refresh;
+
 end;
 
 end.

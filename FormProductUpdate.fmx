@@ -1,0 +1,132 @@
+object frmProductUpdate: TfrmProductUpdate
+  Left = 636
+  Top = 180
+  Caption = 'Form1'
+  ClientHeight = 345
+  ClientWidth = 355
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  Left = 636
+  Top = 180
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 24.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Dobavljac'
+    TabOrder = 6
+  end
+  object Label2: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 24.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 65.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Proizvod'
+    TabOrder = 2
+  end
+  object Label3: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 24.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Cena'
+    TabOrder = 1
+  end
+  object Label4: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 24.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 65.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    Text = 'Kolicina'
+    TabOrder = 0
+  end
+  object ComboBox1: TComboBox
+    Position.X = 104.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+  end
+  object Edit2: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 9
+    FilterChar = '0123456789'
+    Position.X = 104.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Edit3: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    FilterChar = '0123456789'
+    Position.X = 104.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Button1: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 24.000000000000000000
+    Position.Y = 296.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    Text = '<- Nazad'
+    TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 224.000000000000000000
+    Position.Y = 296.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'Izmeni'
+    TextSettings.Font.Size = 14.000000000000000000
+    OnClick = Button2Click
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Position.X = 104.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label7: TLabel
+    Align = Top
+    StyledSettings = [Family, Style, FontColor]
+    Size.Width = 355.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = 'Izmena proizvoda'
+    TabOrder = 19
+  end
+end

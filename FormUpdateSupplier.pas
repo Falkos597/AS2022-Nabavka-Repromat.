@@ -24,6 +24,7 @@ type
     Button1: TButton;
     procedure backBtnClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -66,6 +67,12 @@ begin
   self.Hide;
   frmSupplierView.Show;
 
+end;
+
+procedure TfrmUpdateSupplier.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+Application.Terminate;
 end;
 
 end.

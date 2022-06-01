@@ -320,6 +320,22 @@
             <Form>frmUpdateSupplier</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="FormCreatePurchaseOrder.pas">
+            <Form>frmCreatePurchaseOrder</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="FormProductAdd.pas">
+            <Form>ProductAdd</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="FormProductUpdate.pas">
+            <Form>frmProductUpdate</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="FormSupplierProtuctView.pas">
+            <Form>frmSupplierProductView</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

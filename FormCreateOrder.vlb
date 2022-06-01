@@ -1,118 +1,133 @@
 ﻿[Button1]
-Coordinates=327,344,53,51
+Coordinates=372,460,59,58
 
 [Edit1]
-Coordinates=73,283,40,51
+Coordinates=10,460,44,58
 
 [Label3]
-Coordinates=510,10,46,51
+Coordinates=10,376,53,58
 
 [Label5]
-Coordinates=454,10,46,51
+Coordinates=457,460,53,58
 
 [Label4]
-Coordinates=271,344,46,51
+Coordinates=296,712,53,58
 
 [primalacLabel]
-Coordinates=10,222,83,51
+Coordinates=335,796,95,58
 
 [Button2]
-Coordinates=566,10,53,51
+Coordinates=746,544,59,58
 
 []
-Coordinates=301,80,82,33
+Coordinates=24,170,82,33
 Visible=False
 ExplicitSubNodes=Items;Items.Text;Text
 
 [ComboBox1]
-Coordinates=104,10,84,123
+Coordinates=10,204,101,146
 
 [ComboBox2]
-Coordinates=10,10,84,141
+Coordinates=137,204,101,146
 ExplicitSubNodes=Items.Text
 Visible=True
 
-[mainDataModul.queryPrikazProizvodaNovePorudzbenice]
-Coordinates=834,330,294,33
-Visible=False
-
 [mainDataModul.tableListaProizvodaZahtev]
-Coordinates=629,10,224,51
+Coordinates=10,712,260,58
 
 [mainDataModul.queryStatusPorudzbeniePunjenje]
-Coordinates=123,283,258,51
+Coordinates=10,796,299,58
 
 [mainDataModul.queryProizvodiNaPorudzbenici]
-Coordinates=198,10,246,51
+Coordinates=264,204,284,124
 
 [mainDataModul.queryPregledZahtevaZaNabavku]
 Coordinates=10,161,253,51
 
 [Button3]
-Coordinates=10,283,53,51
+Coordinates=661,544,59,58
 
 [mainDataModul.queryDobavljaciPorudzbenicaPunjenje]
-Coordinates=103,222,283,51
+Coordinates=306,544,329,58
 
 [mainDataModul.queryInsert]
-Coordinates=396,222,149,51
+Coordinates=840,460,173,58
 
 [mainDataModul.queryProizvodiNaZahtevu]
-Coordinates=273,161,220,51
+Coordinates=89,628,256,58
 
 [mainDataModul.FDQuery5]
 Coordinates=703,10,143,51
 
 [mainDataModul.querySviKlijenti]
-Coordinates=90,344,171,51
+Coordinates=501,376,197,58
 
 [mainDataModul.queryPregledPorudzbenica]
 Coordinates=634,283,227,51
 
 [StringGrid1]
-Coordinates=10,344,70,51
+Coordinates=951,215,80,58
 Visible=True
 
 [mainDataModul.queryDelete]
-Coordinates=555,222,152,51
-
-[mainDataModul.queryPrikazProizvodaNoveP]
-Coordinates=634,293,233,33
-Visible=False
+Coordinates=89,376,178,58
 
 [Label7]
-Coordinates=113,152,46,51
+Coordinates=10,628,53,58
 
 [mainDataModul.queryLastIndex]
-Coordinates=891,141,170,51
+Coordinates=724,376,196,58
 
 [mainDataModul.queryPrikazZahtevaZaNabavku]
-Coordinates=207,1,246,141
+Coordinates=708,628,288,58
+Visible=False
 
 [mainDataModul.queryPrikazDobavljaca]
-Coordinates=891,1,206,51
+Coordinates=690,712,240,58
 
 [mainDataModul.queryPrikazPorudzbenica]
-Coordinates=891,71,219,51
+Coordinates=637,10,255,146
 
 [mainDataModul.queryUpdate]
-Coordinates=531,80,156,51
+Coordinates=293,376,182,58
 
 [frmAddProduct.]
 Coordinates=530,320,268,69
 
-[BindSourceDB1]
-Coordinates=834,330,268,69
-
-[BindingsList1]
-Coordinates=24,170,82,33
-
-[frmAddProduct.BindSourceDB1]
-Coordinates=634,293,212,69
-
 [mainDataModul.queryDobavljaciZahtevPunjenje]
-Coordinates=503,161,283,51
+Coordinates=375,712,289,58
 
 [mainDataModul.queryProizvodiZahtevPunjenje]
-Coordinates=390,344,278,51
+Coordinates=831,544,283,58
+
+[mainDataModul.queryStanjeZahtevPunjenje]
+Coordinates=80,460,266,58
+
+[mainDataModul.queryHitnostZahtevPunjenje]
+Coordinates=10,544,270,58
+
+[mainDataModul.queryPrikazProizvodaNovogZ]
+Coordinates=536,460,278,58
+
+[mainDataModul.queryPrikazProizvodaNovogZahteva]
+Coordinates=1116,340,317,36
+Visible=False
+
+[mainDataModul.queryPunjenjeDobavljacaProizvoda]
+Coordinates=371,628,311,58
+
+[mainDataModul.queryPrikazProizvoda]
+Coordinates=378,10,233,168
+
+[mainDataModul.queryPregledproizvodanoveporudzbenice]
+Coordinates=1198,1,299,51
+
+[BindSourceDB1]
+Coordinates=574,204,297,80
+
+[BindingsList1]
+Coordinates=24,170,91,36
+
+[mainDataModul.queryPrikazProizvodaNovePorudzbenice]
+Coordinates=10,10,342,168
 

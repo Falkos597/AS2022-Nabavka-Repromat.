@@ -8,6 +8,7 @@ object frmAddSupplier: TfrmAddSupplier
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   Left = 612
   Top = 270
   DesignerMasterStyle = 0
@@ -125,7 +126,7 @@ object frmAddSupplier: TfrmAddSupplier
   object backBtn: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 23.000000000000000000
-    Position.Y = 285.000000000000000000
+    Position.Y = 277.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -137,7 +138,7 @@ object frmAddSupplier: TfrmAddSupplier
   object Button1: TButton
     StyledSettings = [Family, Style, FontColor]
     Position.X = 263.000000000000000000
-    Position.Y = 285.000000000000000000
+    Position.Y = 277.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False

@@ -9,6 +9,7 @@ object frmStartView: TfrmStartView
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   Left = 558
   Top = 96
   DesignerMasterStyle = 0

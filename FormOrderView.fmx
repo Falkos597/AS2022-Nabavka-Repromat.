@@ -8,6 +8,8 @@ object frmRequestOrderView: TfrmRequestOrderView
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
   Left = 384
   Top = 48
   DesignerMasterStyle = 0
@@ -22,18 +24,6 @@ object frmRequestOrderView: TfrmRequestOrderView
     Text = '<- Nazad'
     TextSettings.Font.Size = 14.000000000000000000
     OnClick = backBtnClick
-  end
-  object Button2: TButton
-    StyledSettings = [Family, Style, FontColor]
-    Position.X = 648.000000000000000000
-    Position.Y = 344.000000000000000000
-    Size.Width = 161.000000000000000000
-    Size.Height = 65.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 2
-    Text = 'Kreiraj narud'#382'benicu iz zahteva'
-    TextSettings.Font.Size = 14.000000000000000000
-    TextSettings.WordWrap = True
   end
   object Grid1: TGrid
     CanFocus = True
@@ -52,6 +42,7 @@ object frmRequestOrderView: TfrmRequestOrderView
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 12
+    FilterChar = '0123456789'
     Position.X = 688.000000000000000000
     Position.Y = 136.000000000000000000
     Size.Width = 81.000000000000000000
@@ -75,7 +66,7 @@ object frmRequestOrderView: TfrmRequestOrderView
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 1
+    TabOrder = 2
     Text = 'Kreiraj novi zahteva za nabavku'
     TextSettings.Font.Size = 14.000000000000000000
     TextSettings.WordWrap = True
@@ -88,7 +79,7 @@ object frmRequestOrderView: TfrmRequestOrderView
     Size.Width = 161.000000000000000000
     Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 0
+    TabOrder = 1
     Text = 'Stavke zahteva za nabavku'
     TextSettings.Font.Size = 14.000000000000000000
     TextSettings.WordWrap = True
@@ -104,6 +95,19 @@ object frmRequestOrderView: TfrmRequestOrderView
     TextSettings.HorzAlign = Center
     Text = 'Zahtevi za nabavku'
     TabOrder = 19
+  end
+  object Button6: TButton
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 648.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Obri'#353'i zahtev za nabavku'
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.WordWrap = True
+    OnClick = Button6Click
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = mainDataModul.queryPrikazZahtevaZaNabavku

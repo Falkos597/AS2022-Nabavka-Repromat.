@@ -1,4 +1,4 @@
-unit FormAddProduct;
+Ôªøunit FormAddProduct;
 
 interface
 
@@ -31,14 +31,15 @@ type
     Button3: TButton;
     Edit3: TEdit;
     Label7: TLabel;
-    BindingsList1: TBindingsList;
     BindSourceDB1: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    BindingsList1: TBindingsList;
     procedure ComboBox1Change(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
 
 private
@@ -62,51 +63,45 @@ procedure TfrmAddProduct.Button1Click(Sender: TObject);
 begin
     Self.hide;
     frmCreateOrder.Show;
-    mainDataModul.queryPrikazProizvodaNoveP.Refresh;
+    mainDataModul.queryPrikazProizvodaNovogZahteva.Refresh;
 end;
 
 
 procedure TfrmAddProduct.Button2Click(Sender: TObject);
 begin
   var indeks := Edit3.Text.ToInteger;
-  var check := True;
 
   if edit3.Text.IsEmpty then
   begin
-    ShowMessage('Unesite Indeks koji ûelite da izbriöete.');
+    ShowMessage('Unesite Indeks koji ≈æelite da izbri≈°ete.');
     exit
   end;
 
-  mainDataModul.queryPrikazProizvodaNovePorudzbenice.First;
-  while not mainDataModul.queryPrikazProizvodaNovePorudzbenice.Eof do
+  mainDataModul.queryPrikazProizvodaNovogZ.First;
+  while not mainDataModul.queryPrikazProizvodaNovogZ.Eof do
   begin
-    if mainDataModul.queryPrikazProizvodaNovePorudzbenice['Indeks'] = indeks then
+    if mainDataModul.queryPrikazProizvodaNovogZ['Indeks'] = indeks then
     begin
       mainDataModul.queryInsert.ExecSQL('DELETE FROM ListaProizvodaZahtevaTemp WHERE IDUnosa = ' + IntToStr(indeks));
-      check := False;
+      mainDataModul.queryPrikazProizvodaNovogZ.Refresh;
+      exit
     end;
 
-    mainDataModul.queryPrikazProizvodaNovePorudzbenice.Next;
+    mainDataModul.queryPrikazProizvodaNovogZ.Next;
   end;
 
-  mainDataModul.queryPrikazProizvodaNovePorudzbenice.Refresh;
 
-  if check then
-  ShowMessage('Uneli ste nepostojeci indeks;');
+  ShowMessage('Uneli ste nepostojeƒái indeks;');
 end;
 
 procedure TfrmAddProduct.Button3Click(Sender: TObject);
 begin
 
-  if not ((ComboBox1.Selected.IsSelected) and (ComboBox2.Selected.IsSelected)) then
+  if (not ComboBox1.Selected.IsSelected) or (not ComboBox2.Selected.IsSelected) or Edit1.Text.IsEmpty then
   begin
-    ShowMessage('Loö unos!!!');
+    ShowMessage('Lo≈° unos!!!');
     exit
-  end else
-  begin
-    var ProizvodjacTemp := ComboBox1.Selected.Text;
-    var ProizvodTemp := ComboBox2.Selected.Text;
-  end;
+  end ;
 
   var ProizvodID :Integer;
   var ProizvodIme := ComboBox2.Selected.Text;
@@ -126,7 +121,7 @@ begin
     mainDataModul.queryProizvodiZahtevPunjenje.Next;
   end;
 
-  mainDataModul.queryPrikazProizvodaNoveP.Refresh;
+  mainDataModul.queryPrikazProizvodaNovogZ.Refresh;
 
 end;
 
@@ -149,6 +144,11 @@ begin
 end;
 
 
+
+procedure TfrmAddProduct.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
 
 procedure TfrmAddProduct.FormShow(Sender: TObject);
 begin

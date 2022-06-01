@@ -1,4 +1,4 @@
-unit FormOrderView;
+﻿unit FormOrderView;
 
 interface
 
@@ -20,7 +20,6 @@ uses
 type
   TfrmRequestOrderView = class(TForm)
     buttonNazad: TButton;
-    Button2: TButton;
     Grid1: TGrid;
     Edit1: TEdit;
     Label1: TLabel;
@@ -30,9 +29,13 @@ type
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    Button6: TButton;
     procedure backBtnClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -52,7 +55,7 @@ uses MainAppForm;
 
 procedure TfrmRequestOrderView.backBtnClick(Sender: TObject);
 begin
-  frmRequestOrderView.Close;
+  frmRequestOrderView.hide;
   frmStartView.Show;
 end;
 
@@ -62,7 +65,7 @@ begin
    mainDataModul.queryPrikazZahtevaZaNabavku.First;
    var ind :Integer;
    TryStrToInt(Edit1.Text, ind);
-   var prov :Boolean := True;
+
 
    while NOT mainDataModul.queryPrikazZahtevaZaNabavku.Eof do
    begin
@@ -74,17 +77,17 @@ begin
       frmViewProducts.idStr := IntToStr(id);
       frmViewProducts.Show;
       frmViewProducts.gridZahteva.Visible := true;
+      frmViewProducts.btnZahtev.Visible := true;
       frmRequestOrderView.hide;
-      prov :=False;
-      break;
+      exit
 
     end;
 
     mainDataModul.queryPrikazZahtevaZaNabavku.Next;
 
    end;
-  if prov then
-  ShowMessage('Uneli ste nepostoje?i indeks!');
+
+  ShowMessage('Uneli ste nepostojeći indeks!');
 
 end;
 
@@ -92,6 +95,44 @@ procedure TfrmRequestOrderView.Button4Click(Sender: TObject);
 begin
   self.Hide;
   frmCreateOrder.Show;
+end;
+
+procedure TfrmRequestOrderView.Button6Click(Sender: TObject);
+begin
+   mainDataModul.queryPrikazZahtevaZaNabavku.First;
+   var ind :Integer;
+   TryStrToInt(Edit1.Text, ind);
+
+   while not mainDataModul.queryPrikazZahtevaZaNabavku.Eof do
+   begin
+
+    if mainDataModul.queryPrikazZahtevaZaNabavku['Indeks'] = ind then
+    begin
+
+      mainDataModul.queryDelete.ExecSQL('DELETE FROM ListaProizvodaZahtev WHERE IDZahteva = ' + IntToStr(ind));
+      mainDataModul.queryDelete.ExecSQL('DELETE FROM ZahtevZaNabavku WHERE IDTabele = ' + IntToStr(ind));
+      mainDataModul.queryPrikazZahtevaZaNabavku.Refresh;
+      ShowMessage('Uspesno izbrisan zahtev za nabavku sa indeksom ' + IntToStr(ind));
+      exit
+
+    end;
+
+    mainDataModul.queryPrikazZahtevaZaNabavku.Next;
+
+   end;
+
+  ShowMessage('Uneli ste nepostojeći indeks!');
+end;
+
+procedure TfrmRequestOrderView.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
+
+procedure TfrmRequestOrderView.FormShow(Sender: TObject);
+begin
+  mainDataModul.queryPrikazZahtevaZaNabavku.Refresh;
 end;
 
 end.

@@ -8,14 +8,14 @@ object mainDataModul: TmainDataModul
       
         'Database=D:\AS2022_Nabavka_Repromaterijala\Win32\Debug\Nabavka.d' +
         'b'
+      'LockingMode=Normal'
       'DriverID=SQLite')
     Connected = True
     LoginPrompt = False
     Left = 680
-    Top = 352
+    Top = 16
   end
   object queryPrikazZahtevaZaNabavku: TFDQuery
-    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
@@ -27,15 +27,16 @@ object mainDataModul: TmainDataModul
       'INNER JOIN Hitnost '
       'ON ZahtevZaNabavku.IDHitnosti = Hitnost.IDTabele '
       'ORDER BY DatumPodnosenja DESC')
-    Left = 81
-    Top = 528
+    Left = 65
+    Top = 440
   end
   object querySviKlijenti: TFDQuery
     Connection = FDConnection
-    Left = 32
-    Top = 528
+    Left = 64
+    Top = 392
   end
-  object queryPrikazProizvodaNovePorudzbenice: TFDQuery
+  object queryPrikazProizvodaNovogZahteva: TFDQuery
+    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
@@ -66,15 +67,24 @@ object mainDataModul: TmainDataModul
     Left = 120
     Top = 16
   end
-  object queryPrikazProizvodaNoveP: TFDQuery
+  object queryPrikazProizvodaNovogZ: TFDQuery
     Connection = FDConnection
     Left = 120
     Top = 72
   end
   object queryPrikazPorudzbenica: TFDQuery
+    Active = True
     Connection = FDConnection
-    Left = 136
-    Top = 528
+    SQL.Strings = (
+      
+        'SELECT Porudzbenica.IDTabele as Indeks, ImePodnosioca, Status.Im' +
+        'eStatusa as Status, DatumPodnosenja '
+      'FROM Porudzbenica '
+      'INNER JOIN Status '
+      'ON Porudzbenica.IDStatus = Status.IDTabele '
+      'ORDER BY Porudzbenica.IDTabele DESC')
+    Left = 64
+    Top = 488
   end
   object queryProizvodiNaZahtevu: TFDQuery
     Connection = FDConnection
@@ -97,7 +107,18 @@ object mainDataModul: TmainDataModul
     Top = 528
   end
   object queryProizvodiNaPorudzbenici: TFDQuery
+    Active = True
     Connection = FDConnection
+    SQL.Strings = (
+      
+        'SELECT Proizvod.ImeProizvoda, ListaProizvodaZahtev.Kolicina, Pro' +
+        'izvod.CenaKupovine '
+      'FROM ListaProizvodaZahtev '
+      'INNER JOIN Proizvod '
+      'ON ListaProizvodaZahtev.IDProizvoda = Proizvod.IDTabele '
+      'INNER JOIN ZahtevZaNabavku '
+      'ON ListaProizvodaZahtev.IDZahteva = ZahtevZaNabavku.IDTabele '
+      'WHERE ZahtevZaNabavku.IDTabele = 7 ')
     Left = 80
     Top = 184
   end
@@ -138,5 +159,52 @@ object mainDataModul: TmainDataModul
     Connection = FDConnection
     Left = 160
     Top = 16
+  end
+  object queryPunjenjeDobavljacaProizvoda: TFDQuery
+    Connection = FDConnection
+    Left = 40
+    Top = 240
+  end
+  object queryPrikazProizvoda: TFDQuery
+    Active = True
+    Connection = FDConnection
+    SQL.Strings = (
+      
+        'SELECT Proizvod.IDTabele as Indeks, Dobavljac.ImeDobavljaca, Ime' +
+        'Proizvoda, CenaKupovine, Kolicina '
+      'FROM Proizvod '
+      'INNER JOIN Dobavljac '
+      'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele ')
+    Left = 64
+    Top = 536
+  end
+  object queryPrikazProizvodaNovePorudzbenice: TFDQuery
+    Active = True
+    Connection = FDConnection
+    SQL.Strings = (
+      
+        'SELECT IDUnosa as Indeks, ImeDobavljaca, ImeProizvoda, ListaProi' +
+        'zvodaTemp.Kolicina as Kolicina, Proizvod.CenaKupovine as Cena '
+      'from ListaProizvodaTemp '
+      'INNER JOIN Proizvod '
+      'ON ListaProizvodaTemp.IDProizvoda = Proizvod.IDTabele '
+      'INNER JOIN Dobavljac '
+      'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele')
+    Left = 248
+    Top = 240
+  end
+  object queryPrikazProizvodaDobavljaca: TFDQuery
+    Active = True
+    Connection = FDConnection
+    SQL.Strings = (
+      
+        'SELECT Proizvod.ImeProizvoda, Dobavljac.ImeDobavljaca, Proizvod.' +
+        'CenaKupovine'
+      'FROM Proizvod'
+      'INNER JOIN Dobavljac'
+      'ON Proizvod.IDDobavljaca = Dobavljac.IDTabele'
+      'WHERE Dobavljac.IDTabele = 3 ')
+    Left = 328
+    Top = 528
   end
 end

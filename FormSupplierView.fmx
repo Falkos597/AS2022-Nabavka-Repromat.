@@ -1,15 +1,16 @@
 object frmSupplierView: TfrmSupplierView
-  Left = 342
-  Top = 174
+  Left = 288
+  Top = 132
   Caption = 'Form1'
   ClientHeight = 579
-  ClientWidth = 913
+  ClientWidth = 901
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  Left = 342
-  Top = 174
+  OnClose = FormClose
+  Left = 288
+  Top = 132
   DesignerMasterStyle = 0
   object StringGrid1: TStringGrid
     CanFocus = True
@@ -22,13 +23,13 @@ object frmSupplierView: TfrmSupplierView
     TabOrder = 6
     RowCount = 3
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 670.000000000000000000
-    Viewport.Height = 488.000000000000000000
+    Viewport.Width = 674.000000000000000000
+    Viewport.Height = 513.000000000000000000
   end
   object backBtn: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 779.000000000000000000
-    Position.Y = 517.000000000000000000
+    Position.X = 728.000000000000000000
+    Position.Y = 493.000000000000000000
     Size.Width = 129.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
@@ -39,7 +40,7 @@ object frmSupplierView: TfrmSupplierView
   end
   object Button2: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 728.000000000000000000
+    Position.X = 712.000000000000000000
     Position.Y = 229.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
@@ -51,7 +52,7 @@ object frmSupplierView: TfrmSupplierView
   end
   object Button3: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 728.000000000000000000
+    Position.X = 712.000000000000000000
     Position.Y = 293.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
@@ -63,7 +64,7 @@ object frmSupplierView: TfrmSupplierView
   end
   object Button4: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 728.000000000000000000
+    Position.X = 712.000000000000000000
     Position.Y = 357.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
@@ -76,14 +77,15 @@ object frmSupplierView: TfrmSupplierView
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 10
-    Position.X = 763.000000000000000000
+    FilterChar = '0123456789'
+    Position.X = 747.000000000000000000
     Position.Y = 120.000000000000000000
     Size.Width = 81.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
   end
   object Label1: TLabel
-    Position.X = 760.000000000000000000
+    Position.X = 744.000000000000000000
     Position.Y = 96.000000000000000000
     Size.Width = 89.000000000000000000
     Size.Height = 25.000000000000000000
@@ -94,7 +96,7 @@ object frmSupplierView: TfrmSupplierView
   end
   object Button1: TButton
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 728.000000000000000000
+    Position.X = 712.000000000000000000
     Position.Y = 165.000000000000000000
     Size.Width = 161.000000000000000000
     Size.Height = 49.000000000000000000
@@ -103,11 +105,12 @@ object frmSupplierView: TfrmSupplierView
     Text = 'Pregled proizvoda dobavljaca'
     TextSettings.Font.Size = 14.000000000000000000
     TextSettings.WordWrap = True
+    OnClick = Button1Click
   end
   object Label7: TLabel
     Align = Top
     StyledSettings = [Family, Style, FontColor]
-    Size.Width = 913.000000000000000000
+    Size.Width = 901.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000

@@ -9,6 +9,7 @@ object frmSignUp: TfrmSignUp
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   Left = 594
   Top = 132
   DesignerMasterStyle = 0
@@ -101,6 +102,8 @@ object frmSignUp: TfrmSignUp
     Size.Height = 218.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 14
+    BackgroundFill.Kind = Resource
+    BackgroundFill.Resource.StyleLookup = 'selection'
     Bitmap.PNG = {
       89504E470D0A1A0A0000000D49484452000000C8000000C608060000009752CF
       EE000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000

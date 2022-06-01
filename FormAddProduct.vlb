@@ -1,97 +1,93 @@
 ﻿[Grid1]
-Coordinates=794,19,46,58
+Coordinates=794,19,41,51
 Visible=True
 LayerNames=NewLayer0
 
 [Button1]
-Coordinates=711,272,59,58
+Coordinates=711,272,53,51
 LayerNames=NewLayer0
 
 [Edit3]
-Coordinates=398,272,44,58
+Coordinates=398,272,40,51
 LayerNames=NewLayer0
 
 [ComboBox1]
-Coordinates=282,10,101,146
+Coordinates=282,10,84,123
 LayerNames=NewLayer0
 
 [Label4]
-Coordinates=373,426,53,58
+Coordinates=373,426,46,51
 LayerNames=NewLayer0
 
 [Label2]
-Coordinates=10,580,53,58
+Coordinates=10,580,46,51
 LayerNames=NewLayer0
 
 [Button2]
-Coordinates=294,426,59,58
+Coordinates=294,426,53,51
 LayerNames=NewLayer0
 
 [Button3]
-Coordinates=10,272,59,58
+Coordinates=10,272,53,51
 LayerNames=NewLayer0
 
 [Label3]
-Coordinates=591,503,53,58
+Coordinates=591,503,46,51
 LayerNames=NewLayer0
 
 [ComboBox2]
-Coordinates=392,10,101,146
+Coordinates=392,10,84,123
 LayerNames=NewLayer0
 
 [Label1]
-Coordinates=639,272,53,58
+Coordinates=639,272,46,51
 LayerNames=NewLayer0
 
 [Edit1]
-Coordinates=554,177,44,58
+Coordinates=554,177,40,51
 LayerNames=NewLayer0
 
 []
-Coordinates=553,98,82,33
+Coordinates=169,80,82,33
 
 [mainDataModul.queryDobavljaciPorudzbenicaPunjenje]
-Coordinates=10,503,329,58
+Coordinates=10,503,283,51
 
 [mainDataModul.queryProizvodiNaPorudzbenici]
-Coordinates=319,503,284,58
+Coordinates=319,503,246,105
 
 [mainDataModul.queryInsert]
-Coordinates=464,272,173,58
+Coordinates=464,272,149,51
 
 [mainDataModul.queryPregledPorudzbenica]
 Coordinates=10,204,227,51
 
 [mainDataModul.queryProizvodiNaZahtevu]
-Coordinates=492,349,256,58
+Coordinates=492,349,220,51
 
 [mainDataModul.FDQuery10]
 Coordinates=655,265,148,51
 
 [mainDataModul.queryStatusPorudzbeniePunjenje]
-Coordinates=10,426,299,58
+Coordinates=10,426,258,51
 
 [mainDataModul.queryPregledZahtevaZaNabavku]
 Coordinates=548,10,253,51
 
 [mainDataModul.tableListaProizvodaZahtev]
-Coordinates=304,177,260,58
+Coordinates=304,177,224,51
 
 [mainDataModul.queryProizvodiPorudzbenicePunjenje]
 Coordinates=10,349,278,51
 
 [mainDataModul.querySviKlijenti]
-Coordinates=663,503,197,58
-
-[mainDataModul.queryPrikazProizvodaNovePorudzbenice]
-Coordinates=676,10,342,36
-Visible=False
+Coordinates=663,503,171,51
 
 [mainDataModul.FDQuery5]
 Coordinates=10,326,143,51
 
 [mainDataModul.queryDelete]
-Coordinates=314,349,178,58
+Coordinates=314,349,152,51
 
 [Module Settings]
 ModelLayerNames=NewLayer0
@@ -103,44 +99,57 @@ Coordinates=1472,11,272,36
 Visible=False
 
 [mainDataModul.queryPrikazDobavljaca]
-Coordinates=445,426,240,58
+Coordinates=445,426,206,51
 
 [mainDataModul.queryLastIndex]
-Coordinates=264,580,196,58
+Coordinates=264,580,170,51
 
 [Label7]
-Coordinates=677,426,53,58
+Coordinates=677,426,46,51
 
 [mainDataModul.queryUpdate]
-Coordinates=82,580,182,58
+Coordinates=82,580,156,51
 
 [mainDataModul.queryPrikazPorudzbenica]
-Coordinates=620,177,255,58
+Coordinates=620,177,219,51
 
 [mainDataModul.queryPrikazZahtevaZaNabavku]
-Coordinates=10,10,288,168
-
-[BindingsList1]
-Coordinates=553,98,91,36
+Coordinates=10,10,246,51
 
 [frmCreateOrder.]
-Coordinates=454,10,212,69
-
-[frmCreateOrder.BindSourceDB1]
-Coordinates=10,177,268,69
-
-[BindSourceDB1]
-Coordinates=502,10,254,80
+Coordinates=10,177,248,69
 
 [mainDataModul.queryDobavljaciZahtevPunjenje]
-Coordinates=89,272,289,58
+Coordinates=89,272,249,51
 
 [mainDataModul.queryHitnostZahtevPunjenje]
-Coordinates=38,197,270,58
+Coordinates=38,197,233,51
 
 [mainDataModul.queryStanjeZahtevPunjenje]
-Coordinates=317,175,266,58
+Coordinates=317,175,228,51
 
 [mainDataModul.queryProizvodiZahtevPunjenje]
-Coordinates=1056,1,283,58
+Coordinates=1056,1,244,51
+
+[mainDataModul.queryPrikazProizvodaNovogZahteva]
+Coordinates=958,20,272,33
+
+[mainDataModul.queryPregledproizvodanoveporudzbenice]
+Coordinates=478,1,299,51
+
+[mainDataModul.queryPrikazProizvodaNovogZ]
+Coordinates=0,0,239,33
+Visible=False
+
+[mainDataModul.queryPrikazProizvoda]
+Coordinates=258,1,201,141
+
+[mainDataModul.queryPunjenjeDobavljacaProizvoda]
+Coordinates=478,71,268,51
+
+[BindSourceDB1]
+Coordinates=0,0,217,69
+
+[BindingsList1]
+Coordinates=169,88,82,33
 

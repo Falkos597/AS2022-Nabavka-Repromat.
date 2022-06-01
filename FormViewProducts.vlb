@@ -1,7 +1,4 @@
-﻿[Button1]
-Coordinates=191,211,53,51
-
-[]
+﻿[]
 Coordinates=335,30,125,36
 Visible=True
 
@@ -35,7 +32,7 @@ Coordinates=10,89,220,33
 Visible=False
 
 [gridZahteva]
-Coordinates=730,290,72,51
+Coordinates=710,260,72,51
 
 [mainDataModul.tableListaProizvodaZahtev]
 Coordinates=365,211,224,51
@@ -54,7 +51,7 @@ Coordinates=477,89,294,51
 Coordinates=252,10,149,51
 
 [gridPorudzbenica]
-Coordinates=780,200,101,51
+Coordinates=700,200,101,51
 
 [mainDataModul.querySviKlijenti]
 Coordinates=10,211,171,51
@@ -66,10 +63,10 @@ Coordinates=303,272,222,69
 Coordinates=809,1,82,33
 
 [BindSourceDB2]
-Coordinates=10,89,199,69
+Coordinates=40,90,199,69
 
 [mainDataModul.queryPrikazZahtevaZaNabavku]
-Coordinates=0,0,246,33
+Coordinates=256,10,246,33
 Visible=False
 
 [mainDataModul.queryUpdate]
@@ -83,6 +80,7 @@ Coordinates=265,1,46,51
 
 [mainDataModul.queryPrikazPorudzbenica]
 Coordinates=630,1,219,51
+Visible=False
 
 [mainDataModul.queryPrikazProizvodaNoveP]
 Coordinates=929,71,233,51
@@ -93,6 +91,27 @@ Coordinates=929,1,206,51
 [mainDataModul.queryDelete]
 Coordinates=246,70,152,51
 
+[mainDataModul.queryPrikazProizvoda]
+Coordinates=0,0,201,141
+
+[mainDataModul.queryProizvodiZahtevPunjenje]
+Coordinates=1200,71,244,51
+
+[mainDataModul.queryPunjenjeDobavljacaProizvoda]
+Coordinates=1015,141,268,51
+
+[mainDataModul.queryHitnostZahtevPunjenje]
+Coordinates=220,71,233,51
+
+[mainDataModul.queryStanjeZahtevPunjenje]
+Coordinates=74,300,228,51
+
+[mainDataModul.queryDobavljaciZahtevPunjenje]
+Coordinates=1200,1,249,51
+
 [frmRequestOrderView.BindSourceDB1]
-Coordinates=0,0,225,69
+Coordinates=752,159,225,69
+
+[btnZahtev]
+Coordinates=191,211,53,51
 

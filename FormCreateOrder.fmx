@@ -1,20 +1,21 @@
 object frmCreateOrder: TfrmCreateOrder
-  Left = 456
-  Top = 90
+  Left = 582
+  Top = 108
   Caption = 'Form1'
   ClientHeight = 531
-  ClientWidth = 646
+  ClientWidth = 505
   Position = Designed
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   OnShow = FormShow
-  Left = 456
-  Top = 90
+  Left = 582
+  Top = 108
   DesignerMasterStyle = 0
   object Label4: TLabel
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 157.000000000000000000
+    Position.X = 85.000000000000000000
     Position.Y = 65.000000000000000000
     Size.Width = 188.000000000000000000
     Size.Height = 33.000000000000000000
@@ -25,7 +26,7 @@ object frmCreateOrder: TfrmCreateOrder
   end
   object primalacLabel: TLabel
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 157.000000000000000000
+    Position.X = 85.000000000000000000
     Position.Y = 121.000000000000000000
     Size.Width = 145.000000000000000000
     Size.Height = 33.000000000000000000
@@ -37,7 +38,7 @@ object frmCreateOrder: TfrmCreateOrder
   object Edit1: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 6
-    Position.X = 304.000000000000000000
+    Position.X = 232.000000000000000000
     Position.Y = 64.000000000000000000
     Size.Width = 185.000000000000000000
     Size.Height = 33.000000000000000000
@@ -45,7 +46,7 @@ object frmCreateOrder: TfrmCreateOrder
   end
   object Label3: TLabel
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 157.000000000000000000
+    Position.X = 85.000000000000000000
     Position.Y = 177.000000000000000000
     Size.Width = 145.000000000000000000
     Size.Height = 33.000000000000000000
@@ -55,13 +56,14 @@ object frmCreateOrder: TfrmCreateOrder
     TabOrder = 4
   end
   object Label5: TLabel
+    Align = Horizontal
     StyledSettings = [Family, Style, FontColor]
-    Position.X = 245.000000000000000000
-    Position.Y = 225.000000000000000000
-    Size.Width = 145.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 505.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.HorzAlign = Center
     Text = 'Proizvodi za nabavku'
     TabOrder = 3
   end
@@ -76,7 +78,7 @@ object frmCreateOrder: TfrmCreateOrder
     OnClick = Button1Click
   end
   object Button2: TButton
-    Position.X = 512.000000000000000000
+    Position.X = 376.000000000000000000
     Position.Y = 472.000000000000000000
     Size.Width = 113.000000000000000000
     Size.Height = 41.000000000000000000
@@ -86,7 +88,7 @@ object frmCreateOrder: TfrmCreateOrder
     OnClick = Button2Click
   end
   object ComboBox1: TComboBox
-    Position.X = 304.000000000000000000
+    Position.X = 232.000000000000000000
     Position.Y = 120.000000000000000000
     Size.Width = 185.000000000000000000
     Size.Height = 33.000000000000000000
@@ -94,7 +96,7 @@ object frmCreateOrder: TfrmCreateOrder
     TabOrder = 12
   end
   object ComboBox2: TComboBox
-    Position.X = 304.000000000000000000
+    Position.X = 232.000000000000000000
     Position.Y = 176.000000000000000000
     Size.Width = 185.000000000000000000
     Size.Height = 33.000000000000000000
@@ -102,7 +104,7 @@ object frmCreateOrder: TfrmCreateOrder
     TabOrder = 11
   end
   object Button3: TButton
-    Position.X = 256.000000000000000000
+    Position.X = 184.000000000000000000
     Position.Y = 472.000000000000000000
     Size.Width = 137.000000000000000000
     Size.Height = 41.000000000000000000
@@ -116,18 +118,19 @@ object frmCreateOrder: TfrmCreateOrder
     ClipChildren = True
     Position.X = 8.000000000000000000
     Position.Y = 256.000000000000000000
-    Size.Width = 633.000000000000000000
+    Size.Width = 489.000000000000000000
     Size.Height = 201.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 17
+    RowCount = 0
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 629.000000000000000000
-    Viewport.Height = 176.000000000000000000
+    Viewport.Width = 489.000000000000000000
+    Viewport.Height = 201.000000000000000000
   end
   object Label7: TLabel
     Align = Top
     StyledSettings = [Family, Style, FontColor]
-    Size.Width = 646.000000000000000000
+    Size.Width = 505.000000000000000000
     Size.Height = 49.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
@@ -136,10 +139,10 @@ object frmCreateOrder: TfrmCreateOrder
     TabOrder = 20
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = mainDataModul.queryPrikazProizvodaNovePorudzbenice
+    DataSet = mainDataModul.queryPrikazProizvodaNovogZahteva
     ScopeMappings = <>
     Left = 24
-    Top = 72
+    Top = 64
   end
   object BindingsList1: TBindingsList
     Methods = <>

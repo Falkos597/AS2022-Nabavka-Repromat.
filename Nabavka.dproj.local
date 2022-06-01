@@ -6,8 +6,8 @@
     <Transaction>2022-04-10 16:49:28.000.988,D:\AS2022_Nabavka_Repromaterijala\AS2022_Nabavka_Repromaterijala.fmx=C:\Users\Milan\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
     <Transaction>2022-04-10 18:42:48.000.762,D:\AS2022_Nabavka_Repromaterijala\Project1.dproj=C:\Users\Milan\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2022-04-10 19:15:08.000.019,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
-    <Transaction>2022-04-10 19:15:25.000.908,D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx=D:\AS2022_Nabavka_Repromaterijala\FormSignIn.fmx</Transaction>
     <Transaction>2022-04-10 19:15:25.000.908,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\FormSignIn.pas</Transaction>
+    <Transaction>2022-04-10 19:15:25.000.908,D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx=D:\AS2022_Nabavka_Repromaterijala\FormSignIn.fmx</Transaction>
     <Transaction>2022-04-10 19:34:49.000.446,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-04-10 19:35:05.000.071,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\MainAppForm.pas</Transaction>
     <Transaction>2022-04-10 19:35:05.000.071,D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx=D:\AS2022_Nabavka_Repromaterijala\MainAppForm.fmx</Transaction>
@@ -19,11 +19,11 @@
     <Transaction>2022-04-11 12:35:00.000.074,D:\AS2022_Nabavka_Repromaterijala\FormOrderView.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-04-11 12:35:00.000.074,D:\AS2022_Nabavka_Repromaterijala\FormOrderView.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
     <Transaction>2022-04-11 12:35:17.000.694,=D:\AS2022_Nabavka_Repromaterijala\Unit2.pas</Transaction>
-    <Transaction>2022-04-11 12:35:44.000.130,D:\AS2022_Nabavka_Repromaterijala\FormCreateOrder.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit2.fmx</Transaction>
     <Transaction>2022-04-11 12:35:44.000.130,D:\AS2022_Nabavka_Repromaterijala\FormCreateOrder.pas=D:\AS2022_Nabavka_Repromaterijala\Unit2.pas</Transaction>
+    <Transaction>2022-04-11 12:35:44.000.130,D:\AS2022_Nabavka_Repromaterijala\FormCreateOrder.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit2.fmx</Transaction>
     <Transaction>2022-04-11 13:14:06.000.984,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
-    <Transaction>2022-04-11 13:15:21.000.995,D:\AS2022_Nabavka_Repromaterijala\FormSupplyerView.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-04-11 13:15:21.000.995,D:\AS2022_Nabavka_Repromaterijala\FormSupplyerView.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
+    <Transaction>2022-04-11 13:15:21.000.995,D:\AS2022_Nabavka_Repromaterijala\FormSupplyerView.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-04-11 13:16:56.000.369,D:\AS2022_Nabavka_Repromaterijala\FormSupplierView.fmx=D:\AS2022_Nabavka_Repromaterijala\FormSupplyerView.fmx</Transaction>
     <Transaction>2022-04-11 13:16:56.000.369,D:\AS2022_Nabavka_Repromaterijala\FormSupplierView.pas=D:\AS2022_Nabavka_Repromaterijala\FormSupplyerView.pas</Transaction>
     <Transaction>2022-05-05 13:14:13.000.775,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
@@ -31,18 +31,18 @@
     <Transaction>2022-05-05 13:34:00.000.941,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\FormCreateOrder.pas</Transaction>
     <Transaction>2022-05-05 13:34:00.000.941,D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx=D:\AS2022_Nabavka_Repromaterijala\FormCreateOrder.fmx</Transaction>
     <Transaction>2022-05-05 14:42:03.000.882,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
-    <Transaction>2022-05-05 14:42:23.000.942,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\DataModule.pas</Transaction>
     <Transaction>2022-05-05 14:42:23.000.942,D:\AS2022_Nabavka_Repromaterijala\Unit1.dfm=D:\AS2022_Nabavka_Repromaterijala\DataModule.dfm</Transaction>
+    <Transaction>2022-05-05 14:42:23.000.942,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\DataModule.pas</Transaction>
     <Transaction>2022-05-05 14:56:00.000.872,D:\AS2022_Nabavka_Repromaterijala\DataModule.pas=</Transaction>
     <Transaction>2022-05-06 12:01:34.000.371,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
-    <Transaction>2022-05-06 13:22:52.000.402,D:\AS2022_Nabavka_Repromaterijala\Unit1.dfm=D:\AS2022_Nabavka_Repromaterijala\DataModule.dfm</Transaction>
     <Transaction>2022-05-06 13:22:52.000.402,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\DataModule.pas</Transaction>
+    <Transaction>2022-05-06 13:22:52.000.402,D:\AS2022_Nabavka_Repromaterijala\Unit1.dfm=D:\AS2022_Nabavka_Repromaterijala\DataModule.dfm</Transaction>
     <Transaction>2022-05-07 14:07:50.000.219,D:\AS2022_Nabavka_Repromaterijala\DataModule.pas=</Transaction>
     <Transaction>2022-05-07 16:44:38.000.491,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-05-07 16:46:28.000.384,=D:\AS2022_Nabavka_Repromaterijala\DataModule.pas</Transaction>
     <Transaction>2022-05-07 16:59:36.000.799,D:\AS2022_Nabavka_Repromaterijala\DataModule.pas=</Transaction>
-    <Transaction>2022-05-07 17:00:43.000.253,D:\AS2022_Nabavka_Repromaterijala\FormViewProducts.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
     <Transaction>2022-05-07 17:00:43.000.253,D:\AS2022_Nabavka_Repromaterijala\FormViewProducts.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-05-07 17:00:43.000.253,D:\AS2022_Nabavka_Repromaterijala\FormViewProducts.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
     <Transaction>2022-05-10 07:36:01.000.948,D:\AS2022_Nabavka_Repromaterijala\Nabavka.dproj=D:\AS2022_Nabavka_Repromaterijala\Project1.dproj</Transaction>
     <Transaction>2022-05-10 08:03:48.000.906,D:\AS2022_Nabavka_Repromaterijala\FormRequestOrderView.fmx=D:\AS2022_Nabavka_Repromaterijala\FormOrderView.fmx</Transaction>
     <Transaction>2022-05-10 08:03:48.000.906,D:\AS2022_Nabavka_Repromaterijala\FormRequestOrderView.pas=D:\AS2022_Nabavka_Repromaterijala\FormOrderView.pas</Transaction>
@@ -62,6 +62,15 @@
     <Transaction>2022-05-25 21:50:01.000.909,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-05-25 21:50:10.000.855,D:\AS2022_Nabavka_Repromaterijala\FormUpdateSupplier.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
     <Transaction>2022-05-25 21:50:10.000.855,D:\AS2022_Nabavka_Repromaterijala\FormUpdateSupplier.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
+    <Transaction>2022-05-30 14:19:00.000.537,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-05-30 14:19:35.000.100,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-05-30 14:19:58.000.662,D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx=D:\AS2022_Nabavka_Repromaterijala\FormCreatePurchaseOrder.fmx</Transaction>
+    <Transaction>2022-05-30 14:19:58.000.662,D:\AS2022_Nabavka_Repromaterijala\Unit1.pas=D:\AS2022_Nabavka_Repromaterijala\FormCreatePurchaseOrder.pas</Transaction>
+    <Transaction>2022-05-31 13:57:28.000.927,=D:\AS2022_Nabavka_Repromaterijala\FormProductAdd.pas</Transaction>
+    <Transaction>2022-05-31 13:57:29.000.098,=D:\AS2022_Nabavka_Repromaterijala\FormProductUpdate.pas</Transaction>
+    <Transaction>2022-06-01 14:04:00.072,=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-06-01 14:04:19.104,D:\AS2022_Nabavka_Repromaterijala\FormSupplierProtuctView.pas=D:\AS2022_Nabavka_Repromaterijala\Unit1.pas</Transaction>
+    <Transaction>2022-06-01 14:04:19.104,D:\AS2022_Nabavka_Repromaterijala\FormSupplierProtuctView.fmx=D:\AS2022_Nabavka_Repromaterijala\Unit1.fmx</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5"/>
@@ -134,14 +143,20 @@
     <File Path="MainAppForm.fmx"/>
     <File Path="FormOrderView.pas"/>
     <File Path="FormOrderView.fmx"/>
-    <File Path="FormPurchaseOrderView.pas"/>
-    <File Path="FormPurchaseOrderView.fmx"/>
     <File Path="FormCreateOrder.pas"/>
     <File Path="FormCreateOrder.fmx"/>
     <File Path="FormAddProduct.pas"/>
     <File Path="FormAddProduct.fmx"/>
+    <File Path="FormPurchaseOrderView.pas"/>
+    <File Path="FormPurchaseOrderView.fmx"/>
+    <File Path="FormCreatePurchaseOrder.pas"/>
+    <File Path="FormCreatePurchaseOrder.fmx"/>
     <File Path="FormViewProducts.pas"/>
     <File Path="FormViewProducts.fmx"/>
+    <File Path="FormProductUpdate.pas"/>
+    <File Path="FormProductUpdate.fmx"/>
+    <File Path="FormProductAdd.pas"/>
+    <File Path="FormProductAdd.fmx"/>
     <File Path="FormProductView.pas"/>
     <File Path="FormProductView.fmx"/>
     <File Path="FormSupplierView.pas"/>
@@ -150,5 +165,7 @@
     <File Path="FormAddSupplier.fmx"/>
     <File Path="FormUpdateSupplier.pas"/>
     <File Path="FormUpdateSupplier.fmx"/>
+    <File Path="FormSupplierProtuctView.pas"/>
+    <File Path="FormSupplierProtuctView.fmx"/>
   </ProjectSortOrder>
 </BorlandProject>

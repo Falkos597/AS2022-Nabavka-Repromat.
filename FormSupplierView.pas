@@ -9,7 +9,7 @@ uses
   Data.DbxSqlite, Data.FMTBcd, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components, FMX.Grid,
   Data.Bind.DBScope, Data.SqlExpr, Data.DB, FMX.ScrollBox, FMX.Edit, DataModul,
-  Fmx.Bind.Grid, Data.Bind.Grid, FormAddSupplier, FormUpdateSupplier;
+  Fmx.Bind.Grid, Data.Bind.Grid, FormAddSupplier, FormUpdateSupplier, FormSupplierProtuctView;
 
 type
   TfrmSupplierView = class(TForm)
@@ -29,6 +29,8 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +51,20 @@ procedure TfrmSupplierView.backBtnClick(Sender: TObject);
 begin
   frmSupplierView.Hide;
   frmStartView.Show;
+end;
+
+procedure TfrmSupplierView.Button1Click(Sender: TObject);
+begin
+  if(Edit1.Text.IsEmpty) then
+  begin
+    ShowMessage('Unesite indeks dobavljaca!');
+    exit
+  end;
+
+  frmSupplierProductView.dobavljacID := Edit1.Text;
+
+  self.Hide;
+  frmSupplierProductView.show;
 end;
 
 procedure TfrmSupplierView.Button2Click(Sender: TObject);
@@ -108,11 +124,17 @@ begin
       self.Hide;
       frmUpdateSupplier.Show;
       exit
+
     end;
 
   mainDataModul.queryPrikazDobavljaca.Next;
   end;
 
+end;
+
+procedure TfrmSupplierView.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
 end;
 
 end.

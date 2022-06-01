@@ -32,6 +32,7 @@ type
     Label7: TLabel;
     procedure signUpBtnClick(Sender: TObject);
     procedure signInBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -46,6 +47,11 @@ implementation
 {$R *.fmx}
 
 uses FormSignIn;
+
+procedure TfrmSignIn.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
 
 procedure TfrmSignIn.signInBtnClick(Sender: TObject);
 begin
